@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#323563"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            >
+
+            <View
+                android:layout_width="1dp"
+                android:background="@drawable/vertical_divider_bg"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:id="@+id/verticalDevider"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:background="@drawable/gradient_lines"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/HDivider2"
+                android:layout_below="@+id/massageId"/>
+            <!--Row 1 start-->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:padding="10dp"
+                android:layout_toLeftOf="@+id/verticalDevider"
+                android:id="@+id/positionId"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label"
+                    app:srcCompat="@drawable/ic_calendar"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/sex_position"
+                    style="@style/HomePage.TextStyle"
+
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_toRightOf="@+id/verticalDevider"
+                android:id="@+id/spotId"
+                android:padding="10dp"
+                 >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label1"
+                    app:srcCompat="@drawable/ic_home"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <TextView
+                    android:id="@+id/label1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/erogenous_zones"
+                    style="@style/HomePage.TextStyle"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+            <!--Row 1 End-->
+            <View
+                android:layout_width="match_parent"
+                android:background="@drawable/gradient_lines"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/HDivider1"
+                android:layout_below="@+id/spotId"></View>
+
+            <!--Row 2 start-->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/HDivider1"
+                android:layout_toLeftOf="@+id/verticalDevider"
+                android:padding="10dp"
+                android:id="@+id/kissesId">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label2"
+                    app:srcCompat="@drawable/ic_document"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/label2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/kisses"
+                    style="@style/HomePage.TextStyle"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/HDivider1"
+                android:layout_toRightOf="@+id/verticalDevider"
+                android:id="@+id/massageId"
+                android:padding="10dp"
+                 >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label3"
+                    app:srcCompat="@drawable/ic_wallet"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/label3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/sensual_massage"
+                    style="@style/HomePage.TextStyle"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/HDivider2"
+                android:layout_toLeftOf="@+id/verticalDevider"
+                android:padding="10dp"
+                android:id="@+id/sexTipsId">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label4"
+                    app:srcCompat="@drawable/ic_heart"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/label4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/sex_tips"
+                    style="@style/HomePage.TextStyle"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/HDivider2"
+                android:layout_toRightOf="@+id/verticalDevider"
+                android:padding="10dp"
+                android:id="@+id/breathId">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/label5"
+                    app:srcCompat="@drawable/ic_cogwheel"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/label5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp"
+                    android:text="@string/scenting_the_breath"
+                    style="@style/HomePage.TextStyle"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="2dp"
+    app:cardCornerRadius="4dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:id="@+id/imageView"
+            android:scaleType="fitXY"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/the_air_kiss"
+            android:transitionName="profile"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/likeLayout"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/kiss_name"
+                 android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Kiss"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:id="@+id/likeCount"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:text="10"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/kiss_name"
+                android:visibility="invisible"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/likeButton"
+                app:srcCompat="@drawable/ic_like"
+                android:paddingBottom="10dp"
+                android:layout_toLeftOf="@id/likeCount"
+                android:layout_below="@id/kiss_name"
+                />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+</layout>

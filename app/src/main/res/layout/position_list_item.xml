@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context="com.mobikan.ks.activity.PositionDetailActivity"
+
+    android:layout_margin="10dp"
+    android:id="@+id/itemView"
+     >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        card_view:cardBackgroundColor="#323563"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="40dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/positionName"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:lines="1"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+
+                />
+            <View
+                android:layout_width="30dp"
+                android:layout_height="3dp"
+                android:layout_below="@+id/positionName"
+                android:background="@color/toolbar_color"
+                android:layout_marginTop="5dp"
+                android:id="@+id/separator"/>
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separator"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                android:layout_marginTop="10dp"
+                android:rating="5"
+                android:id="@+id/rating"
+                />
+            <ToggleButton
+                android:id="@+id/button_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn=""
+                android:paddingRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp">
+
+            </ToggleButton>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:id="@+id/middle_view"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"/>
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/circular_shape"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/image_view"
+        android:elevation="10dp"
+        android:transitionName="profile"
+        android:src="@drawable/placeholder_icon"
+        android:padding="2dp"/>
+
+
+</FrameLayout>

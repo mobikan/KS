@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.mobikan.ks.activity.PositionDetailActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay"
+
+            >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:layout_marginBottom="50dp"
+                    android:src="@drawable/placeholder_icon"
+                    android:transitionName="profile"
+
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:paddingBottom="15dp"
+                     android:src="#40000001"
+                    android:visibility="invisible"
+                    />
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbarID"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    />
+
+                <View
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="15dp" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+
+        <include
+            android:id="@+id/contentDetail"
+            layout="@layout/content_detail" />
+
+
+        <com.mobikan.ks.component.RadialButtonLayout
+            android:id="@+id/radialMenu"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp">
+
+        </com.mobikan.ks.component.RadialButtonLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
