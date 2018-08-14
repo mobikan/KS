@@ -85,8 +85,8 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         binding.imageView.setOnClickListener(this);
 
         imageId = getResources().getIdentifier(Utils.getImageName(position.getTitle()), "drawable", getPackageName());
-        imageView.setImageResource(R.drawable.test);
-        //imageView.setVisibility(View.INVISIBLE);
+
+        imageView.setImageResource(imageId);
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
         positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
@@ -178,6 +178,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     {
 
         final ToggleButton toggleButton = findViewById(R.id.likeButton);
+        toggleButton.setChecked(position.isLiked());
 
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override

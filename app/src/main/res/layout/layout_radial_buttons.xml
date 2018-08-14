@@ -60,7 +60,7 @@
         android:layout_marginBottom="25dp"
         android:layout_gravity="right|bottom"
         android:gravity="center"
-        android:background="@drawable/ic_wallet"
+        android:background="@drawable/ic_heart"
         android:clickable="true"
          />
     <TextView

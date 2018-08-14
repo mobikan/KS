@@ -121,11 +121,11 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
                     setInterpolator(interpolator).
                     start();
         } else {
-            show(btnOrange, 1, 300);
-            show(btnYellow, 2, 300);
-            show(btnGreen, 3, 300);
-            show(btnBlue, 4, 300);
-            show(btnIndigo, 5, 300);
+            show(btnOrange, 1, 250);
+            show(btnYellow, 2, 250);
+            show(btnGreen, 3, 250);
+            show(btnBlue, 4, 250);
+            show(btnIndigo, 5, 250);
             isOpen = true;
             resId = R.string.open;
             ViewCompat.animate(btn).
@@ -177,20 +177,20 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
     }
 
     private final void show(final View child, final int position, final int radius) {
-        float angleDeg = 150.0f;
+        float angleDeg = 120.0f;
         int dist = radius;
         switch (position) {
             case 1:
-                angleDeg += 10.f;
+                angleDeg += 30.f;
                 break;
             case 2:
-                angleDeg += 40.f;
+                angleDeg += 60.f;
                 break;
             case 3:
                 angleDeg += 70.f;
                 break;
             case 4:
-                angleDeg += 100.f;
+                angleDeg += 80.f;
                 break;
             case 5:
                 angleDeg += 130.f;
