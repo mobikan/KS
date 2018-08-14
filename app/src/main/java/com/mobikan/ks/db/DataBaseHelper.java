@@ -37,6 +37,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
         private String dbNameArray[] = {DB_NAME_POSITION,DB_NAME_BREATH,DB_NAME_SPOT,DB_NAME_TIPS,DB_NAME_MASSAGE,DB_NAME_KISS};
+
         private int databaseVersions[]= {DB_POSITION_VERSION,DB_BREATH_VERSION,DB_SPOT_VERSION,DB_TIPS_VERSION,DB_MASSAGE_VERSION,DB_KISS_VERSION};
         private static final String DATABASE_NAME = "position.db";
         public final static String DATABASE_PATH = "/data/data/com.mobikan.ks/databases/";
@@ -64,7 +65,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     // By calling this method here onUpgrade will be called on a
                     // writeable database, but only if the version number has been
                     // bumped
-                   // onUpgrade(myDataBase, DATABASE_VERSION_old, DATABASE_VERSION);
+                    onUpgrade(myDataBase, 1, databaseVersions[i]);
                 }
 
                 boolean dbExist1 = checkDataBase(dbName);

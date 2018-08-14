@@ -10,7 +10,15 @@ public class Kiss implements Parcelable {
     public String imageId;
     public String id;
     public boolean isLike;
+    public boolean isLiked;
 
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(boolean liked) {
+        isLiked = liked;
+    }
 
     public boolean isLike() {
         return isLike;
@@ -76,6 +84,7 @@ public class Kiss implements Parcelable {
         dest.writeString(this.imageId);
         dest.writeString(this.id);
         dest.writeByte(this.isLike ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.isLiked ? (byte) 1 : (byte) 0);
     }
 
     protected Kiss(Parcel in) {
@@ -84,6 +93,7 @@ public class Kiss implements Parcelable {
         this.imageId = in.readString();
         this.id = in.readString();
         this.isLike = in.readByte() != 0;
+        this.isLiked = in.readByte() != 0;
     }
 
     public static final Creator<Kiss> CREATOR = new Creator<Kiss>() {

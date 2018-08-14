@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.mobikan.ks"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -33,20 +33,37 @@ android {
 
 
 
-dependencies {
-    def firebase_version = "16.0.1"
-    def supportLib_version = "27.0.1"
+ext{
+     firebase_version = "16.0.1"
+     supportLib_version = "28.0.0-alpha1"
+     gson_version = "2.8.2"
+     glide_version = "4.0.0"
+}
 
-    implementation "com.android.support:cardview-v7:$supportLib_version"
+
+dependencies {
+
+
+    implementation ("com.android.support:cardview-v7:$supportLib_version")
+    {
+        exclude group: "com.android.support", module: "support-media-compat"
+    }
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:$supportLib_version"
-    implementation "com.android.support:design:$supportLib_version"
+    implementation ("com.android.support:appcompat-v7:$supportLib_version")
+    {
+        exclude group: "com.android.support", module: "support-media-compat"
+    }
+    implementation ("com.android.support:design:$supportLib_version")
+     {
+       exclude group: "com.android.support", module: "support-media-compat"
+     }
 
     implementation "com.google.firebase:firebase-database:$firebase_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
 
     // If you want to use the GPU Filters
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
+    implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
 
     implementation 'com.github.florent37:materialviewpager:1.2.3'
     implementation 'com.github.varunest:sparkbutton:1.0.5'
@@ -54,8 +71,11 @@ dependencies {
 //dependencies
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
     implementation 'com.jpardogo.materialtabstrip:library:1.1.0'
-    implementation 'com.github.bumptech.glide:glide:4.0.0'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    androidTestImplementation ('com.android.support.test:runner:1.0.2')
+    {
+       exclude group: "com.android.support", module: "support-media-compat"
+     }
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'
 }

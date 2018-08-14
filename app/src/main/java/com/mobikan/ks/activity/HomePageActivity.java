@@ -1,21 +1,24 @@
 package com.mobikan.ks.activity;
 
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.mobikan.ks.R;
 import com.mobikan.ks.db.DataBaseHelper;
 import com.mobikan.ks.firebase.FireBaseQueries;
-import com.mobikan.ks.fragment.RatingDialogFragment;
+import com.mobikan.ks.model.Like;
 
 import java.io.IOException;
 
@@ -31,7 +34,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
       //  binding = DataBindingUtil.setContentView(this,R.layout.home_page_activity);
          setContentView(R.layout.home_page_activity);
         init();
-        setTitle("Home Page");
+        setTitle("KaamSutra");
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
@@ -83,6 +86,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
+
+
 
     @Override
     public void onClick(View view) {

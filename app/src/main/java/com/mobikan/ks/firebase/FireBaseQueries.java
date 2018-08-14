@@ -18,10 +18,12 @@ public class FireBaseQueries {
     private static FireBaseQueries instance;
     private FirebaseDatabase mDatabase;
 
+    //TableType
     public static final int LIKE_POSITION = 0;
     public static final int LIKE_MASSAGE = 1;
     public static final int LIKE_SPOT = 2;
     public static final int LIKE_KISS = 3;
+    //
 
     private static final String LIKE_POSITION_KEY = "like/positions";
     private static final String LIKE_MASSAGE_KEY = "like/massage";
@@ -29,11 +31,11 @@ public class FireBaseQueries {
     private static final String  LIKE_SPOT_KEY= "like/spot";
 
 
-    public static final int RATING_ONE = 1;
-    public static final int RATING_TWO = 2;
-    public static final int RATING_THREE = 3;
-    public static final int RATING_FOUR = 4;
-    public static final int RATING_FIVE = 5;
+    private static final int RATING_ONE = 1;
+    private static final int RATING_TWO = 2;
+    private static final int RATING_THREE = 3;
+    private static final int RATING_FOUR = 4;
+    private static final int RATING_FIVE = 5;
 
     private FireBaseQueries()
     {
@@ -69,6 +71,11 @@ public class FireBaseQueries {
 
     }
 
+    /**
+     * Read All likes
+     * @param tableType e.g LIKE_POSITION
+     * @param eventListener
+     */
     public void readAllLikes(int tableType,ValueEventListener eventListener)
     {
         String tableName = getTableRef(tableType);
@@ -77,6 +84,12 @@ public class FireBaseQueries {
         myRef.addValueEventListener(eventListener);
     }
 
+    /**
+     *  Read like by TableType and Id
+     * @param tableType e.g LIKE_POSITION
+     * @param id e.g KS_01
+     * @param eventListener
+     */
     public void readLikeById(int tableType,String id,ValueEventListener eventListener)
     {
         String tableName = getTableRef(tableType)+"/"+id;
@@ -86,7 +99,7 @@ public class FireBaseQueries {
     }
 
 
-    public String getTableRef(int tableType)
+    private String getTableRef(int tableType)
     {
         String tableName = "";
         switch (tableType)
@@ -108,6 +121,11 @@ public class FireBaseQueries {
     return tableName;
     }
 
+    /**
+     * Update and Add like object
+     * @param tableType e.g LIKE_POSITION
+     * @param id
+     */
     public void updateLike(int tableType,String id) {
         DatabaseReference myRef = mDatabase.getReference( getTableRef(tableType) + "/" + id);
         //Like like = new Like(id, 1, 3.5f);
@@ -137,6 +155,11 @@ public class FireBaseQueries {
         });
     }
 
+    /**
+     * reset like
+     * @param tableType
+     * @param id
+     */
     public void resetLike(int tableType,String id)
     {
         DatabaseReference myRef = mDatabase.getReference( getTableRef(tableType) + "/" + id);
@@ -165,6 +188,12 @@ public class FireBaseQueries {
     }
 
 
+    /**
+     * Update and add rating
+     * @param tableType e.g LIKE_POSITION
+     * @param id e.g KS_01
+     * @param rating
+     */
     public void updateRating(int tableType, String id, final int rating)
     {
         DatabaseReference myRef = mDatabase.getReference( getTableRef(tableType) + "/" + id);
@@ -193,7 +222,7 @@ public class FireBaseQueries {
 
 
 
-    public RatingData getRatingData(RatingData ratingData,int rating)
+    private RatingData getRatingData(RatingData ratingData,int rating)
     {
         if(ratingData == null)
         {

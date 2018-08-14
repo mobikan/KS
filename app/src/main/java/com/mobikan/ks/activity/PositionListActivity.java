@@ -56,7 +56,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     private void init()
     {
-       // binding.recyclerView.setVisibility(View.INVISIBLE);
+        getAllLikes();
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitle("PositionsList");
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -85,13 +85,15 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
             positionListAdapter.setPositions(positionDataBaseHelper.getAllPositions());
             positionListAdapter.setOnCheckedChangeListener(this);
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //getAllLikes();
+
     }
+
+
+
+
 
     private void getAllLikes()
     {
@@ -100,10 +102,10 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                        Like like = postSnapshot.getValue(Like.class);
-                        Log.v("LIke ", "Like "+like.getNo_of_like() );
-                    }
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    Like like = postSnapshot.getValue(Like.class);
+                    Log.v("LIke ", "Like "+like.getNo_of_like() );
+                }
 
             }
 
@@ -116,7 +118,6 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
 
     }
-
     private void setScaleAnimation()
     {
         scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);

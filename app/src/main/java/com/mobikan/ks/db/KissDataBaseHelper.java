@@ -43,6 +43,8 @@ public class KissDataBaseHelper {
                 kiss.setImageId(cursor.getString(cursor.getColumnIndex(Columns.Kiss.COLUMN_IMAGE_ID)));
                 boolean isLike = cursor.getInt(cursor.getColumnIndex(Columns.Kiss.COLUMN_LIKE)) == 0 ? false : true;
                 kiss.setLike(isLike);
+               // boolean isLiked = cursor.getInt(cursor.getColumnIndex(Columns.Kiss.COLUMN_LIKED)) == 0 ? false : true;
+               // kiss.setLiked(isLiked);
 
                 kisses.add(kiss);
             } while (cursor.moveToNext());

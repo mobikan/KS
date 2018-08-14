@@ -25,6 +25,7 @@ public interface Columns {
         String COLUMN_DESCRIPTION = "Description";
         String COLUMN_IMAGE_ID = "IMAGE_ID";
         String COLUMN_LIKE = "LIKE";
+        String COLUMN_LIKED = "LIKED";
 
     }
 
@@ -46,6 +47,7 @@ public interface Columns {
         String COLUMN_IMAGE_ID = "Image_Id";
         String COLUMN_LIKE = "Like";
         String COLUMN_VIDEO_LINK = "Video_link";
+        String COLUMN_LIKED = "LIKED";
 
 
     }
