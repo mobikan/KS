@@ -17,8 +17,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.mobikan.ks.R;
 import com.mobikan.ks.db.DataBaseHelper;
+import com.mobikan.ks.db.PositionDataBaseHelper;
 import com.mobikan.ks.firebase.FireBaseQueries;
 import com.mobikan.ks.model.Like;
+import com.mobikan.ks.model.Position;
 
 import java.io.IOException;
 
@@ -34,7 +36,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
       //  binding = DataBindingUtil.setContentView(this,R.layout.home_page_activity);
          setContentView(R.layout.home_page_activity);
         init();
-        setTitle("KaamSutra");
+
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
@@ -56,7 +58,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         FireBaseQueries.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Home Page");
+        toolbar.setTitle("KamaSutra");
 
         RelativeLayout positionId = findViewById(R.id.positionId);
         positionId.setOnClickListener(this);
@@ -84,10 +86,39 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             e.printStackTrace();
         }
 
-
+        upDateRatings();
+       // PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        //positionDataBaseHelper.getAllFavouritePositions();
     }
 
 
+    private void upDateRatings()
+    {
+        DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
+        final PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    Like like = postSnapshot.getValue(Like.class);
+                    Log.v("LIke ", "Like "+like.getNo_of_like() );
+                    Position position = new Position();
+                    position.setId(like.getId());
+                    position.setRating((int) like.getRating());
+                    positionDataBaseHelper.setRating(position);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
     @Override
     public void onClick(View view) {
@@ -119,5 +150,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

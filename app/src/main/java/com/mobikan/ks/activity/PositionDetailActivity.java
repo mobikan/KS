@@ -256,7 +256,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
 
 
             case R.id.rating:
-                if(position.getRating()== 0) {
+                if(position.getUserRating()== 0) {
                     showRatingDialog();
                 }
                 else

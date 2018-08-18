@@ -15,6 +15,7 @@ public interface Columns {
         String COLUMN_FAVOURITE = "FAVOURITE";
         String COLUMN_TRIED = "TRIED";
         String COLUMN_LIKED = "LIKED";
+        String COLUMN_USER_RATING = "USER_RATING";
 
     }
 

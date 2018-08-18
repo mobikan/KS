@@ -62,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/label"
-                        app:srcCompat="@drawable/ic_calendar"
+                        app:srcCompat="@drawable/sex_position"
                         android:layout_centerHorizontal="true"/>
 
                     <TextView
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/label1"
-                        app:srcCompat="@drawable/ic_home"
+                        app:srcCompat="@drawable/spot"
                         android:layout_centerHorizontal="true"
                         />
 
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/label2"
-                        app:srcCompat="@drawable/ic_document"
+                        app:srcCompat="@drawable/kisses"
                         android:layout_centerHorizontal="true"/>
 
                     <TextView
@@ -158,7 +158,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/label3"
-                        app:srcCompat="@drawable/ic_wallet"
+                        app:srcCompat="@drawable/massage"
                         android:layout_centerHorizontal="true"/>
 
                     <TextView

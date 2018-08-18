@@ -78,7 +78,7 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
         Position position = new Position();
         position.setId(positionId);
         position.setRating(rating);
-        positionDataBaseHelper.setRating(position);
+        positionDataBaseHelper.setUserRating(position);
         dismiss();
 
     }

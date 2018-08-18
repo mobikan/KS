@@ -21,6 +21,16 @@ public class Position implements Parcelable {
 
     private int rating;
 
+    private int userRating;
+
+    public int getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(int userRating) {
+        this.userRating = userRating;
+    }
+
     private boolean isFavourite;
 
     private boolean isGspot;
@@ -161,6 +171,7 @@ public class Position implements Parcelable {
         dest.writeString(this.Benefits);
         dest.writeString(this.Title);
         dest.writeInt(this.rating);
+        dest.writeInt(this.userRating);
         dest.writeByte(this.isFavourite ? (byte) 1 : (byte) 0);
         dest.writeByte(this.isGspot ? (byte) 1 : (byte) 0);
         dest.writeByte(this.isTried ? (byte) 1 : (byte) 0);
@@ -176,6 +187,7 @@ public class Position implements Parcelable {
         this.Benefits = in.readString();
         this.Title = in.readString();
         this.rating = in.readInt();
+        this.userRating = in.readInt();
         this.isFavourite = in.readByte() != 0;
         this.isGspot = in.readByte() != 0;
         this.isTried = in.readByte() != 0;

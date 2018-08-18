@@ -56,7 +56,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     private void init()
     {
-        getAllLikes();
+
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitle("PositionsList");
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -91,33 +91,6 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     }
 
-
-
-
-
-    private void getAllLikes()
-    {
-
-        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Like like = postSnapshot.getValue(Like.class);
-                    Log.v("LIke ", "Like "+like.getNo_of_like() );
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
     private void setScaleAnimation()
     {
         scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
