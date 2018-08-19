@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.mobikan.ks"
-        minSdkVersion 23
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -51,9 +51,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation ("com.android.support:appcompat-v7:$supportLib_version")
-    {
-        exclude group: "com.android.support", module: "support-media-compat"
-    }
+
     implementation ("com.android.support:design:$supportLib_version")
      {
        exclude group: "com.android.support", module: "support-media-compat"
@@ -62,6 +60,11 @@ dependencies {
     implementation "com.google.firebase:firebase-database:$firebase_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
 
+    implementation 'com.google.firebase:firebase-messaging:17.3.0'
+    //Ads
+    implementation('com.facebook.android:audience-network-sdk:4.28.2') {
+        exclude group: 'com.google.android.gms'
+    }
     // If you want to use the GPU Filters
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
 

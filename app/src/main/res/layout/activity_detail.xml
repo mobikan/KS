@@ -31,7 +31,7 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="380dp"
+                    android:layout_height="@dimen/detail_image_height"
                     android:layout_marginBottom="50dp"
                     android:src="@drawable/placeholder_icon"
                     android:transitionName="profile"
@@ -41,8 +41,8 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="380dp"
-                    android:paddingBottom="15dp"
+                    android:layout_height="@dimen/detail_image_height"
+
                      android:src="#40000001"
 
                     />

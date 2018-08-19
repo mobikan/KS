@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.facebook.ads.InterstitialAd;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.gson.Gson;
@@ -27,6 +28,8 @@ import com.mobikan.ks.model.SpotList;
 public class SpotActivity extends AppCompatActivity {
 
     private MaterialViewPager mViewPager;
+    private InterstitialAd interstitialAd;
+    private SpotList spotList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +42,15 @@ public class SpotActivity extends AppCompatActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+
+        /* Interstitial Ads */
+        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
         init();
         FrameLayout layout = findViewById(R.id.header_logo);
         layout.setVisibility(View.GONE);
-//        layout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.v("Click", "Click");
-//            }
-//        });
+
+        Log.v("spotList", "spotList "+spotList.getSpots());
+        Log.v("spotList", "spotList Filter "+ getFilterList(spotList.getSpots(), "F"));
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
@@ -122,19 +125,9 @@ public class SpotActivity extends AppCompatActivity {
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
-//        final View logo = findViewById(R.id.logo_white);
-//        if (logo != null) {
-//            logo.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    mViewPager.notifyHeaderChanged();
-//                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
     }
 
-    private SpotList spotList;
+
 
     private void init() {
         String response = Utils.readFromAssets("spot.json", getApplicationContext());
@@ -143,7 +136,7 @@ public class SpotActivity extends AppCompatActivity {
 
             spotList = new Gson().fromJson(jsonObject.toString(), SpotList.class);
 
-            Log.v("Size ", "size " + spotList.getSpots().size());
+
 
 
         } catch (JSONException e) {
@@ -159,5 +152,22 @@ public class SpotActivity extends AppCompatActivity {
             }
         }
         return filterList;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (interstitialAd != null) {
+            interstitialAd.loadAd();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        super.onDestroy();
     }
 }

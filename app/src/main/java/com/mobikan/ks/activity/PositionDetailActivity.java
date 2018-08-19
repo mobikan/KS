@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.facebook.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -38,6 +39,7 @@ import com.varunest.sparkbutton.SparkEventListener;
 
 import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
 import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
+import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_TITLE;
 
 public class PositionDetailActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -45,6 +47,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     private Position position;
     private ActivityDetailBinding binding;
     private PositionDataBaseHelper positionDataBaseHelper;
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +59,9 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-          position = getIntent().getParcelableExtra("position_data");
-
+        position = getIntent().getParcelableExtra("position_data");
+        /* Interstitial Ads */
+        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
 
         toolbar.setTitle(position.getTitle());
         setTitle(position.getTitle());
@@ -70,6 +74,8 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
 
     private void init()
     {
+        binding.contentDetail.benefitsTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_benefits, 0, 0, 0);
+        binding.contentDetail.detailTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_tips_his, 0, 0, 0);
 
         ImageView imageView = findViewById(R.id.imageView);
         TextView benefits = findViewById(R.id.benefits);
@@ -177,7 +183,8 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     private void setLike()
     {
 
-        final ToggleButton toggleButton = findViewById(R.id.likeButton);
+        final ToggleButton toggleButton = findViewById(R.id.likeToggleButton);
+         toggleButton.setBackgroundResource(R.drawable.like_selector);
         toggleButton.setChecked(position.isLiked());
 
         toggleButton.setOnClickListener(new View.OnClickListener() {
@@ -282,16 +289,34 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         Bundle bundle = new Bundle();
         bundle.putInt(BUNDLE_POSITION_IMAGE_ID, imageId);
         bundle.putString(BUNDLE_POSITION_ID, position.getId());
+        bundle.putString(BUNDLE_POSITION_TITLE, position.getTitle());
         dialogFragment.setArguments(bundle);
         dialogFragment.show(ft, "dialog");
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        positionDataBaseHelper.closeDb();
-    }
+
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (interstitialAd != null) {
+            interstitialAd.loadAd();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        super.onDestroy();
+        if(positionDataBaseHelper != null) {
+            positionDataBaseHelper.closeDb();
+        }
     }
 }

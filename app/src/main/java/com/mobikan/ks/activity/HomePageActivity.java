@@ -9,8 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.InterstitialAd;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +35,9 @@ import java.io.IOException;
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
 
    // private HomePageActivityBinding binding;
-   private FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private AdView adView;
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +49,38 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
+
+
+        /* Facebook Ads */
+        adView = new AdView(this, getString(R.string.facebook_banner_id), AdSize.BANNER_HEIGHT_50);
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+        adContainer.addView(adView);
+        // Request an ad
+        adView.loadAd();
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                Log.v("FB Ads", "Fb Ads Error"+adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                Log.v("FB Ads", "Fb Ads Loaded"+ad.getPlacementId());
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        });
+
+        /* Interstitial Ads */
+        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
 
     }
 
@@ -53,12 +94,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
+
     private void init()
     {
         FireBaseQueries.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("KamaSutra");
+        toolbar.setTitle("Kamasutra");
 
         RelativeLayout positionId = findViewById(R.id.positionId);
         positionId.setOnClickListener(this);
@@ -79,12 +121,6 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         RelativeLayout breathId = findViewById(R.id.breathId);
         breathId.setOnClickListener(this);
 
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
-        try {
-            dataBaseHelper.createDatabase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         upDateRatings();
        // PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
@@ -151,10 +187,20 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (interstitialAd != null) {
+            interstitialAd.loadAd();
+        }
+    }
 
     @Override
     protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
         super.onDestroy();
-
     }
 }

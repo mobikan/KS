@@ -1,5 +1,6 @@
 package com.mobikan.ks.component;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
@@ -169,7 +170,27 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
     }
 
     private final void hide( final View child) {
-        child.animate()
+        child.animate().setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                child.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        })
                 .setDuration(DURATION_SHORT)
                 .translationX(0)
                 .translationY(0)
@@ -177,6 +198,11 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
     }
 
     private final void show(final View child, final int position, final int radius) {
+        btnOrange.setVisibility(GONE);
+
+        btnYellow.setVisibility(GONE);
+
+        btnGreen.setVisibility(GONE);
         float angleDeg = 120.0f;
         int dist = radius;
         switch (position) {
@@ -207,7 +233,27 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
 
         final Float x = dist * (float) Math.cos(angleRad);
         final Float y = dist * (float) Math.sin(angleRad);
-        child.animate()
+        child.animate().setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+                child.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        })
                 .setDuration(DURATION_SHORT)
                 .translationX(x)
                 .translationY(y)

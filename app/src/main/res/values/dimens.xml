@@ -5,4 +5,6 @@
     <dimen name="recycler_view_margin">10dp</dimen>
     <dimen name="check_stroke_width">4dp</dimen>
     <dimen name="button_size">40dp</dimen>
+    <dimen name="detail_image_height">380dp</dimen>
 </resources>
+

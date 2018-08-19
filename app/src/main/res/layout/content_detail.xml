@@ -63,11 +63,11 @@
 
 
                     <ToggleButton
-                        android:id="@+id/likeButton"
+                        android:id="@+id/likeToggleButton"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_toLeftOf="@id/likeCount"
-                        android:background="@drawable/like_selector"
+
                         android:checked="false"
                         android:text=""
                         android:textOff=""
@@ -100,11 +100,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:drawableLeft="@drawable/ic_tips_his"
+
                         android:drawablePadding="10dp"
                         android:gravity="center_vertical"
                         android:text="Details"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:id="@+id/detailTitle"/>
 
                     <TextView
                         android:id="@+id/details"
@@ -136,10 +137,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:drawableLeft="@drawable/ic_benefits"
+
+
                         android:drawablePadding="10dp"
                         android:gravity="center_vertical"
-
+                        android:id="@+id/benefitsTitle"
                         android:text="Benefits"
                         android:textStyle="bold" />
 

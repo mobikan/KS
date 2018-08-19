@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -23,6 +24,7 @@ import com.mobikan.ks.model.Position;
 
 import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
 import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
+import static com.mobikan.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_TITLE;
 
 
 public class RatingDialogFragment extends DialogFragment implements View.OnClickListener{
@@ -39,6 +41,8 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.circleCrop().override(100, 100);
 
+        TextView positionName =  v.findViewById(R.id.positionName);
+
         CardView submit = v.findViewById(R.id.submitButton);
         submit.setOnClickListener(this);
 
@@ -51,7 +55,7 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
             Glide.with(getActivity()).load(imageId)
                     .apply(requestOptions)
                     .into(positionIcon);
-
+            positionName.setText(getArguments().getString(BUNDLE_POSITION_TITLE));
         }
 
         return v;

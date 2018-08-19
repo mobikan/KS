@@ -124,6 +124,7 @@
                     android:layout_below="@+id/HDivider1"
                     android:layout_toLeftOf="@+id/verticalDevider"
                     android:padding="10dp"
+                    android:layout_marginTop="30dp"
                     android:id="@+id/kissesId">
 
                     <ImageView
@@ -152,6 +153,7 @@
                     android:layout_toRightOf="@+id/verticalDevider"
                     android:id="@+id/massageId"
                     android:padding="10dp"
+                    android:layout_marginTop="30dp"
                     >
 
                     <ImageView
@@ -234,6 +236,12 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" />
 
 
     </RelativeLayout>

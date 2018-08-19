@@ -11,6 +11,21 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+#-keep public class com.mobikan.ks.model.** {
+#  public protected *;
+#}
+
+-keep public class com.mobikan.ks.model.** {
+ *;
+  }
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

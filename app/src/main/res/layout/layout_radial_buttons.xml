@@ -7,10 +7,10 @@
     >
 
 
-    <TextView
+    <ImageView
         android:id="@+id/btn_orange"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:padding="8dp"
         android:minWidth="50dp"
         android:minHeight="50dp"
@@ -18,13 +18,13 @@
         android:gravity="center"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/ic_favourite"
+        app:srcCompat="@drawable/ic_favourite"
         android:clickable="true"
          />
-    <TextView
+    <ImageView
         android:id="@+id/btn_yellow"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:padding="8dp"
         android:minWidth="50dp"
         android:minHeight="50dp"
@@ -32,13 +32,13 @@
         android:gravity="center"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/ic_document"
+        app:srcCompat="@drawable/ic_document"
         android:clickable="true"
          />
-    <TextView
+    <ImageView
         android:id="@+id/btn_green"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:padding="8dp"
         android:minWidth="50dp"
         android:minHeight="50dp"
@@ -46,13 +46,13 @@
         android:gravity="center"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/ic_heart"
+        app:srcCompat="@drawable/ic_heart"
         android:clickable="true"
          />
-    <TextView
+    <ImageView
         android:id="@+id/rating"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:padding="8dp"
         android:minWidth="50dp"
         android:minHeight="50dp"
@@ -60,13 +60,13 @@
         android:layout_marginBottom="25dp"
         android:layout_gravity="right|bottom"
         android:gravity="center"
-        android:background="@drawable/ic_heart"
+        app:srcCompat="@drawable/ic_heart"
         android:clickable="true"
          />
-    <TextView
+    <ImageView
         android:id="@+id/addToReminder"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:padding="8dp"
         android:minWidth="50dp"
         android:minHeight="50dp"
@@ -74,7 +74,7 @@
         android:layout_marginBottom="25dp"
         android:layout_gravity="right|bottom"
         android:gravity="center"
-        android:background="@drawable/ic_calendar"
+        app:srcCompat="@drawable/ic_calendar"
         android:clickable="true"
          />
 

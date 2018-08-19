@@ -1,7 +1,9 @@
 package com.mobikan.ks.model;
 
-public class RatingData
-{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class RatingData implements Parcelable {
     private int two;
 
     private int five;
@@ -67,4 +69,41 @@ public class RatingData
     {
         return "ClassPojo [two = "+two+", five = "+five+", one = "+one+", three = "+three+", four = "+four+"]";
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.two);
+        dest.writeInt(this.five);
+        dest.writeInt(this.one);
+        dest.writeInt(this.three);
+        dest.writeInt(this.four);
+    }
+
+    public RatingData() {
+    }
+
+    protected RatingData(Parcel in) {
+        this.two = in.readInt();
+        this.five = in.readInt();
+        this.one = in.readInt();
+        this.three = in.readInt();
+        this.four = in.readInt();
+    }
+
+    public static final Parcelable.Creator<RatingData> CREATOR = new Parcelable.Creator<RatingData>() {
+        @Override
+        public RatingData createFromParcel(Parcel source) {
+            return new RatingData(source);
+        }
+
+        @Override
+        public RatingData[] newArray(int size) {
+            return new RatingData[size];
+        }
+    };
 }

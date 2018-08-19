@@ -1,8 +1,13 @@
 package com.mobikan.ks.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.mobikan.ks.R;
+import com.mobikan.ks.db.DataBaseHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +20,24 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //init();
+
+        setContentView(R.layout.splash_activity);
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
+                try {
+                    dataBaseHelper.createDatabase();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                startActivity(new Intent(SplashActivity.this,HomePageActivity.class));
+                finish();
+            }
+        }, 1000);
+
 
 
     }

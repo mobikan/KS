@@ -16,7 +16,10 @@ import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -42,6 +45,8 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     private PositionListAdapter positionListAdapter;
     private DataBaseHelper dataBaseHelper;
     private ScaleAnimation scaleAnimation;
+
+    private AdView adView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +57,14 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         dataBaseHelper = new DataBaseHelper(getApplicationContext());
         init();
+
     }
 
     private void init()
     {
 
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitle("PositionsList");
+        binding.toolbar.setTitle("Sex Positions");
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         int margin =  getResources().getDimensionPixelOffset(R.dimen.recycler_view_margin);
         ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(margin,margin,margin,margin);
@@ -69,6 +75,13 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         positionListAdapter.setOnClickListener(this);
         binding.recyclerView.setAdapter(positionListAdapter);
        // readDataFromDB();
+
+        /* Facebook Ads */
+        adView = new AdView(this, getString(R.string.facebook_banner_id), AdSize.BANNER_HEIGHT_50);
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+        adContainer.addView(adView);
+        // Request an ad
+        adView.loadAd();
     }
 
 

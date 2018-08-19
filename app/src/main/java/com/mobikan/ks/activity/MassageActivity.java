@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.FrameLayout;
 
+import com.facebook.ads.InterstitialAd;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
@@ -33,6 +34,8 @@ public class MassageActivity extends AppCompatActivity {
     private List<Massage> massageArrayList;
     private Massage massage;
 
+    private InterstitialAd interstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,8 @@ public class MassageActivity extends AppCompatActivity {
         massage =  massageArrayList.get(0);
         setTitle("");
         mViewPager = findViewById(R.id.materialViewPager);
-
+        /* Interstitial Ads */
+        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
         final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -134,6 +138,23 @@ public class MassageActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     return massageArrayList != null ? massageArrayList.size() : 0;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (interstitialAd != null) {
+            interstitialAd.loadAd();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.destroy();
+        }
+        super.onDestroy();
     }
 
 }
