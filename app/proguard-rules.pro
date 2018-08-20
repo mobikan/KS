@@ -19,7 +19,7 @@
 #  public protected *;
 #}
 
--keep public class com.mobikan.ks.model.** {
+-keep public class com.solitary.ks.model.** {
  *;
   }
 

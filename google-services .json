@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "104458716464",
-    "firebase_url": "https://kamsutra-5847c.firebaseio.com",
-    "project_id": "kamsutra-5847c",
-    "storage_bucket": "kamsutra-5847c.appspot.com"
+    "project_number": "390787525821",
+    "firebase_url": "https://kama-9564c.firebaseio.com",
+    "project_id": "kama-9564c",
+    "storage_bucket": "kama-9564c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:104458716464:android:a732d78be40da559",
+        "mobilesdk_app_id": "1:390787525821:android:9809e0c517e3ac44",
         "android_client_info": {
-          "package_name": "com.mobikan.ks"
+          "package_name": "com.solitary.ks"
         }
       },
       "oauth_client": [
         {
-          "client_id": "104458716464-a7rq3hnhme4chj67abugnl7fj0n0egt5.apps.googleusercontent.com",
+          "client_id": "390787525821-s56trkr2atudf8ttdq5mrj9rtaj9ecko.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.mobikan.ks",
+            "package_name": "com.solitary.ks",
             "certificate_hash": "d6e59382f213e8f2c8921546518adaac698572f8"
           }
         },
         {
-          "client_id": "104458716464-b43hqo2mnka08cc34fcri33luhtb1rhc.apps.googleusercontent.com",
+          "client_id": "390787525821-nkcfn75858h3oe8fkvve6q0brc8rngqo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD4NjhMdt78kmRuZstRslooRUFHOckOrUU"
+          "current_key": "AIzaSyCmxzOseNZUVMPlopRmBD8RlZ5oZJXbEio"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "104458716464-b43hqo2mnka08cc34fcri33luhtb1rhc.apps.googleusercontent.com",
+              "client_id": "390787525821-nkcfn75858h3oe8fkvve6q0brc8rngqo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobikan.ks">
+    package="com.solitary.ks">
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,37 +16,37 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.PositionListActivity" />
+                android:value="com.solitary.ks.activity.PositionListActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.mobikan.ks.activity.HomePageActivity"
+            android:name="com.solitary.ks.activity.HomePageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
         <activity
-            android:name="com.mobikan.ks.activity.PositionListActivity"
+            android:name="com.solitary.ks.activity.PositionListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ks.activity.HomePageActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.mobikan.ks.activity.GalleryViewActivity"
+            android:name="com.solitary.ks.activity.GalleryViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name="com.mobikan.ks.activity.SplashActivity"
+            android:name="com.solitary.ks.activity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -56,43 +56,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mobikan.ks.activity.KissListActivity"
+            android:name="com.solitary.ks.activity.KissListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ks.activity.HomePageActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.mobikan.ks.activity.KissDetailActivity"
+            android:name="com.solitary.ks.activity.KissDetailActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.KissListActivity" />
+                android:value="com.solitary.ks.activity.KissListActivity" />
 
         </activity>
         <activity
-            android:name="com.mobikan.ks.activity.MassageActivity"
+            android:name="com.solitary.ks.activity.MassageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ks.activity.HomePageActivity" />
 
         </activity>
 
         <activity
-            android:name="com.mobikan.ks.activity.SpotActivity"
+            android:name="com.solitary.ks.activity.SpotActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobikan.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ks.activity.HomePageActivity" />
         </activity>
     </application>
 

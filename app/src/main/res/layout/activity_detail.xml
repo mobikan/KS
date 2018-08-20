@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.mobikan.ks.activity.PositionDetailActivity">
+        tools:context="com.solitary.ks.activity.PositionDetailActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
@@ -73,13 +73,13 @@
             layout="@layout/content_detail" />
 
 
-        <com.mobikan.ks.component.RadialButtonLayout
+        <com.solitary.ks.component.RadialButtonLayout
             android:id="@+id/radialMenu"
             android:layout_width="400dp"
             android:layout_height="400dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="20dp">
 
-        </com.mobikan.ks.component.RadialButtonLayout>
+        </com.solitary.ks.component.RadialButtonLayout>
     </android.support.design.widget.CoordinatorLayout>
 </layout>
