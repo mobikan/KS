@@ -94,6 +94,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.solitary.ks.activity.HomePageActivity" />
         </activity>
-    </application>
+
+    <activity
+        android:name="com.solitary.ks.activity.FavouritePositionListActivity"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.solitary.ks.activity.HomePageActivity" />
+    </activity>
+        <activity
+            android:name="com.solitary.ks.activity.TriedPositionsList"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.solitary.ks.activity.HomePageActivity" />
+        </activity>
+
+</application>
 
 </manifest>

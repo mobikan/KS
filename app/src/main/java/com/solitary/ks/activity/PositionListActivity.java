@@ -40,10 +40,10 @@ import com.solitary.ks.databinding.KsListScreenBinding;
 public class PositionListActivity extends AppCompatActivity implements PositionClickListener<Position>,View.OnClickListener {
 
 
-    private KsListScreenBinding binding;
+    protected KsListScreenBinding binding;
     public static final String EXTRA_IMAGE_TRANSITION_NAME = "Image Transition";
-    private PositionListAdapter positionListAdapter;
-    private DataBaseHelper dataBaseHelper;
+    protected PositionListAdapter positionListAdapter;
+    protected DataBaseHelper dataBaseHelper;
     private ScaleAnimation scaleAnimation;
 
     private AdView adView;
@@ -52,6 +52,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         super.onCreate(savedInstanceState);
         setScaleAnimation();
         binding =  DataBindingUtil.setContentView(this, R.layout.ks_list_screen);
+        setSupportActionBar(binding.toolbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,11 +61,15 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     }
 
+    protected void setTitle()
+    {
+        binding.toolbar.setTitle(R.string.title_position_list);
+    }
+
     private void init()
     {
+        setTitle();
 
-        setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitle("Sex Positions");
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         int margin =  getResources().getDimensionPixelOffset(R.dimen.recycler_view_margin);
         ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(margin,margin,margin,margin);
@@ -91,7 +96,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         readDataFromDB();
     }
 
-    private void readDataFromDB()
+    protected void readDataFromDB()
     {
         try {
             PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));

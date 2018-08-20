@@ -2,6 +2,7 @@ package com.solitary.ks.activity;
 
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,13 +25,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
+import com.solitary.ks.databinding.HomePageActivityBinding;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
-
-import java.io.IOException;
 
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
@@ -39,11 +39,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAnalytics mFirebaseAnalytics;
     private AdView adView;
     private InterstitialAd interstitialAd;
+    private HomePageActivityBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  binding = DataBindingUtil.setContentView(this,R.layout.home_page_activity);
+       binding =
+                DataBindingUtil.setContentView(this,R.layout.home_page_activity);
          setContentView(R.layout.home_page_activity);
         init();
 
@@ -132,10 +134,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         FireBaseQueries.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Kamasutra");
+        toolbar.setTitle(R.string.title_home_page);
+
+
 
         RelativeLayout positionId = findViewById(R.id.positionId);
-        positionId.setOnClickListener(this);
+         positionId.setOnClickListener(this);
 
         RelativeLayout spotId = findViewById(R.id.spotId);
         spotId.setOnClickListener(this);
@@ -146,12 +150,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         RelativeLayout massageId = findViewById(R.id.massageId);
         massageId.setOnClickListener(this);
 
-        RelativeLayout sexTipsId = findViewById(R.id.sexTipsId);
+        RelativeLayout sexTipsId = findViewById(R.id.favouriteId);
         sexTipsId.setOnClickListener(this);
 
 
-        RelativeLayout breathId = findViewById(R.id.breathId);
-        breathId.setOnClickListener(this);
+        RelativeLayout triedId = findViewById(R.id.triedId);
+        triedId.setOnClickListener(this);
 
 
         upDateRatings();
@@ -212,9 +216,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 sendClickEvent("massageId","MassageActivity");
                 break;
 
-            case R.id.sexTipsId:
+            case R.id.favouriteId:
+                startActivity(new Intent(this, FavouritePositionListActivity.class));
+                sendClickEvent("sexTipsId","FavouritePositionListActivity");
                 break;
-            case R.id.breathId:
+            case R.id.triedId:
+                startActivity(new Intent(this, TriedPositionsList.class));
+                sendClickEvent("breathId","TriedPositionsList");
                 break;
 
 
@@ -226,14 +234,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         super.onResume();
 
         if (interstitialAd != null) {
-            interstitialAd.loadAd();
+           // interstitialAd.loadAd();
         }
     }
 
     @Override
     protected void onDestroy() {
         if (interstitialAd != null) {
-            interstitialAd.destroy();
+           // interstitialAd.destroy();
         }
         super.onDestroy();
     }

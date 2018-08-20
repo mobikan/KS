@@ -5,14 +5,15 @@
     <string name="sex_tips">Sex Tips</string>
     <string name="sensual_massage">Massage</string>
     <string name="kisses">Kisses</string>
-
-    <string name="erogenous_zones">Spot</string>
+    <string name="favourite">Favourite</string>
+    <string name="tried">Tried</string>
+    <string name="erogenous_zones">Spots</string>
     <string name="scenting_the_breath">Breath</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
     </string>
     <!--FB Ads-->
-    <string name="facebook_banner_id">720716721602644_720730954934554</string>
+    <string name="facebook_banner_id">720716721602644_720717138269269</string>
     <string name="facebook_fullscreen_id">720716721602644_720730954934554</string>
     <string name="Interstitial_id">ca-app-pub-8959695549305295/3254272705</string>
 
@@ -32,5 +33,11 @@
     <string name="blue">Blue</string>
     <string name="indigo">Indigo</string>
     <string name="bullet_point">\u2022 %1$s \n</string>
+    <string name="title_position_list">Sex Positions</string>
+    <string name="title_favourite_position">Favourite Positions</string>
+    <string name="title_tried_position">Tried Positions</string>
+    <string name="title_home_page">"Kamasutra"</string>
+    <string name="no_data_favourite">"No Favourite positions yet !"</string>
+    <string name="no_data_tried">"No Position Tried yet !"</string>
 
 </resources>

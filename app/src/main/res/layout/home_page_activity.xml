@@ -1,239 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout android:layout_width="match_parent"
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-         >
+        android:background="#323563">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_height="@dimen/abc_action_bar_default_height_material"
             android:layout_width="match_parent"
-            android:minHeight="@dimen/abc_action_bar_default_height_material"
-            android:background="@drawable/toolbar_gradient"
-            app:titleTextColor="@color/white"
-            />
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:background="@color/toolbar_color"
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white">
 
+        </android.support.v7.widget.Toolbar>
+        <View
+            android:id="@+id/verticalDevider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/toolbar"
+            android:background="@drawable/vertical_divider_bg" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:orientation="vertical"
-            android:background="#323563"
-            android:layout_below="@+id/toolbar"
-            >
+            android:weightSum="3"
+            android:layout_above="@+id/banner_container"
+            android:layout_below="@+id/toolbar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                >
+                <RelativeLayout
+                    android:id="@+id/positionId"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:paddingRight="@dimen/home_icon_padding"
+                    android:layout_toLeftOf="@+id/middle_view"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="@dimen/home_icon_width"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/label"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/sex_position"
+                         />
+
+                    <TextView
+                        android:id="@+id/label"
+                        style="@style/HomePage.TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+
+                        android:text="@string/sex_position" />
+
+
+                </RelativeLayout>
 
                 <View
                     android:layout_width="1dp"
-                    android:background="@drawable/vertical_divider_bg"
-                    android:layout_height="match_parent"
+                    android:layout_height="1dp"
                     android:layout_centerInParent="true"
-                    android:id="@+id/verticalDevider"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"/>
+                    android:id="@+id/middle_view"/>
+
+                <RelativeLayout
+                    android:id="@+id/spotId"
+                    android:layout_width="150dp"
+                    android:layout_toRightOf="@+id/middle_view"
+                    android:layout_height="150dp"
+                    android:paddingLeft="@dimen/home_icon_padding"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="@dimen/home_icon_width"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/spotLabel"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/spot"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/spotLabel"
+                        style="@style/HomePage.TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+                        android:text="@string/erogenous_zones" />
+
+                </RelativeLayout>
                 <View
                     android:layout_width="match_parent"
                     android:background="@drawable/gradient_lines"
                     android:layout_height="1dp"
-                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
                     android:id="@+id/HDivider2"
-                    android:layout_below="@+id/massageId"
-                    android:visibility="gone"/>
-                <!--Row 1 start-->
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    android:layout_toLeftOf="@+id/verticalDevider"
-                    android:id="@+id/positionId"
-                    android:layout_above="@+id/HDivider1"
-                    android:layout_marginBottom="30dp"
-                    >
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@+id/label"
-                        app:srcCompat="@drawable/sex_position"
-                        android:layout_centerHorizontal="true"/>
-
-                    <TextView
-                        android:id="@+id/label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:text="@string/sex_position"
-                        style="@style/HomePage.TextStyle"
-
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
 
                 <RelativeLayout
-                    android:layout_width="100dp"
+                    android:id="@+id/kissesId"
+                    android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_toRightOf="@+id/verticalDevider"
-                    android:id="@+id/spotId"
-                    android:padding="10dp"
-                    android:layout_above="@+id/HDivider1"
-                    android:layout_marginBottom="30dp"
-                    >
+                    android:paddingRight="@dimen/home_icon_padding"
+                    android:layout_toLeftOf="@+id/middle_view1"
+                    android:layout_centerVertical="true">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/home_icon_width"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/label1"
-                        app:srcCompat="@drawable/spot"
+                        android:layout_above="@+id/label2"
                         android:layout_centerHorizontal="true"
-                        />
+                        app:srcCompat="@drawable/kisses"
+                        android:padding="5dp"/>
 
                     <TextView
-                        android:id="@+id/label1"
+                        android:id="@+id/label2"
+                        style="@style/HomePage.TextStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
                         android:padding="10dp"
-                        android:text="@string/erogenous_zones"
-                        style="@style/HomePage.TextStyle"
-                        android:layout_centerHorizontal="true"/>
+
+                        android:text="@string/kisses" />
+
 
                 </RelativeLayout>
-                <!--Row 1 End-->
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/middle_view1"/>
+
+                <RelativeLayout
+                    android:id="@+id/massageId"
+                    android:layout_width="150dp"
+                    android:layout_toRightOf="@+id/middle_view1"
+                    android:layout_height="150dp"
+                    android:paddingLeft="@dimen/home_icon_padding"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="@dimen/home_icon_width"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/label3"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/massage"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:id="@+id/label3"
+                        style="@style/HomePage.TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+                        android:text="@string/sensual_massage" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@drawable/gradient_lines"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/HDivider3"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:id="@+id/favouriteId"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:paddingRight="@dimen/home_icon_padding"
+                    android:layout_toLeftOf="@+id/middle_view2"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="@dimen/home_icon_width"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/favouriteLabel"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_heart"
+                        android:paddingBottom="30dp"/>
+
+                    <TextView
+                        android:id="@+id/favouriteLabel"
+                        style="@style/HomePage.TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+
+                        android:text="@string/favourite" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/middle_view2"/>
+
+                <RelativeLayout
+                    android:id="@+id/triedId"
+                    android:layout_width="150dp"
+                    android:layout_toRightOf="@+id/middle_view2"
+                    android:layout_height="150dp"
+                    android:paddingLeft="@dimen/home_icon_padding"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="@dimen/home_icon_width"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/triedLabel"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_checked"
+
+                        android:paddingBottom="30dp"/>
+
+                    <TextView
+                        android:id="@+id/triedLabel"
+                        style="@style/HomePage.TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+                        android:text="@string/tried" />
+
+                </RelativeLayout>
                 <View
                     android:layout_width="match_parent"
                     android:background="@drawable/gradient_lines"
                     android:layout_height="1dp"
                     android:layout_centerInParent="true"
                     android:id="@+id/HDivider1"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="invisible"
                     />
-
-                <!--Row 2 start-->
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@+id/HDivider1"
-                    android:layout_toLeftOf="@+id/verticalDevider"
-                    android:padding="10dp"
-                    android:layout_marginTop="30dp"
-                    android:id="@+id/kissesId">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@+id/label2"
-                        app:srcCompat="@drawable/kisses"
-                        android:layout_centerHorizontal="true"/>
-
-                    <TextView
-                        android:id="@+id/label2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:text="@string/kisses"
-                        style="@style/HomePage.TextStyle"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@+id/HDivider1"
-                    android:layout_toRightOf="@+id/verticalDevider"
-                    android:id="@+id/massageId"
-                    android:padding="10dp"
-                    android:layout_marginTop="30dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@+id/label3"
-                        app:srcCompat="@drawable/massage"
-                        android:layout_centerHorizontal="true"/>
-
-                    <TextView
-                        android:id="@+id/label3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:text="@string/sensual_massage"
-                        style="@style/HomePage.TextStyle"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@+id/HDivider2"
-                    android:layout_toLeftOf="@+id/verticalDevider"
-                    android:padding="10dp"
-                    android:id="@+id/sexTipsId"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@+id/label4"
-                        app:srcCompat="@drawable/ic_heart"
-                        android:layout_centerHorizontal="true"/>
-
-                    <TextView
-                        android:id="@+id/label4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:text="@string/sex_tips"
-                        style="@style/HomePage.TextStyle"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@+id/HDivider2"
-                    android:layout_toRightOf="@+id/verticalDevider"
-                    android:padding="10dp"
-                    android:id="@+id/breathId"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_above="@+id/label5"
-                        app:srcCompat="@drawable/ic_cogwheel"
-                        android:layout_centerHorizontal="true"/>
-
-                    <TextView
-                        android:id="@+id/label5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:text="@string/scenting_the_breath"
-                        style="@style/HomePage.TextStyle"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
             </RelativeLayout>
+
         </LinearLayout>
+
 
 
         <LinearLayout
@@ -241,8 +280,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical" />
-
-
+            android:orientation="vertical"
+            />
     </RelativeLayout>
 </layout>

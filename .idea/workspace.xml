@@ -6,75 +6,36 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Like " />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e8dddd-5804-44e6-8c18-60b1f4e9174a" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_andrognito_pinlockview_pinlockview_2_1_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/FavouritePositionListActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/TriedPositionsList.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_checked.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" afterPath="$PROJECT_DIR$/app/google-services.json" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
+      <change beforePath="$PROJECT_DIR$/app/release/output.json" afterPath="$PROJECT_DIR$/app/release/output.json" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/GalleryViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/GalleryViewActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/KissDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/KissDetailActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/KissListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/KissListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/MassageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/MassageActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/MassageListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/MassageListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionDetailActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/PositionListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/SplashActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/SpotActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/CustomPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/CustomPagerAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/ImageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/ImageAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/KissListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/KissListAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/MassageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/MassageAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/PageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/PageAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/PositionListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/PositionListAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/adapter/SpotListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/SpotListAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/component/CalendarHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/component/CalendarHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/component/CheckView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/component/CheckView.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/component/ItemOffsetDecoration.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/component/ItemOffsetDecoration.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/component/NonClickableToolbar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/component/NonClickableToolbar.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/component/RadialButtonLayout.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/component/RadialButtonLayout.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/db/Columns.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/Columns.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/db/DataBaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/DataBaseHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/db/KissDataBaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/KissDataBaseHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/db/MassageDataBaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/MassageDataBaseHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/db/PositionDataBaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/PositionDataBaseHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/firebase/FireBaseQueries.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/firebase/FireBaseQueries.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/fragment/MassageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/fragment/MassageFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/fragment/RatingDialogFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/fragment/SpotListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/fragment/SpotListFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/listener/PositionClickListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/listener/PositionClickListener.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Kiss.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/Kiss.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/KissList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/KissList.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Like.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/Like.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Massage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/Massage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/MassageList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/MassageList.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Position.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/Position.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/PositionsList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/PositionsList.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/QnA.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/QnA.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/RatingData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/RatingData.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Spot.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/Spot.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/SpotList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/model/SpotList.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/utils/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/utils/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/utils/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/utils/Utils.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_detail.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/kiss_list_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/kiss_list_screen.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/home_page.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/position_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/position_list_item.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml" />
-      <change beforePath="$PROJECT_DIR$/google-services .json" afterPath="$PROJECT_DIR$/google-services .json" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -135,107 +96,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PositionDetailActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionDetailActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="61" column="64" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2598#2640#0" expanded="true" />
-                <element signature="e#4821#5360#0" expanded="true" />
-                <element signature="e#5359#5360#0" expanded="true" />
-                <element signature="e#6547#7368#0" expanded="true" />
-                <element signature="e#7367#7368#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/SplashActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="29" column="62" lean-forward="false" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePageActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomePageActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+            <state relative-caret-position="472">
+              <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
               <folding>
-                <element signature="e#1914#1952#0" expanded="true" />
-                <element signature="e#2436#2437#0" expanded="true" />
-                <element signature="e#2520#2521#0" expanded="true" />
-                <element signature="e#2790#2832#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2047#2085#0" expanded="true" />
+                <element signature="e#2569#2570#0" expanded="true" />
+                <element signature="e#2653#2654#0" expanded="true" />
+                <element signature="e#2923#2965#0" expanded="true" />
+                <element signature="e#4278#4302#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FireBaseQueries.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/firebase/FireBaseQueries.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataBaseHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/DataBaseHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="46" column="37" lean-forward="false" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="google-services .json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/google-services .json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="54" column="1" lean-forward="false" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="google-services.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/google-services.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="42" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -243,19 +116,11 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="285">
+              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding>
-                <element signature="e#323#341#0" expanded="true" />
-                <element signature="e#569#587#0" expanded="true" />
-                <element signature="e#948#966#0" expanded="true" />
-                <element signature="e#1163#1181#0" expanded="true" />
-                <element signature="e#1541#1559#0" expanded="true" />
-                <element signature="e#1749#1767#0" expanded="true" />
-                <element signature="e#2162#2180#0" expanded="true" />
-                <element signature="e#2539#2557#0" expanded="true" />
-                <element signature="e#2911#2929#0" expanded="true" />
-                <element signature="e#3281#3299#0" expanded="true" />
+                <element signature="e#3656#3674#0" expanded="true" />
+                <element signature="e#4011#4029#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -264,11 +129,120 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="home_page_activity.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="248" column="0" lean-forward="false" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+              <folding>
+                <element signature="e#1864#1890#0" expanded="true" />
+                <element signature="e#2089#2113#0" expanded="true" />
+                <element signature="e#2857#2879#0" expanded="true" />
+                <element signature="e#3427#3453#0" expanded="true" />
+                <element signature="e#3589#3613#0" expanded="true" />
+                <element signature="e#4376#4401#0" expanded="true" />
+                <element signature="e#5243#5269#0" expanded="true" />
+                <element signature="e#5469#5493#0" expanded="true" />
+                <element signature="e#6253#6269#0" expanded="true" />
+                <element signature="e#6822#6848#0" expanded="true" />
+                <element signature="e#6984#7008#0" expanded="true" />
+                <element signature="e#7768#7793#0" expanded="true" />
+                <element signature="e#8621#8647#0" expanded="true" />
+                <element signature="e#8847#8871#0" expanded="true" />
+                <element signature="e#9656#9675#0" expanded="true" />
+                <element signature="e#10226#10252#0" expanded="true" />
+                <element signature="e#10388#10412#0" expanded="true" />
+                <element signature="e#11191#11206#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ic_checked.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_checked.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PositionListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+              <folding>
+                <element signature="e#2431#2432#0" expanded="true" />
+                <element signature="e#2466#2494#0" expanded="true" />
+                <element signature="e#2501#2502#0" expanded="true" />
+                <element signature="e#2655#2723#0" expanded="true" />
+                <element signature="e#3234#3272#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ks_list_screen.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+              <folding>
+                <element signature="e#548#595#0" expanded="true" />
+                <element signature="e#674#721#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TriedPositionsList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/TriedPositionsList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1063#1064#0" expanded="true" />
+                <element signature="e#1134#1135#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FavouritePositionListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/FavouritePositionListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="26" column="61" lean-forward="false" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
       </list>
     </option>
@@ -284,6 +258,10 @@
       <find>positionName</find>
       <find>mobikan</find>
       <find>BUNDLE_POSITION_ID</find>
+      <find>HDivider</find>
+      <find>kissesId</find>
+      <find>interstitialAd</find>
+      <find>HDivider1</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2362,10 +2340,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/MassageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/PositionListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/firebase/MyFirebaseMessagingService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/Like.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/model/RatingData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java" />
@@ -2376,16 +2351,25 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/google-services .json" />
         <option value="$PROJECT_DIR$/app/google-services.json" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/DataBaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/home_page.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/test.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/TriedPositionsList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/FavouritePositionListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_checked.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml" />
       </list>
     </option>
   </component>
@@ -2473,16 +2457,7 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ks" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2507,6 +2482,29 @@
             </path>
             <path>
               <item name="KS" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="ks" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KS" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="KS" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="KS" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="KS" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -2523,7 +2521,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="FireBase&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/firebase/FireBaseQueries.java&#10;Splash&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/activity/SplashActivity.java&#10;HomePag&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java&#10;Rating&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java&#10;PositionList&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionListActivity.java&#10;list_ite&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/res/layout/position_list_item.xml&#10;Detail&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java&#10;RadialL&#9;PSI&#9;JAVA://com.mobikan.ks.component.RadialButtonLayout&#10;SpotAct&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java&#10;Like&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/model/Like.java&#10;Spot&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java&#10;PositionLi&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionListActivity.java&#10;PositionDet&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java&#10;Massag&#9;PSI&#9;JAVA://com.mobikan.ks.activity.MassageActivity&#10;HomePage&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java&#10;Man&#9;PSI&#9;JAVA://com.mobikan.ks.Manifest&#10;Ratin&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java&#10;PositionDa&#9;PSI&#9;JAVA://com.mobikan.ks.db.PositionDataBaseHelper&#10;PositionListAc&#9;PSI&#9;JAVA://com.mobikan.ks.activity.PositionListActivity&#10;ListAd&#9;PSI&#9;JAVA://com.mobikan.ks.adapter.PositionListAdapter" />
+    <property name="SearchEverywhereHistoryKey" value="HomepAge&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java&#10;PositionList&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java&#10;FireBase&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/firebase/FireBaseQueries.java&#10;Splash&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/solitary/ks/activity/SplashActivity.java&#10;HomePag&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java&#10;Rating&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java&#10;list_ite&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/res/layout/position_list_item.xml&#10;Detail&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java&#10;RadialL&#9;PSI&#9;JAVA://com.mobikan.ks.component.RadialButtonLayout&#10;SpotAct&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java&#10;Like&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/model/Like.java&#10;Spot&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/SpotActivity.java&#10;PositionLi&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionListActivity.java&#10;PositionDet&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/PositionDetailActivity.java&#10;Massag&#9;PSI&#9;JAVA://com.mobikan.ks.activity.MassageActivity&#10;HomePage&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/activity/HomePageActivity.java&#10;Man&#9;PSI&#9;JAVA://com.mobikan.ks.Manifest&#10;Ratin&#9;FILE&#9;file:///Users/dev.dhar/Documents/Moiken Workspace/KS/app/src/main/java/com/mobikan/ks/fragment/RatingDialogFragment.java&#10;PositionDa&#9;PSI&#9;JAVA://com.mobikan.ks.db.PositionDataBaseHelper&#10;PositionListAc&#9;PSI&#9;JAVA://com.mobikan.ks.activity.PositionListActivity&#10;ListAd&#9;PSI&#9;JAVA://com.mobikan.ks.adapter.PositionListAdapter" />
     <property name="device.picker.selection" value="5200fe86ee2d3519" />
     <property name="android.profiler.active" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -2751,13 +2749,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30183357" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38504937" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33991536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2768,7 +2765,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21745351" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35121602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2796,7 +2793,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44851905" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38504937" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
@@ -2811,7 +2808,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21745351" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35121602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2849,96 +2846,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/Columns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/PositionDataBaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/mobikan/ks/Manifest.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/app_icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding>
-            <element signature="e#547#594#0" expanded="false" />
-            <element signature="e#673#720#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/MassageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mobikan/ks/firebase/MyFirebaseMessagingService.java" />
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/sparkbutton-1.0.5.aar/da1934a5e52364d8be52db9db514f6df/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="134" column="64" lean-forward="false" selection-start-line="134" selection-start-column="64" selection-end-line="134" selection-end-column="64" />
-          <folding>
-            <element signature="e#393#440#0" expanded="false" />
-            <element signature="e#519#566#0" expanded="false" />
-            <element signature="e#3107#3129#0" expanded="false" />
-            <element signature="e#4419#4444#0" expanded="false" />
-            <element signature="e#6074#6090#0" expanded="false" />
-            <element signature="e#7356#7381#0" expanded="false" />
-            <element signature="e#8621#8639#0" expanded="false" />
-            <element signature="e#9881#9910#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header_logo.xml">
@@ -3172,14 +3085,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-676">
-          <caret line="53" column="70" lean-forward="false" selection-start-line="53" selection-start-column="70" selection-end-line="53" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/adapter/PositionListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -3218,39 +3123,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
@@ -3266,12 +3144,12 @@
         <state relative-caret-position="312">
           <caret line="61" column="64" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2598#2640#0" expanded="true" />
-            <element signature="e#4821#5360#0" expanded="true" />
-            <element signature="e#5359#5360#0" expanded="true" />
-            <element signature="e#6547#7368#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2598#2640#0" expanded="false" />
+            <element signature="e#4821#5360#0" expanded="false" />
+            <element signature="e#5359#5360#0" expanded="false" />
+            <element signature="e#6547#7368#0" expanded="false" />
+            <element signature="e#7367#7368#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3282,28 +3160,6 @@
           <caret line="29" column="62" lean-forward="false" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="28" />
-          <folding>
-            <element signature="e#323#341#0" expanded="true" />
-            <element signature="e#569#587#0" expanded="true" />
-            <element signature="e#948#966#0" expanded="true" />
-            <element signature="e#1163#1181#0" expanded="true" />
-            <element signature="e#1541#1559#0" expanded="true" />
-            <element signature="e#1749#1767#0" expanded="true" />
-            <element signature="e#2162#2180#0" expanded="true" />
-            <element signature="e#2539#2557#0" expanded="true" />
-            <element signature="e#2911#2929#0" expanded="true" />
-            <element signature="e#3281#3299#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/google-services .json">
@@ -3322,14 +3178,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/DataBaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -3340,23 +3188,200 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/firebase/FireBaseQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="84" column="5" lean-forward="false" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/db/PositionDataBaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        <state relative-caret-position="21">
+          <caret line="106" column="26" lean-forward="false" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/home_page.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="67" column="65" lean-forward="false" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/spot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
-            <element signature="e#1914#1952#0" expanded="true" />
-            <element signature="e#2436#2437#0" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
-            <element signature="e#2790#2832#0" expanded="true" />
+            <element signature="e#3656#3674#0" expanded="true" />
+            <element signature="e#4011#4029#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/sex_position.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/HomePageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2047#2085#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2653#2654#0" expanded="true" />
+            <element signature="e#2923#2965#0" expanded="true" />
+            <element signature="e#4278#4302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/FavouritePositionListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="26" column="61" lean-forward="false" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ks_list_screen.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <folding>
+            <element signature="e#548#595#0" expanded="true" />
+            <element signature="e#674#721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/PositionListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="e#2431#2432#0" expanded="true" />
+            <element signature="e#2466#2494#0" expanded="true" />
+            <element signature="e#2501#2502#0" expanded="true" />
+            <element signature="e#2655#2723#0" expanded="true" />
+            <element signature="e#3234#3272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/solitary/ks/activity/TriedPositionsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_checked.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/home_page_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="248" column="0" lean-forward="false" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding>
+            <element signature="e#1864#1890#0" expanded="true" />
+            <element signature="e#2089#2113#0" expanded="true" />
+            <element signature="e#2857#2879#0" expanded="true" />
+            <element signature="e#3427#3453#0" expanded="true" />
+            <element signature="e#3589#3613#0" expanded="true" />
+            <element signature="e#4376#4401#0" expanded="true" />
+            <element signature="e#5243#5269#0" expanded="true" />
+            <element signature="e#5469#5493#0" expanded="true" />
+            <element signature="e#6253#6269#0" expanded="true" />
+            <element signature="e#6822#6848#0" expanded="true" />
+            <element signature="e#6984#7008#0" expanded="true" />
+            <element signature="e#7768#7793#0" expanded="true" />
+            <element signature="e#8621#8647#0" expanded="true" />
+            <element signature="e#8847#8871#0" expanded="true" />
+            <element signature="e#9656#9675#0" expanded="true" />
+            <element signature="e#10226#10252#0" expanded="true" />
+            <element signature="e#10388#10412#0" expanded="true" />
+            <element signature="e#11191#11206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

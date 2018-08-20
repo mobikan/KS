@@ -145,6 +145,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:asynclayoutinflater-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="Gradle: com.flaviofaria:kenburnsview:1.0.7@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.andrognito.pinlockview:pinlockview-2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel-1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-textfield-28.0.0-alpha1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:coordinatorlayout-28.0.0-alpha1" level="project" />

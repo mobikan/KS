@@ -65,6 +65,7 @@ dependencies {
     implementation('com.facebook.android:audience-network-sdk:4.28.2') {
         exclude group: 'com.google.android.gms'
     }
+    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
     // If you want to use the GPU Filters
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
 
