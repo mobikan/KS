@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdListener;
@@ -137,8 +138,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         toolbar.setTitle(R.string.title_home_page);
 
 
-
         RelativeLayout positionId = findViewById(R.id.positionId);
+
          positionId.setOnClickListener(this);
 
         RelativeLayout spotId = findViewById(R.id.spotId);
@@ -234,14 +235,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         super.onResume();
 
         if (interstitialAd != null) {
-           // interstitialAd.loadAd();
+            interstitialAd.loadAd();
         }
     }
 
     @Override
     protected void onDestroy() {
         if (interstitialAd != null) {
-           // interstitialAd.destroy();
+            interstitialAd.destroy();
         }
         super.onDestroy();
     }
