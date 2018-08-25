@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.android.gms.ads.MobileAds;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
 

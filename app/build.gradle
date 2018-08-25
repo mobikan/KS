@@ -7,8 +7,8 @@ android {
         applicationId "com.solitary.ks"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -19,7 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    defaultConfig{
+    defaultConfig {
         vectorDrawables.useSupportLibrary = true
         renderscriptTargetApi 27
         renderscriptSupportModeEnabled true
@@ -33,30 +33,30 @@ android {
 
 
 
-ext{
-     firebase_version = "16.0.1"
-     supportLib_version = "28.0.0-alpha1"
-     gson_version = "2.8.2"
-     glide_version = "4.0.0"
-     play_service = "15.0.1";
+ext {
+    firebase_version = "16.0.1"
+    supportLib_version = "28.0.0-alpha1"
+    gson_version = "2.8.2"
+    glide_version = "4.0.0"
+    play_service = "15.0.1";
 }
 
 
 dependencies {
 
 
-    implementation ("com.android.support:cardview-v7:$supportLib_version")
-    {
-        exclude group: "com.android.support", module: "support-media-compat"
-    }
+    implementation("com.android.support:cardview-v7:$supportLib_version")
+            {
+                exclude group: "com.android.support", module: "support-media-compat"
+            }
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation ("com.android.support:appcompat-v7:$supportLib_version")
+    implementation("com.android.support:appcompat-v7:$supportLib_version")
 
-    implementation ("com.android.support:design:$supportLib_version")
-     {
-       exclude group: "com.android.support", module: "support-media-compat"
-     }
+    implementation("com.android.support:design:$supportLib_version")
+            {
+                exclude group: "com.android.support", module: "support-media-compat"
+            }
 
     implementation "com.google.firebase:firebase-database:$firebase_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
@@ -64,11 +64,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.0'
     implementation "com.google.android.gms:play-services-location:$play_service"
     implementation "com.google.android.gms:play-services-places:$play_service"
+   // implementation 'com.crashlytics.sdk.android:crashlytics:2.9.3'
 
-    //Ads
-    implementation('com.facebook.android:audience-network-sdk:4.28.2') {
-        exclude group: 'com.google.android.gms'
-    }
     implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
     // If you want to use the GPU Filters
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
@@ -80,10 +77,14 @@ dependencies {
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
     implementation 'com.jpardogo.materialtabstrip:library:1.1.0'
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    androidTestImplementation ('com.android.support.test:runner:1.0.2')
-    {
-       exclude group: "com.android.support", module: "support-media-compat"
-     }
+    implementation "com.google.android.gms:play-services-ads:$play_service"
+    androidTestImplementation('com.android.support.test:runner:1.0.2')
+            {
+                exclude group: "com.android.support", module: "support-media-compat"
+            }
+    implementation 'org.jsoup:jsoup:1.11.3' // required
+    implementation 'com.leocardz:link-preview:2.0.0@aar'
+
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'
 }

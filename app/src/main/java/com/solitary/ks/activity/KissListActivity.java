@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.solitary.ks.R;
 import com.solitary.ks.adapter.KissListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
@@ -45,6 +47,9 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         init();
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
     }
 

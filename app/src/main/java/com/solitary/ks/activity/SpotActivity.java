@@ -9,26 +9,26 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.facebook.ads.InterstitialAd;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.gson.Gson;
+import com.solitary.ks.R;
+import com.solitary.ks.fragment.SpotListFragment;
+import com.solitary.ks.model.Spot;
+import com.solitary.ks.model.SpotList;
+import com.solitary.ks.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import com.solitary.ks.R;
-import com.solitary.ks.utils.Utils;
-import com.solitary.ks.fragment.SpotListFragment;
-import com.solitary.ks.model.Spot;
-import com.solitary.ks.model.SpotList;
-
 public class SpotActivity extends AppCompatActivity {
 
     private MaterialViewPager mViewPager;
-    private InterstitialAd interstitialAd;
+
     private SpotList spotList;
 
     @Override
@@ -44,7 +44,7 @@ public class SpotActivity extends AppCompatActivity {
         }
 
         /* Interstitial Ads */
-        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
+
         init();
         FrameLayout layout = findViewById(R.id.header_logo);
         layout.setVisibility(View.GONE);
@@ -127,6 +127,22 @@ public class SpotActivity extends AppCompatActivity {
 
     }
 
+    private InterstitialAd mInterstitialAd;
+    private void initAds()
+    {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void showAds()
+    {
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+    }
 
 
     private void init() {
@@ -142,6 +158,9 @@ public class SpotActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        initAds();
+        showAds();
     }
 
     private ArrayList<Spot> getFilterList(ArrayList<Spot> list, String type) {
@@ -154,20 +173,5 @@ public class SpotActivity extends AppCompatActivity {
         return filterList;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        if (interstitialAd != null) {
-            interstitialAd.loadAd();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
-        super.onDestroy();
-    }
 }

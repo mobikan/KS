@@ -10,7 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,12 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.facebook.ads.InterstitialAd;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
-import com.solitary.ks.utils.Utils;
 import com.solitary.ks.adapter.CustomPagerAdapter;
 import com.solitary.ks.component.CalendarHelper;
 import com.solitary.ks.component.CheckView;
@@ -34,6 +34,7 @@ import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.fragment.RatingDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
+import com.solitary.ks.utils.Utils;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
@@ -47,7 +48,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     private Position position;
     private ActivityDetailBinding binding;
     private PositionDataBaseHelper positionDataBaseHelper;
-    private InterstitialAd interstitialAd;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +62,11 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
 
         position = getIntent().getParcelableExtra("position_data");
         /* Interstitial Ads */
-        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
+
 
         toolbar.setTitle(position.getTitle());
         setTitle(position.getTitle());
-        //supportPostponeEnterTransition();
+        initAds();
         init();
         findViewById(R.id.radialMenu).setOnClickListener(this);
 
@@ -144,13 +145,29 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     check.check();
                     position.setTried(true);
                     positionDataBaseHelper.setTried(position);
+                    showAds();
+
                 }
             }
         });
     }
 
 
+    private void initAds()
+    {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+    }
 
+    private void showAds()
+    {
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+    }
 
     private void setBookmark()
     {
@@ -162,10 +179,12 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
             public void onEvent(ImageView button, boolean buttonState) {
                 if(buttonState) {
                     Toast.makeText(getApplicationContext(), "Position bookmarked ", Toast.LENGTH_SHORT).show();
+                    showAds();
 
                 }
                 position.setFavourite(buttonState);
                 positionDataBaseHelper.setFavourite(position);
+
             }
 
             @Override
@@ -204,6 +223,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     toggleButton.setChecked(true);
                     FireBaseQueries.getInstance().updateLike(FireBaseQueries.LIKE_POSITION, position.getId());
                     positionDataBaseHelper.setLiked(position);
+                    showAds();
                 }
 
             }
@@ -304,16 +324,12 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     protected void onResume() {
         super.onResume();
 
-        if (interstitialAd != null) {
-            interstitialAd.loadAd();
-        }
+
     }
 
     @Override
     protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
+
         super.onDestroy();
         if(positionDataBaseHelper != null) {
             positionDataBaseHelper.closeDb();

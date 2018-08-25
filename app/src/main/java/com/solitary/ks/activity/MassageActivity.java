@@ -7,22 +7,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.FrameLayout;
 
-import com.facebook.ads.InterstitialAd;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
-
-import java.util.List;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.solitary.ks.R;
-import com.solitary.ks.utils.Utils;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.MassageDataBaseHelper;
 import com.solitary.ks.fragment.MassageFragment;
 import com.solitary.ks.model.Massage;
+import com.solitary.ks.utils.Utils;
+
+import java.util.List;
 
 import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
@@ -33,8 +34,8 @@ public class MassageActivity extends AppCompatActivity {
     private int count = 0;
     private List<Massage> massageArrayList;
     private Massage massage;
+    private InterstitialAd mInterstitialAd;
 
-    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class MassageActivity extends AppCompatActivity {
         setTitle("");
         mViewPager = findViewById(R.id.materialViewPager);
         /* Interstitial Ads */
-        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
+        initAds();
+        showAds();
         final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -140,20 +142,33 @@ public class MassageActivity extends AppCompatActivity {
     return massageArrayList != null ? massageArrayList.size() : 0;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        if (interstitialAd != null) {
-            interstitialAd.loadAd();
+
+    private void initAds()
+    {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void showAds()
+    {
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
         }
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
+
         super.onDestroy();
     }
 

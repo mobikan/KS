@@ -13,9 +13,9 @@
         "Material is the metaphor.\n\n"
     </string>
     <!--FB Ads-->
-    <string name="facebook_banner_id">720716721602644_720717138269269</string>
-    <string name="facebook_fullscreen_id">720716721602644_720730954934554</string>
-    <string name="Interstitial_id">ca-app-pub-8959695549305295/3254272705</string>
+    <string name="admob_app_id">ca-app-pub-3645857363881721~9619311639</string>
+    <string name="banner_app_id">ca-app-pub-3645857363881721/5034883573</string>
+    <string name="interstitial_id">ca-app-pub-3645857363881721/6898629583</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -39,5 +39,6 @@
     <string name="title_home_page">"Kamasutra"</string>
     <string name="no_data_favourite">"No Favourite positions yet !"</string>
     <string name="no_data_tried">"No Position Tried yet !"</string>
+
 
 </resources>

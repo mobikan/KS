@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-typography-28.0.0-alpha1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-typography-28.0.0-alpha1.aar/e44f1c576aee9d1698054829d25cee9d/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-typography-28.0.0-alpha1.aar/e44f1c576aee9d1698054829d25cee9d/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-typography-28.0.0-alpha1.aar/4e9e55edb507e075c3003849b081034e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-typography-28.0.0-alpha1.aar/4e9e55edb507e075c3003849b081034e/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -6,21 +6,21 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,8 +38,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
    // private HomePageActivityBinding binding;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private AdView adView;
-    private InterstitialAd interstitialAd;
+
     private HomePageActivityBinding binding;
 
     @Override
@@ -47,75 +46,19 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
        binding =
                 DataBindingUtil.setContentView(this,R.layout.home_page_activity);
-         setContentView(R.layout.home_page_activity);
+        setContentView(R.layout.home_page_activity);
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
         init();
-
+        initDrawer();
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
+        AdView adView = findViewById(R.id.adView);
 
+        AdRequest adRequest = new AdRequest.Builder().build();
 
-        /* Facebook Ads */
-        adView = new AdView(this, getString(R.string.facebook_banner_id), AdSize.BANNER_HEIGHT_50);
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
-        adContainer.addView(adView);
-        // Request an ad
-        adView.loadAd();
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                Log.v("FB Ads", "Fb Ads Error"+adError.getErrorMessage());
-            }
+        adView.loadAd(adRequest);
 
-            @Override
-            public void onAdLoaded(Ad ad) {
-                Log.v("FB Ads", "Fb Ads Loaded"+ad.getPlacementId());
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-        });
-
-        /* Interstitial Ads */
-        interstitialAd = new InterstitialAd(this, getString(R.string.facebook_fullscreen_id));
-        interstitialAd.setAdListener(new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                Log.v("FB Ads", "Fb InterstitialAd Error"+adError.getErrorMessage());
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-        });
 
     }
 
@@ -164,6 +107,43 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         //positionDataBaseHelper.getAllFavouritePositions();
     }
 
+    private ActionBarDrawerToggle t;
+    private void initDrawer()
+    {
+        DrawerLayout dl = (DrawerLayout)findViewById(R.id.activity_main);
+        t = new ActionBarDrawerToggle(this, dl,R.string.open, R.string.close);
+
+        dl.addDrawerListener(t);
+        t.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView nv = (NavigationView)findViewById(R.id.nv);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch(id)
+                {
+                    case R.id.account:
+                        Toast.makeText(HomePageActivity.this, "My Account",Toast.LENGTH_SHORT).show();
+                    case R.id.settings:
+                        Toast.makeText(HomePageActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                    case R.id.mycart:
+                        Toast.makeText(HomePageActivity.this, "My Cart",Toast.LENGTH_SHORT).show();
+                    default:
+                        return true;
+                }
+
+
+
+
+            }
+
+        });
+
+
+    }
 
     private void upDateRatings()
     {
@@ -231,19 +211,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         }
     }
     @Override
-    protected void onResume() {
-        super.onResume();
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (interstitialAd != null) {
-            interstitialAd.loadAd();
-        }
-    }
+        if(t.onOptionsItemSelected(item))
+            return true;
 
-    @Override
-    protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
-        super.onDestroy();
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -18,11 +18,9 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.solitary.ks.adapter.PositionListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
 import com.solitary.ks.db.DataBaseHelper;
@@ -46,7 +44,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     protected DataBaseHelper dataBaseHelper;
     private ScaleAnimation scaleAnimation;
 
-    private AdView adView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +56,9 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         dataBaseHelper = new DataBaseHelper(getApplicationContext());
         init();
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
     }
 
@@ -81,12 +82,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         binding.recyclerView.setAdapter(positionListAdapter);
        // readDataFromDB();
 
-        /* Facebook Ads */
-        adView = new AdView(this, getString(R.string.facebook_banner_id), AdSize.BANNER_HEIGHT_50);
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
-        adContainer.addView(adView);
-        // Request an ad
-        adView.loadAd();
+
     }
 
 

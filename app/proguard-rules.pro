@@ -26,6 +26,7 @@
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
+-keeppackagenames org.jsoup.nodes
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
