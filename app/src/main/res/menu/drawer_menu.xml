@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/account"
+    <item android:id="@+id/share"
         android:icon="@drawable/ic_share"
         android:title="Share"/>
-    <item android:id="@+id/settings"
-        android:icon="@drawable/ic_cogwheel"
-        android:title="Settings"/>
-    <item android:id="@+id/mycart"
+
+    <item android:id="@+id/rating"
         android:icon="@drawable/ic_favourite"
         android:title="Rating"/>
+    <item android:id="@+id/privacy"
+        android:icon="@drawable/ic_cogwheel"
+        android:title="Privacy Policy"/>
 
 </menu>

@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -32,6 +33,7 @@ import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
+import com.solitary.ks.utils.Utils;
 
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
@@ -83,7 +85,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
         RelativeLayout positionId = findViewById(R.id.positionId);
 
-         positionId.setOnClickListener(this);
+        positionId.setOnClickListener(this);
 
         RelativeLayout spotId = findViewById(R.id.spotId);
         spotId.setOnClickListener(this);
@@ -125,18 +127,21 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case R.id.account:
-                        Toast.makeText(HomePageActivity.this, "My Account",Toast.LENGTH_SHORT).show();
-                    case R.id.settings:
-                        Toast.makeText(HomePageActivity.this, "Settings",Toast.LENGTH_SHORT).show();
-                    case R.id.mycart:
-                        Toast.makeText(HomePageActivity.this, "My Cart",Toast.LENGTH_SHORT).show();
+                    case R.id.share:
+                        Utils.shareApp(HomePageActivity.this);
+                        break;
+                    case R.id.privacy:
+                        startActivity(new Intent(HomePageActivity.this,PrivacyPolicyActivity.class));
+                        break;
+                    case R.id.rating:
+                        Utils.openApp(HomePageActivity.this);
+                        break;
                     default:
                         return true;
                 }
 
 
-
+                return true;
 
             }
 
@@ -177,6 +182,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId())
         {
             case R.id.positionId:

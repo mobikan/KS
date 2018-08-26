@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
+    android:layout_height="180dp"
+
     android:background="@color/colorPrimaryDark">
     <ImageView
-        android:layout_width="180dp"
-        android:layout_height="130dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/app_icon"
+        android:padding="10dp"
+        android:id="@+id/icon"
+        android:layout_centerInParent="true"
+        android:background="@drawable/menu_button_bg"
         />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Kamasutra Sex Positions"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        />
+
+</RelativeLayout>

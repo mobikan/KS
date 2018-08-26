@@ -39,6 +39,21 @@
     <string name="title_home_page">"Kamasutra"</string>
     <string name="no_data_favourite">"No Favourite positions yet !"</string>
     <string name="no_data_tried">"No Position Tried yet !"</string>
+    <string name="privacy_information_detail">
+        "This app is made ofr education purpose only.
+        You affirm that you are either more than 18 years old or legally matured and you are fully able and competent to enter into the terms &amp; conditions to abide by the and comply with these Terms of App.
+        If you are under 18 than please don't use this app."
+    </string>
+
+    <string name="content_disclaimer_detail">
+        "The content of this App is provided for information and education purposes only.
+        The information contained in this App is presented in summary form only and is intended to provide the basic understanding of the Sex Positions.
+        No Legal liability or other responsibility is accepted by or on behalf of App Publisher for any error or omissions."
+    </string>
 
 
+    <string name="rate_support_detail">
+        "We are using in-app advertisement to generate revenue. Please give positive review and rating to support this App."
+    </string>
+    <string name="title_privacy_policy">"Privacy policy"</string>
 </resources>

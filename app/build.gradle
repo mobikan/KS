@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'io.fabric'
 android {
     compileSdkVersion 28
     buildToolsVersion "27.0.3"
@@ -52,6 +52,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation("com.android.support:appcompat-v7:$supportLib_version")
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
 
     implementation("com.android.support:design:$supportLib_version")
             {
@@ -82,6 +83,7 @@ dependencies {
             {
                 exclude group: "com.android.support", module: "support-media-compat"
             }
+
     implementation 'org.jsoup:jsoup:1.11.3' // required
     implementation 'com.leocardz:link-preview:2.0.0@aar'
 

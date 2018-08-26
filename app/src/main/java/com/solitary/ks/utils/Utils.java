@@ -1,6 +1,8 @@
 package com.solitary.ks.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,5 +65,29 @@ public class Utils {
         return name.toString().toLowerCase();
     }
 
+
+    public static void shareApp(Context context) {
+        if(context != null) {
+            final String appPackageName = context.getPackageName();
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Check this cool Sticker App at: https://play.google.com/store/apps/details?id=" + appPackageName);
+            sendIntent.setType("text/plain");
+            context.startActivity(sendIntent);
+        }
+    }
+
+    public static void openApp(Context context)
+    {
+        if(context != null) {
+            final String appPackageName = context.getPackageName(); // getPackageName() from Context or Activity object
+            try {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            }
+        }
+    }
 }
 
