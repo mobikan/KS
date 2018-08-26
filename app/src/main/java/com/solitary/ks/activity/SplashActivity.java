@@ -1,6 +1,7 @@
 package com.solitary.ks.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -14,6 +15,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_TERMS_AGREE_KEY;
+
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -23,7 +27,8 @@ public class SplashActivity extends AppCompatActivity {
         //init();
 
         setContentView(R.layout.splash_activity);
-
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
+        final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -34,10 +39,19 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                startActivity(new Intent(SplashActivity.this,HomePageActivity.class));
+                if(isAgree) {
+                    startActivity(new Intent(SplashActivity.this, HomePageActivity.class));
+                }
+                else {
+                    startActivity(new Intent(SplashActivity.this, TermsAndConditionsActivity.class));
+                }
                 finish();
             }
         }, 1000);
+
+
+
+
 
 
 
@@ -76,6 +90,8 @@ public class SplashActivity extends AppCompatActivity {
         return sb.toString();
 
     }
+
+
 
 
 }

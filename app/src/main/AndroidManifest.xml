@@ -132,6 +132,14 @@
                 android:value="com.solitary.ks.activity.HomePageActivity" />
         </activity>
 
+        <activity
+            android:name="com.solitary.ks.activity.TermsAndConditionsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+        </activity>
+
         <service android:name=".firebase.MyFirebaseMessagingService" android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>

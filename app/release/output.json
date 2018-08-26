@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":2,"versionName":"1.0.1","enabled":true,"outputFile":"app-release.apk"},"path":"app-release.apk","properties":{"packageId":"com.solitary.ks","split":"","minSdkVersion":"19"}}]
+[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":3,"versionName":"1.0.2","enabled":true,"outputFile":"app-release.apk"},"path":"app-release.apk","properties":{"packageId":"com.solitary.ks","split":"","minSdkVersion":"19"}}]

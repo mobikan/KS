@@ -6,8 +6,9 @@
         android:title="Share"/>
 
     <item android:id="@+id/rating"
-        android:icon="@drawable/ic_favourite"
+        android:icon="@drawable/ic_star"
         android:title="Rating"/>
+
     <item android:id="@+id/privacy"
         android:icon="@drawable/ic_cogwheel"
         android:title="Privacy Policy"/>

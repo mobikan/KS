@@ -8,4 +8,11 @@ public interface  Constants {
         String BUNDLE_POSITION_TITLE = "position_title";
 
     }
+
+    interface TermsAndCondition{
+        String PREF_TERMS_AGREE_KEY="is_agreed";
+        String PREF_NAME ="TermsPref";
+
+
+    }
 }

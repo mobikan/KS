@@ -72,7 +72,7 @@ public class Utils {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "Check this cool Sticker App at: https://play.google.com/store/apps/details?id=" + appPackageName);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Check this beautiful Kamasutra Positions App at: https://play.google.com/store/apps/details?id=" + appPackageName);
             sendIntent.setType("text/plain");
             context.startActivity(sendIntent);
         }
