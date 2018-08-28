@@ -1,10 +1,12 @@
 package com.solitary.ks.activity;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,11 +23,21 @@ import static com.solitary.ks.utils.Constants.ShareConstants.INTENT_SHARE_TITLE_
 
 public class ShareActivity extends AppCompatActivity {
 
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shareable_layout);
 
+        ImageView google_play_icon = findViewById(R.id.google_play_icon);
+        if (android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+            google_play_icon.setImageResource(R.drawable.ic_google);
+        }
+        else {
+            google_play_icon.setImageResource(R.drawable.ic_google_play);
+        }
         if(getIntent() != null)
         {
             int imageId = getIntent().getIntExtra(INTENT_SHARE_IMAGE_ID, 0);

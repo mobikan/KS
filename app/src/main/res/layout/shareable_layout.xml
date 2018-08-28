@@ -46,7 +46,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:id="@+id/google_play_icon"
-        app:srcCompat="@drawable/ic_google_play"
+
         />
     <ImageView
         android:layout_width="56dp"
