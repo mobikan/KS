@@ -3,22 +3,24 @@ package com.solitary.ks.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -33,7 +35,12 @@ import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
+import com.solitary.ks.model.Tips;
 import com.solitary.ks.utils.Utils;
+
+import java.util.ArrayList;
+
+import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
 
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
@@ -43,6 +50,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     private HomePageActivityBinding binding;
 
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout drawerLayout;
+    private ArrayList<Tips> tipsArrayList = new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +73,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
+
 
     private void sendClickEvent(String id,String itemName)
     {
@@ -105,18 +116,17 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         upDateRatings();
-       // PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
-        //positionDataBaseHelper.getAllFavouritePositions();
+        readAllTips();
     }
 
-    private ActionBarDrawerToggle t;
+
     private void initDrawer()
     {
-        DrawerLayout dl = (DrawerLayout)findViewById(R.id.activity_main);
-        t = new ActionBarDrawerToggle(this, dl,R.string.open, R.string.close);
+        drawerLayout = (DrawerLayout)findViewById(R.id.activity_main);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
 
-        dl.addDrawerListener(t);
-        t.syncState();
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -148,6 +158,29 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         });
 
 
+    }
+
+    private void readAllTips()
+    {
+
+        FireBaseQueries.getInstance().readAllTips(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Tips tips = postSnapshot.getValue(Tips.class);
+                        tipsArrayList.add(tips);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void upDateRatings()
@@ -208,6 +241,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 sendClickEvent("sexTipsId","FavouritePositionListActivity");
                 break;
             case R.id.triedId:
+                //openTips();
                 startActivity(new Intent(this, TriedPositionsList.class));
                 sendClickEvent("breathId","TriedPositionsList");
                 break;
@@ -216,12 +250,33 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
         }
     }
+
+    private void openTips()
+    {
+        Intent intent = new Intent(this, LoveTipsActivity.class);
+        intent.putParcelableArrayListExtra(INTENT_TIPS_LIST_KEY, tipsArrayList);
+        startActivity(intent);
+        sendClickEvent("tipsId","LoveTipsActivity");
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(t.onOptionsItemSelected(item))
+        if(actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(Gravity.START)) {
+            //drawer is open
+            drawerLayout.closeDrawer(Gravity.LEFT);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+
     }
 }

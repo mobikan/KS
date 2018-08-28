@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
-import com.google.android.gms.ads.MobileAds;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
+import com.solitary.ks.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -48,11 +50,6 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 1000);
-
-
-
-
-
 
 
     }

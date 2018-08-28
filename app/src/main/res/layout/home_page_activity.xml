@@ -28,7 +28,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#323563">
+        android:background="#323563"
+        android:id="@+id/mainLayout">
 
 
         <View
@@ -46,7 +47,7 @@
             android:orientation="vertical"
             android:weightSum="3"
             android:layout_above="@+id/adView"
-            android:layout_below="@+id/toolbar">
+             >
 
             <RelativeLayout
                 android:layout_width="match_parent"

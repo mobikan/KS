@@ -20,22 +20,24 @@ public class FireBaseQueries {
 
     //TableType
     public static final int LIKE_POSITION = 0;
-    public static final int LIKE_MASSAGE = 1;
-    public static final int LIKE_SPOT = 2;
-    public static final int LIKE_KISS = 3;
+    public static final int LIKE_MASSAGE  = 1;
+    public static final int LIKE_SPOT     = 2;
+    public static final int LIKE_KISS     = 3;
     //
 
     private static final String LIKE_POSITION_KEY = "like/positions";
-    private static final String LIKE_MASSAGE_KEY = "like/massage";
-    private static final String LIKE_KISS_KEY = "like/kisses";
-    private static final String  LIKE_SPOT_KEY= "like/spot";
+    private static final String LIKE_MASSAGE_KEY  = "like/massage";
+    private static final String LIKE_KISS_KEY     = "like/kisses";
+    private static final String LIKE_SPOT_KEY     = "like/spot";
+
+    private static final String TIPS_KEY     = "tipsList";
 
 
-    private static final int RATING_ONE = 1;
-    private static final int RATING_TWO = 2;
+    private static final int RATING_ONE   = 1;
+    private static final int RATING_TWO   = 2;
     private static final int RATING_THREE = 3;
-    private static final int RATING_FOUR = 4;
-    private static final int RATING_FIVE = 5;
+    private static final int RATING_FOUR  = 4;
+    private static final int RATING_FIVE  = 5;
 
     private FireBaseQueries()
     {
@@ -218,7 +220,16 @@ public class FireBaseQueries {
         });
     }
 
-
+    /**
+     * Read All tips
+     *
+     * @param eventListener
+     */
+    public void readAllTips(ValueEventListener eventListener)
+    {
+        DatabaseReference myRef = mDatabase.getReference(TIPS_KEY);
+        myRef.addValueEventListener(eventListener);
+    }
 
 
 

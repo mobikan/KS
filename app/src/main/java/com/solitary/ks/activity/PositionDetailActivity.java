@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
@@ -67,7 +68,13 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         toolbar.setTitle(position.getTitle());
         setTitle(position.getTitle());
         initAds();
-        init();
+        try {
+            init();
+        }
+        catch (OutOfMemoryError e)
+        {
+           // Crashlytics.logException(e);
+        }
         findViewById(R.id.radialMenu).setOnClickListener(this);
 
     }
@@ -158,14 +165,21 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
     }
 
     private void showAds()
     {
-        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        try {
+            if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e("TAG", "Error in Ads"+e.getMessage());
         }
     }
 
@@ -203,7 +217,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     {
 
         final ToggleButton toggleButton = findViewById(R.id.likeToggleButton);
-         toggleButton.setBackgroundResource(R.drawable.like_selector);
+        toggleButton.setBackgroundResource(R.drawable.like_selector);
         toggleButton.setChecked(position.isLiked());
 
         toggleButton.setOnClickListener(new View.OnClickListener() {

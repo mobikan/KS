@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.solitary.ks.model.Kiss;
+import com.solitary.ks.model.Position;
 
 public class KissDataBaseHelper {
 
@@ -56,6 +57,25 @@ public class KissDataBaseHelper {
         // return notes list
         return kisses;
     }
+
+    public void setLiked(Kiss kiss)
+    {
+        ContentValues values = new ContentValues();
+        values.put(Columns.Kiss.COLUMN_LIKE, String.valueOf(kiss.isLiked()));
+
+// Which row to update, based on the title
+        String selection = Columns.Kiss.COLUMN_ID + " LIKE ?";
+        String[] selectionArgs = { kiss.getId() };
+
+        int count = mDbHelper.update(
+                Columns.Kiss.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+
+
+    }
+
 
     public void insert(Kiss kiss)
     {

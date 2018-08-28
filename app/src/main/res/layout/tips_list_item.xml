@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="250dp">
+    <io.github.ponnamkarthik.richlinkpreview.RichLinkViewTwitter
+        android:id="@+id/richLinkView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true">
+    </io.github.ponnamkarthik.richlinkpreview.RichLinkViewTwitter>
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/likeCount"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/richLinkView"
+        />
+
+
+    <ToggleButton
+        android:id="@+id/likeToggleButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toLeftOf="@id/likeCount"
+        android:layout_below="@+id/richLinkView"
+        android:checked="false"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp">
+
+    </ToggleButton>
+
+</RelativeLayout>

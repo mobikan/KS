@@ -14,9 +14,15 @@ android {
 
     }
     buildTypes {
+
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+            ext.enableCrashlytics = false
+
         }
     }
     defaultConfig {
@@ -25,9 +31,15 @@ android {
         renderscriptSupportModeEnabled true
 
     }
+
+    dexOptions {
+
+        javaMaxHeapSize "4g"
+    }
     dataBinding {
         enabled = true
     }
+
 
 }
 
@@ -52,7 +64,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation("com.android.support:appcompat-v7:$supportLib_version")
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
+    releaseImplementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
 
     implementation("com.android.support:design:$supportLib_version")
             {
@@ -84,9 +96,9 @@ dependencies {
                 exclude group: "com.android.support", module: "support-media-compat"
             }
 
-    implementation 'org.jsoup:jsoup:1.11.3' // required
-    implementation 'com.leocardz:link-preview:2.0.0@aar'
-
+    implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.8'
+    implementation 'org.jsoup:jsoup:1.11.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'
 }

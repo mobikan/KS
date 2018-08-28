@@ -2,64 +2,124 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-     >
+    android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_height="@dimen/abc_action_bar_default_height_material"
         android:layout_width="match_parent"
-        android:minHeight="@dimen/abc_action_bar_default_height_material"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
         android:background="@drawable/toolbar_gradient"
+        android:minHeight="@dimen/abc_action_bar_default_height_material"
         app:titleTextColor="@color/white"
 
         />
 
-    <ImageView
-        android:id="@+id/kissImage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:transitionName="profile"
-        android:scaleType="centerCrop"
-         />
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginRight="@dimen/text_margin"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-             >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            />
+            <ImageView
+                android:id="@+id/kissImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:transitionName="profile" />
 
-            <TextView
-                android:id="@+id/kissDetails"
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/large_text"
-                android:textSize="17sp"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@drawable/ic_share"
+                        android:paddingLeft="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_weight="1"
+                        android:id="@+id/share"/>
 
 
-                />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        >
+                        <ToggleButton
+                            android:id="@+id/likeToggleButton"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:layout_margin="10dp"
+
+                            android:checked="false"
+                            android:text=""
+                            android:textOff=""
+                            android:textOn="">
+
+                        </ToggleButton>
+                    <TextView
+                        android:id="@+id/likeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:paddingRight="10dp"
+                        android:gravity="center"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    android:id="@+id/kissDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_margin"
+                    android:layout_marginRight="@dimen/text_margin"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/large_text"
+                    android:textSize="17sp"
+
+                    />
+
+
+            </android.support.v7.widget.CardView>
         </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-
+    </ScrollView>
 </LinearLayout>
 
 
