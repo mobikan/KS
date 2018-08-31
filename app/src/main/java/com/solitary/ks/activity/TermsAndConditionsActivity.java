@@ -56,7 +56,7 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(PREF_TERMS_AGREE_KEY, true);
-        editor.commit();
+        editor.apply();
         startActivity(new Intent(TermsAndConditionsActivity.this, HomePageActivity.class));
         TermsAndConditionsActivity.this.finish();
     }

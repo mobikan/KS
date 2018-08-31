@@ -30,7 +30,7 @@ import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
 public class MassageActivity extends AppCompatActivity {
 
-    private MaterialViewPager mViewPager;
+
     private int count = 0;
     private List<Massage> massageArrayList;
     private Massage massage;
@@ -44,10 +44,10 @@ public class MassageActivity extends AppCompatActivity {
         count = readDataFromDb();
         massage =  massageArrayList.get(0);
         setTitle("");
-        mViewPager = findViewById(R.id.materialViewPager);
+         MaterialViewPager mViewPager = findViewById(R.id.materialViewPager);
         /* Interstitial Ads */
-        initAds();
-        showAds();
+        //initAds();
+        //showAds();
         final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);

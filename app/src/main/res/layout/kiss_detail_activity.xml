@@ -52,7 +52,7 @@
                         android:layout_height="30dp"
                         app:srcCompat="@drawable/ic_share"
                         android:paddingLeft="10dp"
-                        android:layout_centerVertical="true"
+
                         android:layout_weight="1"
                         android:id="@+id/share"/>
 
@@ -68,7 +68,7 @@
                             android:id="@+id/likeToggleButton"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:layout_centerVertical="true"
+
                             android:gravity="center"
                             android:layout_margin="10dp"
 

@@ -21,7 +21,7 @@ import com.solitary.ks.R;
 public class RadialButtonLayout extends FrameLayout implements View.OnClickListener{
 
     private final static long DURATION_SHORT = 400;
-    private WeakReference<Context> weakContext;
+    //private WeakReference<Context> weakContext;
 
 
     View btnMain;
@@ -38,7 +38,7 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
 
     private boolean isOpen = false;
     private Toast toast;
-    private View view;
+   // private View view;
     /**
      * Default constructor
      * @param context
@@ -50,11 +50,11 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
     public RadialButtonLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    private View.OnClickListener onClickListener;
+  //  private View.OnClickListener onClickListener;
 
     public void setOnClickListener(View.OnClickListener onClickListener)
     {
-        this.onClickListener = onClickListener;
+        //this.onClickListener = onClickListener;
         btnOrange.setOnClickListener(onClickListener);
         btnYellow.setOnClickListener(onClickListener);
         btnGreen.setOnClickListener(onClickListener);
@@ -65,8 +65,8 @@ public class RadialButtonLayout extends FrameLayout implements View.OnClickListe
 
     public RadialButtonLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        weakContext = new WeakReference<Context>( context );
-        view  = LayoutInflater.from(context).inflate( R.layout.layout_radial_buttons, this);
+        WeakReference<Context> weakContext = new WeakReference<Context>( context );
+        View view  = LayoutInflater.from(context).inflate( R.layout.layout_radial_buttons, this);
 
         btnMain = view.findViewById(R.id.btn_main);
         btnOrange =  view.findViewById(R.id.btn_orange);

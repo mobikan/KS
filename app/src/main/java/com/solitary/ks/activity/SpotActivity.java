@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class SpotActivity extends AppCompatActivity {
 
-    private MaterialViewPager mViewPager;
+
 
     private SpotList spotList;
 
@@ -36,7 +36,7 @@ public class SpotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
         setTitle("");
-        mViewPager = findViewById(R.id.materialViewPager);
+        MaterialViewPager mViewPager = findViewById(R.id.materialViewPager);
 
         final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
@@ -107,13 +107,13 @@ public class SpotActivity extends AppCompatActivity {
                                 R.color.blue,
                                 getResources().getDrawable(R.drawable.deep_tissue_massage));
                     case 2:
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.cyan,
-                                "http://www.droid-life.com/wp-content/uploads/2014/test/lollipop-wallpapers10.jpg");
+                                getResources().getDrawable(R.drawable.foot_massage));
                     case 3:
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.red,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                                getResources().getDrawable(R.drawable.sports_massage));
                 }
 
                 //execute others actions if needed (ex : modify your header logo)
@@ -127,22 +127,22 @@ public class SpotActivity extends AppCompatActivity {
 
     }
 
-    private InterstitialAd mInterstitialAd;
-    private void initAds()
-    {
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-    }
-
-    private void showAds()
-    {
-        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
-    }
+//    private InterstitialAd mInterstitialAd;
+//    private void initAds()
+//    {
+//        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
+//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+//    }
+//
+//    private void showAds()
+//    {
+//        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+//            mInterstitialAd.show();
+//        } else {
+//            Log.d("TAG", "The interstitial wasn't loaded yet.");
+//        }
+//    }
 
 
     private void init() {
@@ -159,8 +159,8 @@ public class SpotActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        initAds();
-        showAds();
+       // initAds();
+       // showAds();
     }
 
     private ArrayList<Spot> getFilterList(ArrayList<Spot> list, String type) {

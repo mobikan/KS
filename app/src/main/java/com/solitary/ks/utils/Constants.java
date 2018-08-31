@@ -13,6 +13,7 @@ public interface  Constants {
         String PREF_TERMS_AGREE_KEY="is_agreed";
         String PREF_NAME ="TermsPref";
         String INTENT_TIPS_LIST_KEY = "tips_list";
+        String PREF_RATING_GIVEN_KEY="is_Rating";
 
     }
 
@@ -22,4 +23,12 @@ public interface  Constants {
         String INTENT_SHARE_TITLE_ID = "title";
 
     }
+
+    interface AppRating{
+        int RATING_DIALOG_TYPE= 0;
+
+
+    }
+
+
 }

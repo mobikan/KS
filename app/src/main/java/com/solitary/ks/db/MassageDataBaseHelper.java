@@ -47,7 +47,7 @@ public class MassageDataBaseHelper {
 
         // close db connection
         mDbHelper.close();
-
+        cursor.close();
         // return notes list
         return MassageList;
     }

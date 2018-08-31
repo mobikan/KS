@@ -18,6 +18,7 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/kiss_on_the_hand"
         android:scaleType="centerCrop"
+        android:padding="1dp"
         />
     <TextView
         android:layout_width="match_parent"

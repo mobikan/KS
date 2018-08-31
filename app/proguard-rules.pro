@@ -18,10 +18,16 @@
 #-keep public class com.mobikan.ks.model.** {
 #  public protected *;
 #}
+-keep public class * extends java.lang.Exception
+
 
 -keep public class com.solitary.ks.model.** {
  *;
   }
+
+-dontwarn io.github.ponnamkarthik.richlinkpreview.**
+-keep class io.github.ponnamkarthik.richlinkpreview.** { *; }
+-ignorewarnings
 
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;

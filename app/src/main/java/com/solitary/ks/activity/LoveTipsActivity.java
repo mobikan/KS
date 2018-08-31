@@ -15,19 +15,15 @@ import android.widget.ImageView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.solitary.ks.R;
-import com.solitary.ks.adapter.KissListAdapter;
 import com.solitary.ks.adapter.TipsListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
-import com.solitary.ks.databinding.KissListScreenBinding;
 import com.solitary.ks.databinding.LoveTipsActivityBinding;
 import com.solitary.ks.db.DataBaseHelper;
-import com.solitary.ks.db.KissDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Tips;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
 
@@ -37,8 +33,8 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
 
     private LoveTipsActivityBinding binding;
     public static final String EXTRA_IMAGE_TRANSITION_NAME = "Image Transition";
-    private TipsListAdapter positionListAdapter;
-    private DataBaseHelper dataBaseHelper;
+    //private TipsListAdapter positionListAdapter;
+    //private DataBaseHelper dataBaseHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,7 +53,7 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
 
     private void init()
     {
-        dataBaseHelper = new DataBaseHelper(getApplicationContext());
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
        // binding.recyclerView.setVisibility(View.INVISIBLE);
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitle("Love Tips");
@@ -66,7 +62,7 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
         ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(margin,margin,margin,margin);
         binding.recyclerView.addItemDecoration(itemOffsetDecoration);
         ArrayList<Tips> kissArrayList = getIntent().getParcelableArrayListExtra(INTENT_TIPS_LIST_KEY);
-        positionListAdapter = new TipsListAdapter(kissArrayList);
+        TipsListAdapter positionListAdapter = new TipsListAdapter(kissArrayList);
 
         binding.recyclerView.setAdapter(positionListAdapter);
 

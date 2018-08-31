@@ -79,14 +79,14 @@
         android:layout_width="1dp"
         android:layout_height="1dp"
         android:id="@+id/middle_view"
-        android:layout_alignParentTop="true"
+
         android:layout_marginLeft="38dp"/>
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/circular_shape"
-        android:layout_alignParentLeft="true"
+
         android:id="@+id/image_view"
         android:elevation="10dp"
         android:transitionName="profile"

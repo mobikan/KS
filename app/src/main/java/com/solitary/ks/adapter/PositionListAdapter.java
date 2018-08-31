@@ -25,14 +25,14 @@ import com.solitary.ks.model.Position;
 public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapter.ViewHolder> {
     private List<Position> mDataset;
 
-    private PositionClickListener onClickListener;
+    private PositionClickListener<Position> onClickListener;
 
     private View.OnClickListener onViewClickListener;
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
-    public void setOnClickListener(PositionClickListener onClickListener)
+    public void setOnClickListener(PositionClickListener<Position> onClickListener)
     {
         this.onClickListener = onClickListener;
     }

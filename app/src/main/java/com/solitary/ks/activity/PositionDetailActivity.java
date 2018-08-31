@@ -2,6 +2,8 @@ package com.solitary.ks.activity;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,13 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -39,17 +42,26 @@ import com.solitary.ks.utils.Utils;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
+import java.lang.ref.WeakReference;
+
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_TITLE;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_RATING_GIVEN_KEY;
 
-public class PositionDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class PositionDetailActivity extends AppCompatActivity implements View.OnClickListener,ValueEventListener{
 
     private int imageId;
     private Position position;
     private ActivityDetailBinding binding;
-    private PositionDataBaseHelper positionDataBaseHelper;
+
     private InterstitialAd mInterstitialAd;
+
+    private WeakReference<Context> contextWeakReference;
+    private WeakReference<TextView> likeCountRef;
+    private PositionDataBaseHelper positionDataBaseHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +73,16 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        contextWeakReference = new WeakReference<>(getApplicationContext());
+
         position = getIntent().getParcelableExtra("position_data");
         /* Interstitial Ads */
 
-
+        TextView likeCount = findViewById(R.id.likeCount);
+        likeCountRef = new WeakReference<>(likeCount);
         toolbar.setTitle(position.getTitle());
         setTitle(position.getTitle());
-        initAds();
+       // initAds();
         try {
             init();
         }
@@ -100,10 +115,10 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
 
         imageId = getResources().getIdentifier(Utils.getImageName(position.getTitle()), "drawable", getPackageName());
 
-        imageView.setImageResource(imageId);
+        //imageView.setImageResource(imageId);
 
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
-        positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        imageView.setImageBitmap(
+                Utils.decodeSampledBitmapFromResource(getResources(), imageId, 300, 300));
 
         setTabLayout();
 
@@ -112,6 +127,14 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         setBookmark();
 
         setLike();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(contextWeakReference.get());
+        positionDataBaseHelper =  new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION)); //new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+
     }
 
     private void setTabLayout()
@@ -145,20 +168,35 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                 {
                     check.uncheck();
                     position.setTried(false);
-                    positionDataBaseHelper.setTried(position);
+                    if(positionDataBaseHelper != null) {
+                        positionDataBaseHelper.setTried(position);
+                    }
+
                 }
                 else
                 {
                     check.check();
                     position.setTried(true);
-                    positionDataBaseHelper.setTried(position);
-                    showAds();
+                    if(positionDataBaseHelper != null) {
+                        positionDataBaseHelper.setTried(position);
+                    }
+                    //showAds();
 
                 }
             }
         });
     }
 
+
+    private void showAppRatingDialog()
+    {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
+        final boolean isRatingAvail = pref.getBoolean(PREF_RATING_GIVEN_KEY, false);
+        if(!isRatingAvail)
+        {
+            Utils.showAppRatingDialog(getFragmentManager());
+        }
+    }
 
     private void initAds()
     {
@@ -193,11 +231,14 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
             public void onEvent(ImageView button, boolean buttonState) {
                 if(buttonState) {
                     Toast.makeText(getApplicationContext(), "Position bookmarked ", Toast.LENGTH_SHORT).show();
-                    showAds();
-
+                    //showAds();
+                    showAppRatingDialog();
                 }
                 position.setFavourite(buttonState);
-                positionDataBaseHelper.setFavourite(position);
+                if(positionDataBaseHelper != null) {
+                    positionDataBaseHelper.setFavourite(position);
+                }
+
 
             }
 
@@ -228,7 +269,9 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     position.setLiked(false);
                     toggleButton.setChecked(false);
                     FireBaseQueries.getInstance().resetLike(FireBaseQueries.LIKE_POSITION, position.getId());
-                    positionDataBaseHelper.setLiked(position);
+                    if(positionDataBaseHelper != null) {
+                        positionDataBaseHelper.setLiked(position);
+                    }
                     return;
                 }
                 else
@@ -236,36 +279,48 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     position.setLiked(true);
                     toggleButton.setChecked(true);
                     FireBaseQueries.getInstance().updateLike(FireBaseQueries.LIKE_POSITION, position.getId());
-                    positionDataBaseHelper.setLiked(position);
-                    showAds();
-                }
-
-            }
-        });
-
-        final TextView likeCount = findViewById(R.id.likeCount);
-        FireBaseQueries.getInstance().readLikeById(FireBaseQueries.LIKE_POSITION, position.getId(), new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
-                    Like like = dataSnapshot.getValue(Like.class);
-                    if(like != null)
-                    {
-                        likeCount.setText(String.valueOf(like.getNo_of_like()));
+                    if(positionDataBaseHelper != null) {
+                        positionDataBaseHelper.setLiked(position);
                     }
+                   // showAds();
 
                 }
 
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
         });
+
+
+        FireBaseQueries.getInstance().readLikeById(FireBaseQueries.LIKE_POSITION, position.getId(), this);
+    }
+
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        if(dataSnapshot.exists()) {
+            Like like = dataSnapshot.getValue(Like.class);
+            if(like != null)
+            {
+
+                likeCountRef.get().setText(String.valueOf(like.getNo_of_like()));
+            }
+
+        }
+
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError databaseError) {
+
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.share_menu, menu);
+
+        // return true so that the menu pop up is opened
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -275,8 +330,10 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.share) {
+
+            Utils.openShareImageActivity(contextWeakReference.get(), position.getTitle(), position.getDescription(), imageId);
+
         }
         else if(id == android.R.id.home)
         {
@@ -347,6 +404,9 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         super.onDestroy();
         if(positionDataBaseHelper != null) {
             positionDataBaseHelper.closeDb();
+            positionDataBaseHelper =  null;
         }
     }
+
+
 }

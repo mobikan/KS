@@ -3,14 +3,10 @@ package com.solitary.ks.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,15 +17,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
-import com.solitary.ks.databinding.HomePageActivityBinding;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
@@ -48,7 +41,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
    // private HomePageActivityBinding binding;
     private FirebaseAnalytics mFirebaseAnalytics;
 
-    private HomePageActivityBinding binding;
+
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
@@ -56,20 +49,21 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       binding =
+
                 DataBindingUtil.setContentView(this,R.layout.home_page_activity);
         setContentView(R.layout.home_page_activity);
-        MobileAds.initialize(this, getString(R.string.admob_app_id));
+       // MobileAds.initialize(this, getString(R.string.admob_app_id));
         init();
         initDrawer();
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
-        AdView adView = findViewById(R.id.adView);
+//        AdView adView = findViewById(R.id.adView);
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//
+//        adView.loadAd(adRequest);
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        adView.loadAd(adRequest);
 
 
     }
@@ -116,7 +110,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         upDateRatings();
-        readAllTips();
+        //readAllTips();
     }
 
 
@@ -144,7 +138,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                         startActivity(new Intent(HomePageActivity.this,PrivacyPolicyActivity.class));
                         break;
                     case R.id.rating:
-                        Utils.openApp(HomePageActivity.this);
+                        Utils.openAppOnGooglePlay(HomePageActivity.this);
                         break;
                     default:
                         return true;

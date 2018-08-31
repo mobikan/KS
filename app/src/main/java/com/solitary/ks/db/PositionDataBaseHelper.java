@@ -61,7 +61,7 @@ public class PositionDataBaseHelper {
 
         // close db connection
         mDbHelper.close();
-
+        cursor.close();
         // return notes list
         return positions;
     }
@@ -99,7 +99,7 @@ public class PositionDataBaseHelper {
 
         // close db connection
         mDbHelper.close();
-
+        cursor.close();
         // return notes list
         return positions;
     }
@@ -137,7 +137,7 @@ public class PositionDataBaseHelper {
 
         // close db connection
         mDbHelper.close();
-
+        cursor.close();
         // return notes list
         return positions;
     }
@@ -243,6 +243,7 @@ public class PositionDataBaseHelper {
     {
         if(mDbHelper != null) {
             mDbHelper.close();
+            mDbHelper = null;
         }
 
     }
