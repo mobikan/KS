@@ -1,6 +1,9 @@
 package com.solitary.ks.activity;
 
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -25,7 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
+import com.solitary.ks.firebase.ExitDialogFragment;
 import com.solitary.ks.firebase.FireBaseQueries;
+import com.solitary.ks.fragment.AppRatingDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
 import com.solitary.ks.model.Tips;
@@ -270,8 +275,24 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         }
         else
         {
-            super.onBackPressed();
+
+            showAppRatingDialog(getFragmentManager());
+            //super.onBackPressed();
         }
 
+    }
+
+    public static void showAppRatingDialog(FragmentManager fragmentManager)
+    {
+
+        FragmentTransaction ft =  fragmentManager.beginTransaction();
+        Fragment prev = fragmentManager.findFragmentByTag("ExitDialogFragment");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+        ExitDialogFragment dialogFragment = new ExitDialogFragment();
+
+        dialogFragment.show(ft, "ExitDialogFragment");
     }
 }

@@ -31,6 +31,7 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
     private TextView cancelButton;
     private TextView dialog_rating_msg;
     private List<String> msgList =  Arrays.asList("Very Bad", "Not good", "Quite ok", "Very Good", "Excellent !!!");
+    protected TextView dialog_rating_title;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,8 +45,11 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
         cancelButton=  v.findViewById(R.id.dialog_rating_button_negative);
         cancelButton.setOnClickListener(this);
         dialog_rating_msg = v.findViewById(R.id.dialog_rating_msg);
+        dialog_rating_title = v.findViewById(R.id.dialog_rating_title);
         return v;
     }
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

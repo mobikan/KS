@@ -28,7 +28,9 @@
         android:layout_marginRight="15dp"
         android:gravity="center"
         android:padding="20dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:text="Please rate your Experience ."
+        android:textColor="@color/colorPrimary"/>
 
     <RatingBar
         android:id="@+id/dialog_rating_rating_bar"
