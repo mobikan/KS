@@ -18,6 +18,7 @@ import com.solitary.ks.utils.Utils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_RATING_GIVEN_KEY;
@@ -35,7 +36,7 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.app_rating_dialog, container, false);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         ratingBar = v.findViewById(R.id.dialog_rating_rating_bar);
         ratingBar.setOnRatingBarChangeListener(this);
         positiveButton =  v.findViewById(R.id.dialog_rating_button_positive);
@@ -49,7 +50,7 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(dialog.getWindow()).requestFeature(Window.FEATURE_NO_TITLE);
         return dialog;
     }
 

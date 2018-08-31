@@ -92,7 +92,7 @@ public class CheckView extends View {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     public CheckView(Context context) {
         super(context);
-        this.init(context, (AttributeSet)null);
+        this.init(context, null);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -236,7 +236,7 @@ public class CheckView extends View {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     private Interpolator createCheckInterpolatorCompat() {
-        return (Interpolator)(VERSION.SDK_INT >= 21 ? new PathInterpolator(0.755F, 0.05F, 0.855F, 0.06F) : new AccelerateInterpolator());
+        return VERSION.SDK_INT >= 21 ? new PathInterpolator(0.755F, 0.05F, 0.855F, 0.06F) : new AccelerateInterpolator();
     }
 
     private void setCheckPathFull() {
@@ -259,7 +259,7 @@ public class CheckView extends View {
             this.mPathCheck.moveTo(this.mCheckPivot.x, this.mCheckPivot.y);
             this.mPathCheck.lineTo(this.mCheckEnd.x, this.mCheckEnd.y);
             this.mPathMeasure.setPath(this.mPathCheck, false);
-            this.mPathMeasure.getPosTan(distance, this.mPoint, (float[])null);
+            this.mPathMeasure.getPosTan(distance, this.mPoint, null);
             this.mPathCheck.reset();
             this.mPathCheck.moveTo(this.mCheckStart.x, this.mCheckStart.y);
             this.mPathCheck.lineTo(this.mCheckPivot.x, this.mCheckPivot.y);
@@ -268,7 +268,7 @@ public class CheckView extends View {
             minorPercent = percent / pivotPercent;
             distance = this.mMinorContourLength * minorPercent;
             this.mPathMeasure.setPath(this.mPathCheck, false);
-            this.mPathMeasure.getPosTan(distance, this.mPoint, (float[])null);
+            this.mPathMeasure.getPosTan(distance, this.mPoint, null);
             this.mPathCheck.reset();
             this.mPathCheck.moveTo(this.mCheckStart.x, this.mCheckStart.y);
             this.mPathCheck.lineTo(this.mPoint[0], this.mPoint[1]);
@@ -284,7 +284,7 @@ public class CheckView extends View {
         this.mPathCircle.addArc(this.mCircleRect, 0.0F, 360.0F);
         this.mPathMeasure.setPath(this.mPathCircle, false);
         float distance = this.mPathMeasure.getLength() * percent;
-        this.mPathMeasure.getPosTan(distance, this.mPoint, (float[])null);
+        this.mPathMeasure.getPosTan(distance, this.mPoint, null);
         this.mPathCircle.reset();
         this.mPathCircle.moveTo(this.mCircleStart.x, this.mCircleStart.y);
         this.mPathCircle.arcTo(this.mCircleRect, 0.0F, 359.0F * percent);

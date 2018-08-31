@@ -1,5 +1,6 @@
 package com.solitary.ks.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -78,20 +79,21 @@ public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapte
     }
 
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
-    public PositionListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public PositionListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                              int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.position_list_item, parent, false);
 
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+
+        return new ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
@@ -158,4 +160,6 @@ public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapte
     public int getItemCount() {
         return mDataset.size();
     }
+
+
 }

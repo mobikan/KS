@@ -27,6 +27,7 @@ import com.solitary.ks.model.Position;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class PositionListActivity extends AppCompatActivity implements PositionClickListener<Position>,View.OnClickListener {
@@ -46,10 +47,10 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         super.onCreate(savedInstanceState);
 
         binding =  DataBindingUtil.setContentView(this, R.layout.ks_list_screen);
-        setSupportActionBar(binding.toolbar);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(Objects.requireNonNull(binding).toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         WeakReference<Context> contextWeakReference = new WeakReference<>(getApplicationContext());
         dataBaseHelper = new DataBaseHelper(contextWeakReference.get());
         init();

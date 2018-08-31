@@ -43,6 +43,7 @@ import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
@@ -69,9 +70,9 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_detail );
         setContentView(R.layout.activity_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarID);
+        Toolbar toolbar = findViewById(R.id.toolbarID);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         contextWeakReference = new WeakReference<>(getApplicationContext());
 
@@ -144,9 +145,9 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         ViewPager viewPager =  findViewById(R.id.pager);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.setAdapter(new CustomPagerAdapter(position));
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_tips_his);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_tips_her);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_try_this);
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_tips_his);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_tips_her);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_try_this);
     }
 
     private void setTriedPosition()
@@ -391,12 +392,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-
-    }
 
     @Override
     protected void onDestroy() {

@@ -24,6 +24,7 @@ import com.solitary.ks.model.Massage;
 import com.solitary.ks.utils.Utils;
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
@@ -109,7 +110,7 @@ public class MassageActivity extends AppCompatActivity {
             }
         });
 
-        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
 //        final View logo = findViewById(R.id.logo_white);
@@ -160,16 +161,5 @@ public class MassageActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-
-        super.onDestroy();
-    }
 
 }

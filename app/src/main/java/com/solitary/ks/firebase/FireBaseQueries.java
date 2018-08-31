@@ -1,5 +1,7 @@
 package com.solitary.ks.firebase;
 
+import android.support.annotation.NonNull;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -133,8 +135,9 @@ public class FireBaseQueries {
         //Like like = new Like(id, 1, 3.5f);
 
         myRef.runTransaction(new Transaction.Handler() {
+            @NonNull
             @Override
-            public Transaction.Result doTransaction(MutableData mutableData) {
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
                 Like like = mutableData.getValue(Like.class);
                 if(like != null) {
                     if (like.getNo_of_like() == 0) {
@@ -168,8 +171,9 @@ public class FireBaseQueries {
         //Like like = new Like(id, 1, 3.5f);
 
         myRef.runTransaction(new Transaction.Handler() {
+            @NonNull
             @Override
-            public Transaction.Result doTransaction(MutableData mutableData) {
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
                 Like like = mutableData.getValue(Like.class);
                 if(like != null) {
                     if (like.getNo_of_like() >= 0) {
@@ -200,8 +204,9 @@ public class FireBaseQueries {
     {
         DatabaseReference myRef = mDatabase.getReference( getTableRef(tableType) + "/" + id);
         myRef.runTransaction(new Transaction.Handler() {
+            @NonNull
             @Override
-            public Transaction.Result doTransaction(MutableData mutableData) {
+            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
                 Like like = mutableData.getValue(Like.class);
                 if(like != null) {
                      like.setRating_data(getRatingData(like.getRating_data(),rating));

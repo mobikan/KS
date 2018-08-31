@@ -28,6 +28,7 @@ import com.solitary.ks.model.Like;
 import com.solitary.ks.utils.Utils;
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_RATING_GIVEN_KEY;
@@ -54,10 +55,10 @@ public class KissDetailActivity extends AppCompatActivity implements View.OnClic
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(kiss.getTitle());
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //supportPostponeEnterTransition();
-        ImageView imageView = (ImageView) findViewById(R.id.kissImage);
+        ImageView imageView = findViewById(R.id.kissImage);
         TextView benefits = findViewById(R.id.kissDetails);
 
         imageId = getResources().getIdentifier(kiss.getImageId(), "drawable", getPackageName());

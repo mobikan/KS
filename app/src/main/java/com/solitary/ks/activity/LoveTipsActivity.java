@@ -24,6 +24,7 @@ import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Tips;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
 
@@ -41,9 +42,9 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
         super.onCreate(savedInstanceState);
 
         binding =  DataBindingUtil.setContentView(this, R.layout.love_tips_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         init();
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

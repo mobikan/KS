@@ -1,5 +1,6 @@
 package com.solitary.ks.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,8 +41,9 @@ public class SpotListAdapter extends RecyclerView.Adapter<SpotListAdapter.ViewHo
         return contents.size();
     }
 
+    @NonNull
     @Override
-    public SpotListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SpotListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = null;
 
         switch (viewType) {
@@ -58,7 +60,7 @@ public class SpotListAdapter extends RecyclerView.Adapter<SpotListAdapter.ViewHo
                 };
             }
         }
-        return null;
+        return new ViewHolder(view);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -78,7 +80,7 @@ public class SpotListAdapter extends RecyclerView.Adapter<SpotListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         switch (getItemViewType(position)) {
             case TYPE_HEADER:
                 break;

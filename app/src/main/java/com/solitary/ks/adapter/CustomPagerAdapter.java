@@ -1,5 +1,6 @@
 package com.solitary.ks.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,9 @@ public class CustomPagerAdapter extends PagerAdapter {
     private String[] titleList= {"Tips for His","Tips for Her","Try This"};
     private int[] resourceIds= {R.drawable.ic_tips_his,R.drawable.ic_tips_her,R.drawable.ic_try_this};
 
+    @NonNull
     @Override
-    public Object instantiateItem(ViewGroup collection, int position) {
+    public Object instantiateItem(@NonNull ViewGroup collection, int position) {
 
         LayoutInflater inflater = LayoutInflater.from(collection.getContext());
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.detail_tips_layout, collection, false);
@@ -37,7 +39,7 @@ public class CustomPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(ViewGroup collection, int position, Object view) {
+    public void destroyItem(@NonNull ViewGroup collection, int position, @NonNull Object view) {
         collection.removeView((View) view);
     }
 
@@ -47,7 +49,7 @@ public class CustomPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
     }
 

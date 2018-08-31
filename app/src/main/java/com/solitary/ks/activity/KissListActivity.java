@@ -25,6 +25,7 @@ import com.solitary.ks.model.Kiss;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class KissListActivity extends AppCompatActivity  implements PositionClickListener<Kiss> {
@@ -41,9 +42,9 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
         super.onCreate(savedInstanceState);
 
         binding =  DataBindingUtil.setContentView(this, R.layout.kiss_list_screen);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         init();
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

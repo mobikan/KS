@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SpotActivity extends AppCompatActivity {
 
@@ -122,7 +123,7 @@ public class SpotActivity extends AppCompatActivity {
             }
         });
 
-        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
     }

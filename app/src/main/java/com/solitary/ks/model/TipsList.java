@@ -13,7 +13,7 @@ public class TipsList {
 
         public void setTipsList(ArrayList<Tips> kisses)
         {
-            this.tipsArrayList = tipsArrayList;
+            this.tipsArrayList = kisses;
         }
 
         @Override

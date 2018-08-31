@@ -7,6 +7,8 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
  private static final String TAG = "FCM Service";
  @Override
@@ -28,7 +30,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
      }
 
          Log.d(TAG, "From: " + remoteMessage.getFrom());
-        Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        Log.d(TAG, "Notification Message Body: " + Objects.requireNonNull(remoteMessage.getNotification()).getBody());
     }
 
     @Override

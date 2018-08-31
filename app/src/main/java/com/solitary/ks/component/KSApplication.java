@@ -15,7 +15,7 @@ public class KSApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        configureCrashReporting();
+
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -24,11 +24,6 @@ public class KSApplication extends Application {
         LeakCanary.install(this);
     }
     
-    private void configureCrashReporting() {
-//        CrashlyticsCore crashlyticsCore = new CrashlyticsCore.Builder()
-//                .disabled(BuildConfig.DEBUG)
-//                .build();
-//        Fabric.with(this, new Crashlytics.Builder().core(crashlyticsCore).build());
-    }
+
     
 }

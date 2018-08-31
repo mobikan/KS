@@ -32,6 +32,7 @@ import com.solitary.ks.model.Tips;
 import com.solitary.ks.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
 
@@ -116,15 +117,15 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     private void initDrawer()
     {
-        drawerLayout = (DrawerLayout)findViewById(R.id.activity_main);
+        drawerLayout = findViewById(R.id.activity_main);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.nv);
+        NavigationView nv = findViewById(R.id.nv);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -188,7 +189,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 if(dataSnapshot.exists()) {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         Like like = postSnapshot.getValue(Like.class);
-                        Log.v("LIke ", "Like " + like.getNo_of_like());
+                        Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
                         Position position = new Position();
                         position.setId(like.getId());
                         position.setRating((int) like.getRating());

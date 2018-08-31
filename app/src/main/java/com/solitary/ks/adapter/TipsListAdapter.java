@@ -1,5 +1,6 @@
 package com.solitary.ks.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,20 +41,21 @@ public class TipsListAdapter extends RecyclerView.Adapter<TipsListAdapter.ViewHo
     }
 
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
-    public TipsListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public TipsListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                          int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.tips_list_item, parent, false);
 
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        //ViewHolder vh = new ViewHolder(v);
+        return new ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         bind(holder, tipsList.get(position));

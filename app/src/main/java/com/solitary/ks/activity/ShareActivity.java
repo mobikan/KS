@@ -59,7 +59,7 @@ public class ShareActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                RelativeLayout view = (RelativeLayout) findViewById(R.id.mainLayout);
+                RelativeLayout view = findViewById(R.id.mainLayout);
                 view.setDrawingCacheEnabled(true);
                 view.buildDrawingCache();
                 Bitmap bm = view.getDrawingCache();

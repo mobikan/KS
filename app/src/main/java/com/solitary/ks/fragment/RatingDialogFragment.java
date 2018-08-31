@@ -22,6 +22,8 @@ import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.model.Position;
 
+import java.util.Objects;
+
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
 import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_TITLE;
@@ -35,7 +37,7 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.rating_dialog_layout, container, false);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         ImageView positionIcon =  v.findViewById(R.id.positionIcon);
 
         RequestOptions requestOptions = new RequestOptions();
@@ -64,7 +66,7 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(dialog.getWindow()).requestFeature(Window.FEATURE_NO_TITLE);
         return dialog;
     }
 
