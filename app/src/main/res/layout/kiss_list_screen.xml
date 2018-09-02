@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:id="@+id/recyclerView"
             android:layout_below="@id/toolbar"
-            android:layout_above="@+id/adView">
+             >
         </android.support.v7.widget.RecyclerView>
 
         <com.google.android.gms.ads.AdView
@@ -33,6 +33,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
+            android:visibility="gone"
             ads:adUnitId="@string/banner_app_id">
         </com.google.android.gms.ads.AdView>
 

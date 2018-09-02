@@ -42,12 +42,12 @@ import java.util.Objects;
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
 
 
-public class HomePageActivity extends AppCompatActivity implements View.OnClickListener{
+public class HomePageActivity extends AppCompatActivity implements View.OnClickListener,ValueEventListener{
 
    // private HomePageActivityBinding binding;
     private FirebaseAnalytics mFirebaseAnalytics;
 
-
+    private PositionDataBaseHelper positionDataBaseHelper;
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
@@ -116,6 +116,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         upDateRatings();
+
+        DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
+        positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
         //readAllTips();
     }
 
@@ -183,33 +186,31 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         });
     }
 
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+        if(dataSnapshot.exists()) {
+            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                Like like = postSnapshot.getValue(Like.class);
+                Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
+                Position position = new Position();
+                position.setId(like.getId());
+                position.setRating((int) like.getRating());
+                positionDataBaseHelper.setRating(position);
+            }
+        }
+
+    }
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+    }
+
     private void upDateRatings()
     {
-        DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
-        final PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
-        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.exists()) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Like like = postSnapshot.getValue(Like.class);
-                        Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
-                        Position position = new Position();
-                        position.setId(like.getId());
-                        position.setRating((int) like.getRating());
-                        positionDataBaseHelper.setRating(position);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
+        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, this);
 
     }
 

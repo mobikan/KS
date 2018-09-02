@@ -110,7 +110,7 @@ public class MassageActivity extends AppCompatActivity {
             }
         });
 
-        mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
+        //mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
 //        final View logo = findViewById(R.id.logo_white);

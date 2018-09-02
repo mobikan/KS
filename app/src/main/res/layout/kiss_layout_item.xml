@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/likeButton"
-                app:srcCompat="@drawable/ic_like"
+                app:srcCompat="@drawable/ic_like_selected"
                 android:paddingBottom="10dp"
                 android:layout_toLeftOf="@id/likeCount"
                 android:layout_below="@id/kiss_name"

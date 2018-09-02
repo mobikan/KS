@@ -108,7 +108,7 @@ public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapte
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.circleCrop().override(100, 100);
-        int imageId = holder.itemLayout.getResources().getIdentifier(Utils.getImageName(position.getTitle()), "drawable", holder.itemLayout.getContext().getPackageName());
+        int imageId = holder.itemLayout.getResources().getIdentifier(Utils.getImageIcon(position.getTitle()), "drawable", holder.itemLayout.getContext().getPackageName());
         Glide.with(holder.itemView.getContext()).load(imageId)
                 .apply(requestOptions)
                 .into(holder.positionIcon);

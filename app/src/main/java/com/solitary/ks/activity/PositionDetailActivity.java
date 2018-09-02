@@ -333,7 +333,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         //noinspection SimplifiableIfStatement
         if (id == R.id.share) {
 
-            Utils.openShareImageActivity(contextWeakReference.get(), position.getTitle(), position.getDescription(), imageId);
+            startActivity(Utils.openShareImageActivity(contextWeakReference.get(), position.getTitle(), position.getDescription(), imageId));
 
         }
         else if(id == android.R.id.home)

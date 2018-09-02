@@ -7,7 +7,7 @@ android {
         applicationId "com.solitary.ks"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 3
+        versionCode 4
         versionName "1.0.3"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -84,13 +84,15 @@ dependencies {
     // If you want to use the GPU Filters
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
 
-    implementation 'com.github.florent37:materialviewpager:1.2.3'
+
     implementation 'com.github.varunest:sparkbutton:1.0.5'
     implementation 'com.android.support:multidex:1.0.3'
 //dependencies
+    implementation 'com.github.florent37:materialviewpager:1.2.3'
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
     implementation 'com.jpardogo.materialtabstrip:library:1.1.0'
     implementation "com.github.bumptech.glide:glide:$glide_version"
+
     implementation "com.google.android.gms:play-services-ads:$play_service"
     androidTestImplementation('com.android.support.test:runner:1.0.2')
             {

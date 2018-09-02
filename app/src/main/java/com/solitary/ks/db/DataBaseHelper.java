@@ -75,7 +75,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         this.close();
                         copyDataBase(dbName);
                     } catch (IOException e) {
-                        throw new Error("Error copying database");
+                        throw new Error("Error copying database "+dbName);
                     }
                 }
             }

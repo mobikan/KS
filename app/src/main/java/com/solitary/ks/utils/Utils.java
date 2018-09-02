@@ -92,6 +92,27 @@ public class Utils {
         return name.toString().toLowerCase();
     }
 
+    public static String getImageIcon(String title)
+    {
+
+        title = title.replace(",", "").replace("-", "_");
+
+        String[] titleArr =  title.trim().split(" ");
+        StringBuilder name = new StringBuilder();
+        int count = 0;
+        for (String str : titleArr)
+        {
+            name.append(str);
+            if(count <titleArr.length-1)
+            {
+                name.append("_");
+            }
+            count++;
+        }
+        name.append("_icon");
+        return name.toString().toLowerCase();
+    }
+
 
     public static void shareApp(Context context) {
         if(context != null) {
@@ -107,12 +128,14 @@ public class Utils {
 
     public static void openAppOnGooglePlay(Context context)
     {
+
+
         if(context != null) {
             final String appPackageName = context.getPackageName(); // getPackageName() from Context or Activity object
             try {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             } catch (android.content.ActivityNotFoundException anfe) {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         }
     }
@@ -164,13 +187,14 @@ public class Utils {
     }
 
 
-    public static void openShareImageActivity(Context context,String title,String detail,int imageId)
+    public static Intent openShareImageActivity(Context context,String title,String detail,int imageId)
     {
         Intent intent = new Intent(context, ShareActivity.class);
         intent.putExtra(Constants.ShareConstants.INTENT_SHARE_TITLE_ID, title);
         intent.putExtra(Constants.ShareConstants.INTENT_SHARE_IMAGE_ID, imageId);
         intent.putExtra(Constants.ShareConstants.INTENT_SHARE_DETAIL_ID, detail);
-        context.startActivity(intent);
+
+    return intent;
     }
 
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,

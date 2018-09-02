@@ -1,6 +1,9 @@
 package com.solitary.ks.component;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 
 import com.squareup.leakcanary.LeakCanary;
 
@@ -10,7 +13,7 @@ import com.squareup.leakcanary.LeakCanary;
 //
 //import io.fabric.sdk.android.Fabric;
 
-public class KSApplication extends Application {
+public class KSApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
@@ -23,7 +26,11 @@ public class KSApplication extends Application {
         }
         LeakCanary.install(this);
     }
-    
 
-    
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 }

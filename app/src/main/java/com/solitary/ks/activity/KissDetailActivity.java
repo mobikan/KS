@@ -189,7 +189,8 @@ public class KissDetailActivity extends AppCompatActivity implements View.OnClic
         switch (view.getId())
         {
             case R.id.share:
-                Utils.openShareImageActivity(activityWeakReference.get(), kiss.getTitle(), kiss.getDetail(), imageId);
+
+                startActivity(Utils.openShareImageActivity(activityWeakReference.get(), kiss.getTitle(), kiss.getDetail(), imageId));
                 break;
         }
     }
