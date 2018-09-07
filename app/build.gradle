@@ -103,7 +103,7 @@ dependencies {
 
     implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.8'
     implementation "org.jsoup:jsoup:$jsoup_version"
-    compile "com.startapp:inapp-sdk:$start_app"
+    implementation "com.startapp:inapp-sdk:$start_app"
     implementation 'com.squareup.picasso:picasso:2.5.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'

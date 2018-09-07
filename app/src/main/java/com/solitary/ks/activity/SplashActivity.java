@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
 
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
-import com.solitary.ks.utils.Utils;
 import com.startapp.android.publish.adsCommon.StartAppSDK;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
