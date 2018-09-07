@@ -101,7 +101,7 @@ dependencies {
 
     implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.8'
     implementation 'org.jsoup:jsoup:1.11.2'
-
+    compile "com.android.support:palette-v7:${supportLib_version}"
     implementation 'com.squareup.picasso:picasso:2.5.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'

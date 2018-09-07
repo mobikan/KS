@@ -3,8 +3,10 @@ package com.solitary.ks.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -45,26 +47,19 @@ public class MassageActivity extends AppCompatActivity {
         count = readDataFromDb();
         massage =  massageArrayList.get(0);
         setTitle("");
-         MaterialViewPager mViewPager = findViewById(R.id.materialViewPager);
+         ViewPager mViewPager = findViewById(R.id.materialViewPager);
         /* Interstitial Ads */
         //initAds();
         //showAds();
-        final Toolbar toolbar = mViewPager.getToolbar();
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
 
-        FrameLayout layout =  findViewById(R.id.header_logo);
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(massage.getVideoLink() != null) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(massage.getVideoLink())));
-                }
-            }
-        });
+        TabLayout tabLayout = findViewById(R.id.htab_tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
@@ -80,49 +75,14 @@ public class MassageActivity extends AppCompatActivity {
 
             @Override
             public CharSequence getPageTitle(int position) {
-                return massageArrayList != null ?massageArrayList.get(position).getTitle() :"";
+                return massageArrayList != null ? massageArrayList.get(position).getTitle() :"";
 
             }
+
+
         });
 
-        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
-            @Override
-            public HeaderDesign getHeaderDesign(int page) {
 
-                massage = massageArrayList.get(page);
-                if(URLUtil.isNetworkUrl(massage.getImageId())) {
-                    return HeaderDesign.fromColorResAndUrl(R.color.green, massage.getImageId());
-            }
-            else
-            {
-                int imageId = getResources().getIdentifier(Utils.getImageName(massage.getImageId()), "drawable", getPackageName());
-                if(imageId == 0)
-                {
-                    imageId =  R.drawable.thai_massage;
-                }
-                return HeaderDesign.fromColorResAndDrawable(
-                        R.color.green,
-                        getResources().getDrawable(imageId));
-            }
-
-
-
-            }
-        });
-
-        //mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
-        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
-
-//        final View logo = findViewById(R.id.logo_white);
-//        if (logo != null) {
-//            logo.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    mViewPager.notifyHeaderChanged();
-//                    Toast.makeText(getApplicationContext(), "Yes, the title is clickable", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
     }
 
 
