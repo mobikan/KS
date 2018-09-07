@@ -83,6 +83,8 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
     public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
         dialog_rating_msg.setVisibility(View.VISIBLE);
         int index = (int) ratingBar.getRating();
-        dialog_rating_msg.setText(msgList.get(index-1));
+        if(index>0) {
+            dialog_rating_msg.setText(msgList.get(index - 1));
+        }
     }
 }

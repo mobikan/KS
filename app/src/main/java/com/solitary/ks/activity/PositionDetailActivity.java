@@ -2,6 +2,7 @@ package com.solitary.ks.activity;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
@@ -349,7 +350,13 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
         switch (view.getId())
         {
             case R.id.addToReminder:
-                startActivity(CalendarHelper.onAddEventClicked(position));
+                try {
+                    startActivity(CalendarHelper.onAddEventClicked(position));
+                }
+                catch (ActivityNotFoundException e)
+                {
+                    Toast.makeText(this, "This feature is not Supported in your Phone.", Toast.LENGTH_SHORT);
+                }
                 break;
 
 

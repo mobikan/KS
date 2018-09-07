@@ -272,13 +272,18 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen(Gravity.START)) {
             //drawer is open
-            drawerLayout.closeDrawer(Gravity.LEFT);
+            try {
+                drawerLayout.closeDrawer(Gravity.LEFT);
+            }catch (Exception e)
+            {
+                super.onBackPressed();
+            }
         }
         else
         {
 
             showAppRatingDialog(getFragmentManager());
-            //super.onBackPressed();
+           // super.onBackPressed();
         }
 
     }
