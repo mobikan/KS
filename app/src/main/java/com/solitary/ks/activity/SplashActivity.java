@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,7 +27,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //init();
-
+        StartAppSDK.init(this, getString(R.string.start_app_id), true);
+        StartAppSDK.setUserConsent (this,
+                "pas",
+                System.currentTimeMillis(),
+                true);
         setContentView(R.layout.splash_activity);
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);

@@ -52,6 +52,8 @@ ext {
     gson_version = "2.8.2"
     glide_version = "4.0.0"
     play_service = "15.0.1"
+    jsoup_version = "1.11.3"
+    start_app="3.10.1"
 }
 
 
@@ -100,8 +102,8 @@ dependencies {
             }
 
     implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.8'
-    implementation 'org.jsoup:jsoup:1.11.2'
-
+    implementation "org.jsoup:jsoup:$jsoup_version"
+    compile "com.startapp:inapp-sdk:$start_app"
     implementation 'com.squareup.picasso:picasso:2.5.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'

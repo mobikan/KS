@@ -200,6 +200,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             }
         }
 
+        positionDataBaseHelper.closeDb();
     }
 
     @Override

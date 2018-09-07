@@ -22,6 +22,7 @@ import com.solitary.ks.db.MassageDataBaseHelper;
 import com.solitary.ks.fragment.MassageFragment;
 import com.solitary.ks.model.Massage;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.List;
 import java.util.Objects;
@@ -161,5 +162,9 @@ public class MassageActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
 }

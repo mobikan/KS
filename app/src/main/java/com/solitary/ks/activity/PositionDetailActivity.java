@@ -40,6 +40,7 @@ import com.solitary.ks.fragment.RatingDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 import com.varunest.sparkbutton.SparkButton;
 import com.varunest.sparkbutton.SparkEventListener;
 
@@ -182,7 +183,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     if(positionDataBaseHelper != null) {
                         positionDataBaseHelper.setTried(position);
                     }
-                    //showAds();
+                    StartAppAd.showAd(PositionDetailActivity.this);
 
                 }
             }
@@ -284,7 +285,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     if(positionDataBaseHelper != null) {
                         positionDataBaseHelper.setLiked(position);
                     }
-                   // showAds();
+                    StartAppAd.showAd(PositionDetailActivity.this);
 
                 }
 

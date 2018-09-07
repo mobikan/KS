@@ -24,6 +24,7 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Position;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -148,5 +149,11 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         {
             dataBaseHelper.close();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 }

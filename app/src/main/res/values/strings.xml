@@ -12,11 +12,15 @@
     <string name="large_text">
         "Material is the metaphor.\n\n"
     </string>
-    <!--FB Ads-->
+    <!--Ad Mob-->
     <string name="admob_app_id">ca-app-pub-3645857363881721~9619311639</string>
     <string name="banner_app_id">ca-app-pub-3645857363881721/5034883573</string>
     <string name="interstitial_id">ca-app-pub-3645857363881721/6898629583</string>
     <string name="reward_ads_id">ca-app-pub-3645857363881721/2064851718</string>
+
+    <!--Start App-->
+    <string name="start_app_id">208325962</string>
+
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

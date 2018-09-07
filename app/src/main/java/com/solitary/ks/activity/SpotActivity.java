@@ -19,6 +19,7 @@ import com.solitary.ks.fragment.SpotListFragment;
 import com.solitary.ks.model.Spot;
 import com.solitary.ks.model.SpotList;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -174,5 +175,9 @@ public class SpotActivity extends AppCompatActivity {
         return filterList;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
 }
