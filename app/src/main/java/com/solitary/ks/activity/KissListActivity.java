@@ -22,6 +22,7 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.KissDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Kiss;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +127,12 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
             kissDataBaseHelper.close();
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 
     @Override

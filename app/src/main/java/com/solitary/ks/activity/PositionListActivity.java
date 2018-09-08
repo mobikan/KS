@@ -143,6 +143,11 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     }
 
     @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if(dataBaseHelper != null)
@@ -151,9 +156,5 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        StartAppAd.onBackPressed(this);
-        super.onBackPressed();
-    }
+
 }

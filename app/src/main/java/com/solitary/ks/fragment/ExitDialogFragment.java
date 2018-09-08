@@ -1,4 +1,4 @@
-package com.solitary.ks.firebase;
+package com.solitary.ks.fragment;
 
 
 import android.os.Bundle;
@@ -30,8 +30,9 @@ public class ExitDialogFragment extends AppRatingDialogFragment {
             case R.id.dialog_rating_button_positive:
 
                 dismiss();
-                getActivity().finish();
                 Utils.openAppOnGooglePlay(getActivity().getApplicationContext());
+                getActivity().finish();
+
                 break;
             case R.id.dialog_rating_button_negative:
                 dismiss();

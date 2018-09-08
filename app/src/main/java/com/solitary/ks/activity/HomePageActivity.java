@@ -20,21 +20,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
-import com.solitary.ks.firebase.ExitDialogFragment;
+import com.solitary.ks.fragment.ExitDialogFragment;
 import com.solitary.ks.firebase.FireBaseQueries;
-import com.solitary.ks.fragment.AppRatingDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
 import com.solitary.ks.model.Tips;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -58,7 +58,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
                 DataBindingUtil.setContentView(this,R.layout.home_page_activity);
         setContentView(R.layout.home_page_activity);
-       // MobileAds.initialize(this, getString(R.string.admob_app_id));
+
         init();
         initDrawer();
         // Obtain the FirebaseAnalytics instance.
@@ -196,11 +196,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 Position position = new Position();
                 position.setId(like.getId());
                 position.setRating((int) like.getRating());
-                positionDataBaseHelper.setRating(position);
+                if(positionDataBaseHelper != null) {
+                    positionDataBaseHelper.setRating(position);
+                }
             }
         }
 
-        positionDataBaseHelper.closeDb();
+
     }
 
     @Override
@@ -208,10 +210,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    private DatabaseReference databaseReference;
     private void upDateRatings()
     {
 
-        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, this);
+        databaseReference = FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, this);
 
     }
 
@@ -287,6 +290,20 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
            // super.onBackPressed();
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(positionDataBaseHelper != null) {
+            positionDataBaseHelper.closeDb();
+            positionDataBaseHelper = null;
+        }
+
+        if(databaseReference != null)
+        {
+            databaseReference.removeEventListener(this);
+        }
     }
 
     public static void showAppRatingDialog(FragmentManager fragmentManager)

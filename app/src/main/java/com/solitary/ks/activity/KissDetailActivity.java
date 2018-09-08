@@ -17,6 +17,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
 
@@ -132,9 +133,10 @@ public class KissDetailActivity extends AppCompatActivity implements View.OnClic
         });
 
         likeCount  = findViewById(R.id.likeCount);
-        FireBaseQueries.getInstance().readLikeById(FireBaseQueries.LIKE_KISS, kiss.getId(),this);
+        databaseReference = FireBaseQueries.getInstance().readLikeById(FireBaseQueries.LIKE_KISS, kiss.getId(),this);
     }
 
+    private DatabaseReference databaseReference;
     private void showAppRatingDialog()
     {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
@@ -201,7 +203,10 @@ public class KissDetailActivity extends AppCompatActivity implements View.OnClic
         if(kissDataBaseHelper != null)
         {
             kissDataBaseHelper.close();
-
+        }
+        if(databaseReference != null)
+        {
+            databaseReference.removeEventListener(this);
         }
     }
 }
