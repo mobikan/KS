@@ -70,13 +70,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
                 boolean dbExist1 = checkDataBase(dbName);
                 if (!dbExist1) {
-                    this.getReadableDatabase();
-                    try {
-                        this.close();
-                        copyDataBase(dbName);
-                    } catch (IOException e) {
-                        throw new Error("Error copying database "+dbName);
-                    }
+                   // this.getReadableDatabase();
+//                    try {
+//                        this.close();
+//
+//                    } catch (Exception e) {
+//                        throw new Error("Error in close ");
+//                    }
+                    copyDataBase(dbName);
                 }
             }
 
@@ -93,24 +94,45 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             }
             catch(SQLiteException e)
             {
+                throw new Error("Error checkDataBase");
             }
             return checkDB;
         }
         //Copies your database from your local assets-folder to the just created empty database in the system folder
-        private void copyDataBase(String dbName) throws IOException
+        private void copyDataBase(String dbName)
         {
+            InputStream mInput =  null;
+            OutputStream mOutput = null;
+          try {
+              mInput = myContext.getAssets().open(dbName);
+              String outFileName = DATABASE_PATH + dbName;
+              mOutput = new FileOutputStream(outFileName);
+              byte[] mBuffer = new byte[2024];
+              int mLength;
+              while ((mLength = mInput.read(mBuffer)) > 0) {
+                  mOutput.write(mBuffer, 0, mLength);
+              }
+              mOutput.flush();
+          }
+          catch (IOException e) {
+              e.printStackTrace();
+          } finally {
+              if (mInput != null) {
+                  try {
+                      mInput.close();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              }
+              if (mOutput != null) {
+                  try {
+                      mOutput.close();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              }
+          }
 
-            InputStream mInput = myContext.getAssets().open(dbName);
-            String outFileName = DATABASE_PATH + dbName;
-            OutputStream mOutput = new FileOutputStream(outFileName);
-            byte[] mBuffer = new byte[2024];
-            int mLength;
-            while ((mLength = mInput.read(mBuffer)) > 0) {
-                mOutput.write(mBuffer, 0, mLength);
-            }
-            mOutput.flush();
-            mOutput.close();
-            mInput.close();
         }
         //delete database
         public void db_delete()
