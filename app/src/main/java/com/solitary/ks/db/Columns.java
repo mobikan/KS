@@ -3,6 +3,8 @@ package com.solitary.ks.db;
 public interface Columns {
 
     public interface Position {
+        String CREATE_POSITION_TABLE = "CREATE TABLE `position` ( `INDEX` INTEGER PRIMARY KEY AUTOINCREMENT, `ID` TEXT NOT NULL, `TITLE` TEXT NOT NULL, `BENEFITS` TEXT NOT NULL, `DESCRIPTION` TEXT NOT NULL, `TRY_THIS` TEXT NOT NULL, `TIPS_HIS` TEXT NOT NULL, `TIPS_HER` TEXT NOT NULL , RATING INTEGER DEFAULT 0, FAVOURITE BOLB DEFAULT false, TRIED, LIKED varchar DEFAULT \"false\")";
+
         String TABLE_NAME = "position";
         String COLUMN_ID = "ID";
         String COLUMN_TITLE = "TITLE";

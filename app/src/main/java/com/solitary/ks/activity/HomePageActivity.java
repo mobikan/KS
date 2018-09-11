@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -149,10 +150,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                     case R.id.rating:
                         Utils.openAppOnGooglePlay(HomePageActivity.this);
                         break;
+                    case R.id.tried_position:
+                        startActivity(new Intent(HomePageActivity.this,TriedPositionsList.class));
+                        break;
                     default:
                         return true;
                 }
-
+                toggleDrawer();
 
                 return true;
 
@@ -163,28 +167,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void readAllTips()
-    {
 
-        FireBaseQueries.getInstance().readAllTips(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Tips tips = postSnapshot.getValue(Tips.class);
-                        tipsArrayList.add(tips);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -246,20 +229,21 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 sendClickEvent("sexTipsId","FavouritePositionListActivity");
                 break;
             case R.id.triedId:
-                //openTips();
-                startActivity(new Intent(this, TriedPositionsList.class));
-                sendClickEvent("breathId","TriedPositionsList");
+                openTips();
+               // startActivity(new Intent(this, LoveTipsActivity.class));
+               // sendClickEvent("breathId","TriedPositionsList");
                 break;
 
 
 
         }
+
     }
 
     private void openTips()
     {
         Intent intent = new Intent(this, LoveTipsActivity.class);
-        intent.putParcelableArrayListExtra(INTENT_TIPS_LIST_KEY, tipsArrayList);
+        //intent.putParcelableArrayListExtra(INTENT_TIPS_LIST_KEY, tipsArrayList);
         startActivity(intent);
         sendClickEvent("tipsId","LoveTipsActivity");
     }
@@ -274,10 +258,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(Gravity.START)) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
             //drawer is open
             try {
-                drawerLayout.closeDrawer(Gravity.LEFT);
+                drawerLayout.closeDrawer(GravityCompat.START);
             }catch (Exception e)
             {
                 super.onBackPressed();
@@ -290,6 +274,15 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
            // super.onBackPressed();
         }
 
+    }
+
+    private void toggleDrawer()
+    {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
     }
 
     @Override

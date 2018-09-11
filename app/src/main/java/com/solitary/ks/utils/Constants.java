@@ -27,6 +27,10 @@ public interface  Constants {
     interface AppRating{
         int RATING_DIALOG_TYPE= 0;
 
+    }
+
+    interface WebView{
+        String INTENT_URL= "url";
 
     }
 

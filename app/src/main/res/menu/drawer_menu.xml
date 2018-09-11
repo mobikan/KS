@@ -13,4 +13,8 @@
         android:icon="@drawable/ic_cogwheel"
         android:title="Privacy Policy"/>
 
+    <item android:id="@+id/tried_position"
+        android:icon="@drawable/ic_checked"
+        android:title="Tried Positions"/>
+
 </menu>
