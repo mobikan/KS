@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
+import com.solitary.ks.db.PositionsDbHelper;
 import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 
@@ -28,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         //init();
         StartAppSDK.init(this, getString(R.string.start_app_id), true);
 
-        setContentView(R.layout.splash_activity);
+       // setContentView(R.layout.splash_activity);
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
@@ -39,9 +40,10 @@ public class SplashActivity extends AppCompatActivity {
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
                 try {
                     dataBaseHelper.createDatabase();
-                } catch (IOException e) {
+                    //PositionsDbHelper dbHelper = new PositionsDbHelper(SplashActivity.this);//,"Position.db",1);
+               } catch (IOException e) {
                     e.printStackTrace();
-                }
+               }
                 if(isAgree) {
                     startActivity(new Intent(SplashActivity.this, HomePageActivity.class));
                 }

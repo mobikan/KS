@@ -17,7 +17,8 @@ import java.io.OutputStream;
 import com.solitary.ks.db.Columns;
 import com.solitary.ks.model.Position;
 
-public class DataBaseHelper extends SQLiteOpenHelper {
+public class DataBaseHelper //extends SQLiteOpenHelper
+{
         private SQLiteDatabase myDataBase;
         private final Context myContext;
         public static final String DB_NAME_POSITION = "position.db";
@@ -43,7 +44,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         public final static String DATABASE_PATH = "/data/data/com.solitary.ks/databases/";
         public static final int DATABASE_VERSION = 1;
         public DataBaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            //super(context, DATABASE_NAME, null, DATABASE_VERSION);
             this.myContext = context;
 
         }
@@ -77,7 +78,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 //                    } catch (Exception e) {
 //                        throw new Error("Error in close ");
 //                    }
-                    copyDataBase(dbName);
+                    copyDataBase(dbName,databaseVersions[i]);
                 }
             }
 
@@ -99,7 +100,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return checkDB;
         }
         //Copies your database from your local assets-folder to the just created empty database in the system folder
-        private void copyDataBase(String dbName)
+        private void copyDataBase(String dbName,int dbVersion)
         {
             InputStream mInput =  null;
             OutputStream mOutput = null;
@@ -116,6 +117,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
           }
           catch (IOException e) {
               e.printStackTrace();
+              PositionsDbHelper dbHelper = new PositionsDbHelper(myContext,dbName,dbVersion);
           } finally {
               if (mInput != null) {
                   try {
@@ -157,15 +159,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         {
             if(myDataBase != null)
                 myDataBase.close();
-            super.close();
+           // super.close();
         }
-        @Override
+        //@Override
         public void onCreate(SQLiteDatabase db) {
             // TODO Auto-generated method stub
 
         }
 
-        @Override
+       // @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             if (newVersion > oldVersion)
             {

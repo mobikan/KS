@@ -236,7 +236,7 @@ public class Utils {
     }
 
 
-    public static void showAppRatingDialog(FragmentManager fragmentManager)
+    public static void showAppRatingDialog(FragmentManager fragmentManager) throws IllegalStateException
     {
 
         FragmentTransaction ft =  fragmentManager.beginTransaction();

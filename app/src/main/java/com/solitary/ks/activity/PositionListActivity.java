@@ -152,7 +152,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         super.onDestroy();
         if(dataBaseHelper != null)
         {
-            dataBaseHelper.close();
+          //  dataBaseHelper.close();
         }
     }
 

@@ -2,8 +2,26 @@ package com.solitary.ks.db;
 
 public interface Columns {
 
-    public interface Position {
-        String CREATE_POSITION_TABLE = "CREATE TABLE `position` ( `INDEX` INTEGER PRIMARY KEY AUTOINCREMENT, `ID` TEXT NOT NULL, `TITLE` TEXT NOT NULL, `BENEFITS` TEXT NOT NULL, `DESCRIPTION` TEXT NOT NULL, `TRY_THIS` TEXT NOT NULL, `TIPS_HIS` TEXT NOT NULL, `TIPS_HER` TEXT NOT NULL , RATING INTEGER DEFAULT 0, FAVOURITE BOLB DEFAULT false, TRIED, LIKED varchar DEFAULT \"false\")";
+     interface Position {
+           String SQL_CREATE_POSITIONS =
+                "CREATE TABLE " + Position.TABLE_NAME + " (" +
+                        Position.COLUMN_ID + " TEXT PRIMARY KEY NOT NULL," +
+                        Position.COLUMN_TITLE + " TEXT," +
+                        Position.COLUMN_DESCRIPTION + " TEXT," +
+                        Position.COLUMN_TRY_THIS + " TEXT," +
+
+                        Position.COLUMN_TIPS_HIS + " TEXT," +
+                        Position.COLUMN_TIPS_HER + " TEXT," +
+                        Position.COLUMN_RATING + " TEXT DEFAULT 0," +
+                        Position.COLUMN_FAVOURITE + " TEXT DEFAULT false," +
+
+                        Position.COLUMN_TRIED + " TEXT DEFAULT false," +
+                        Position.COLUMN_LIKED + " TEXT DEFAULT false," +
+                        Position.COLUMN_USER_RATING + " INTEGER DEFAULT 0," +
+                        Position.COLUMN_BENEFITS + " TEXT)";
+
+           String SQL_DELETE_POSITIONS =
+                 "DROP TABLE IF EXISTS " + Position.TABLE_NAME;
 
         String TABLE_NAME = "position";
         String COLUMN_ID = "ID";

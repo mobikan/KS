@@ -2,6 +2,7 @@ package com.solitary.ks.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -220,7 +221,7 @@ public class PositionDataBaseHelper {
 
     }
 
-    public void setRating(Position position)
+    public void setRating(Position position) throws SQLException
     {
         ContentValues values = new ContentValues();
         values.put(Columns.Position.COLUMN_RATING, String.valueOf(position.getRating()));

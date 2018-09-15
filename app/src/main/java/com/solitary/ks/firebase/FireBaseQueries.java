@@ -233,10 +233,11 @@ public class FireBaseQueries {
      *
      * @param eventListener
      */
-    public void readAllTips(ValueEventListener eventListener)
+    public DatabaseReference readAllTips(ValueEventListener eventListener)
     {
         DatabaseReference myRef = mDatabase.getReference(TIPS_KEY);
         myRef.addValueEventListener(eventListener);
+    return myRef;
     }
 
 

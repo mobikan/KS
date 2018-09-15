@@ -31,6 +31,7 @@ public interface  Constants {
 
     interface WebView{
         String INTENT_URL= "url";
+        String TIPS_COUNT = "tips_count";
 
     }
 

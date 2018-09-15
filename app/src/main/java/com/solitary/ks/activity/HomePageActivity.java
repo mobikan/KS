@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.SQLException;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +22,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
+import com.solitary.ks.adapter.TipsListAdapter;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.fragment.ExitDialogFragment;
@@ -37,10 +41,14 @@ import com.solitary.ks.model.Tips;
 import com.solitary.ks.utils.Utils;
 import com.startapp.android.publish.adsCommon.StartAppSDK;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
+import static com.solitary.ks.utils.Constants.WebView.TIPS_COUNT;
 
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener,ValueEventListener{
@@ -53,11 +61,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
     private ArrayList<Tips> tipsArrayList = new ArrayList<>();
+
+    private DatabaseReference tipsDatabase ;
+    private TextView badgeText;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-                DataBindingUtil.setContentView(this,R.layout.home_page_activity);
+               // DataBindingUtil.setContentView(this,R.layout.home_page_activity);
         setContentView(R.layout.home_page_activity);
 
         init();
@@ -65,16 +76,45 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
-//        AdView adView = findViewById(R.id.adView);
-//
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//
-//        adView.loadAd(adRequest);
-
-
+        readAllTips();
 
     }
 
+    private void readAllTips()
+    {
+
+         tipsDatabase = FireBaseQueries.getInstance().readAllTips(tipsListener);
+    }
+
+    ValueEventListener tipsListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists())
+            {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Tips tips = postSnapshot.getValue(Tips.class);
+                    if(tips.getUrl()!= null && tips.getUrl().length()>0){
+                        tipsArrayList.add(tips);
+                    }
+                }
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0);
+                int count = pref.getInt(TIPS_COUNT, 0);
+                if( tipsArrayList.size()> count)
+                {
+
+                   badgeText.setText(String.valueOf(tipsArrayList.size() - count));
+                   badgeText.setVisibility(View.VISIBLE);
+                }
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
     private void sendClickEvent(String id,String itemName)
     {
@@ -97,6 +137,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
         RelativeLayout positionId = findViewById(R.id.positionId);
 
+        badgeText =  findViewById(R.id.badge_notification);
         positionId.setOnClickListener(this);
 
         RelativeLayout spotId = findViewById(R.id.spotId);
@@ -180,7 +221,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 position.setId(like.getId());
                 position.setRating((int) like.getRating());
                 if(positionDataBaseHelper != null) {
-                    positionDataBaseHelper.setRating(position);
+                    try {
+                        positionDataBaseHelper.setRating(position);
+                    }
+                    catch (SQLException e)
+                    {
+                        e.printStackTrace();
+                    }
+
                 }
             }
         }
@@ -243,7 +291,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private void openTips()
     {
         Intent intent = new Intent(this, LoveTipsActivity.class);
-        //intent.putParcelableArrayListExtra(INTENT_TIPS_LIST_KEY, tipsArrayList);
+        intent.putParcelableArrayListExtra(INTENT_TIPS_LIST_KEY, tipsArrayList);
         startActivity(intent);
         sendClickEvent("tipsId","LoveTipsActivity");
     }
@@ -296,6 +344,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         if(databaseReference != null)
         {
             databaseReference.removeEventListener(this);
+        }
+
+        if(tipsDatabase != null)
+        {
+            tipsDatabase.removeEventListener(tipsListener);
         }
     }
 

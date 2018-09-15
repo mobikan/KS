@@ -1,6 +1,7 @@
 package com.solitary.ks.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,7 +33,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
 import static com.solitary.ks.utils.Constants.WebView.INTENT_URL;
+import static com.solitary.ks.utils.Constants.WebView.TIPS_COUNT;
 
 
 public class LoveTipsActivity extends AppCompatActivity  implements PositionClickListener<Tips> {
@@ -76,6 +79,7 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
                     positionListAdapter.setOnClickListener(LoveTipsActivity.this);
                 }
 
+                setTipsListCount();
             }
 
             @Override
@@ -83,6 +87,15 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
 
             }
         });
+    }
+
+    private void setTipsListCount()
+    {
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0);
+        SharedPreferences.Editor editor =  pref.edit();
+        editor.putInt(TIPS_COUNT, tipsArrayList.size());
+        editor.apply();
     }
     private void init()
     {
@@ -100,6 +113,7 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
         if(tipsArrayList != null && tipsArrayList.size()>0) {
             positionListAdapter = new TipsListAdapter(tipsArrayList);
             binding.recyclerView.setAdapter(positionListAdapter);
+            setTipsListCount();
         }
         else
         {
