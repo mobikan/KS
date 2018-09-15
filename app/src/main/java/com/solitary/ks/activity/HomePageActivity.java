@@ -106,6 +106,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                    badgeText.setText(String.valueOf(tipsArrayList.size() - count));
                    badgeText.setVisibility(View.VISIBLE);
                 }
+                else {
+                    badgeText.setVisibility(View.GONE);
+                }
             }
 
         }
