@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         //init();
         StartAppSDK.init(this, getString(R.string.start_app_id), true);
 
-       // setContentView(R.layout.splash_activity);
+        setContentView(R.layout.splash_activity);
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
