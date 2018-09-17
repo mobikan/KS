@@ -91,7 +91,6 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     protected void readDataFromDB()
     {
 
-
             try {
                 PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
                 positionListAdapter.setPositions(positionDataBaseHelper.getAllPositions());
@@ -99,9 +98,6 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-
 
 
     }

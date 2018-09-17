@@ -131,12 +131,9 @@ public class MassageActivity extends AppCompatActivity {
     private int readDataFromDb()
     {
       try {
-
             DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
             MassageDataBaseHelper massageDataBaseHelper = new MassageDataBaseHelper(dataBaseHelper.openDatabase(DB_NAME_MASSAGE));
             massageArrayList = massageDataBaseHelper.getAllMassage();
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

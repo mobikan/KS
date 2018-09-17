@@ -153,9 +153,6 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         triedId.setOnClickListener(this);
 
 
-
-
-        DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
         positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
         upDateRatings();
         //readAllTips();

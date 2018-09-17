@@ -37,13 +37,14 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
-        readDataFromDB();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
                 try {
                     dataBaseHelper.createDatabase();
+                    readDataFromDB();
                     //KSDatabaseHelper dbHelper = new KSDatabaseHelper(SplashActivity.this);//,"Position.db",1);
                } catch (IOException e) {
                     e.printStackTrace();

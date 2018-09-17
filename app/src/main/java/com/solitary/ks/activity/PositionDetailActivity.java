@@ -184,7 +184,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     if(positionDataBaseHelper != null) {
                         positionDataBaseHelper.setTried(position);
                     }
-                    StartAppAd.showAd(PositionDetailActivity.this);
+                    //StartAppAd.showAd(PositionDetailActivity.this);
 
                 }
             }
@@ -286,7 +286,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                     if(positionDataBaseHelper != null) {
                         positionDataBaseHelper.setLiked(position);
                     }
-                    StartAppAd.showAd(PositionDetailActivity.this);
+                    //StartAppAd.showAd(PositionDetailActivity.this);
 
                 }
 

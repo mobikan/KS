@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
 import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Massage;
+import com.solitary.ks.model.MassageList;
 
 public class MassageDataBaseHelper {
 
@@ -22,7 +24,7 @@ public class MassageDataBaseHelper {
 
     public List<Massage> getAllMassage() {
 
-        List<Massage> MassageList = new ArrayList<>();
+        List<Massage> massageList = new ArrayList<>();
 
         // Select All Query
         String selectQuery = "SELECT  * FROM " + Columns.Massage.TABLE_NAME;
@@ -41,15 +43,18 @@ public class MassageDataBaseHelper {
                 boolean isLike = cursor.getInt(cursor.getColumnIndex(Columns.Massage.COLUMN_LIKE)) == 0 ? false : true;
                 massage.setLike(isLike);
 
-                MassageList.add(massage);
+                massageList.add(massage);
             } while (cursor.moveToNext());
         }
-
+        Gson gson = new Gson();
+        MassageList massageList1 = new MassageList();
+        massageList1.setMassageList((ArrayList<Massage>) massageList);
+        gson.toJson(massageList1);
         // close db connection
         mDbHelper.close();
         cursor.close();
         // return notes list
-        return MassageList;
+        return massageList;
     }
 
 

@@ -6,7 +6,7 @@ public interface Columns {
          String DB_NAME = "kamasutra";
            String SQL_CREATE_POSITIONS =
                 "CREATE TABLE " + Position.TABLE_NAME + " (" +
-                        Position.COLUMN_ID + " TEXT ," +
+                        Position.COLUMN_ID + " TEXT PRIMARY KEY," +
                         Position.COLUMN_TITLE + " TEXT," +
                         Position.COLUMN_DESCRIPTION + " TEXT," +
                         Position.COLUMN_TRY_THIS + " TEXT," +
@@ -54,8 +54,8 @@ public interface Columns {
 
 
         String COLUMN_ID = "ID";
-        String COLUMN_TITLE = "TITLE";
-        String COLUMN_DESCRIPTION = "DESCRIPTION";
+        String COLUMN_TITLE = "Title";
+        String COLUMN_DESCRIPTION = "Description";
         String COLUMN_IMAGE_ID = "IMAGE_ID";
         String COLUMN_LIKE = "LIKE";
         String COLUMN_LIKED = "LIKED";
@@ -85,13 +85,13 @@ public interface Columns {
                         Massage.COLUMN_VIDEO_LINK + " TEXT)";
 
 
-        String COLUMN_ID = "ID";
-        String COLUMN_TITLE = "TITLE";
-        String COLUMN_DESCRIPTION = "DESCRIPTION";
-        String COLUMN_IMAGE_ID = "IMAGE_ID";
-        String COLUMN_LIKE = "LIKE";
-        String COLUMN_VIDEO_LINK = "VIDEO_LINK";
-        String COLUMN_LIKED = "LIKED";
+        String COLUMN_ID = "Id";
+        String COLUMN_TITLE = "Title";
+        String COLUMN_DESCRIPTION = "Description";
+        String COLUMN_IMAGE_ID = "Image_Id";
+        String COLUMN_LIKE = "Like";
+        String COLUMN_VIDEO_LINK = "Video_link";
+        String COLUMN_LIKED = "Liked";
 
 
     }

@@ -28,6 +28,7 @@ import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Tips;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -149,8 +150,10 @@ public class LoveTipsActivity extends AppCompatActivity  implements PositionClic
     @Override
     public void onItemClick(Tips position, ImageView imageView) {
 
+
         Intent intent = new Intent(this,WebViewActivity.class);
         intent.putExtra(INTENT_URL, position.getUrl());
         startActivity(intent);
+        StartAppAd.showAd(this);
     }
 }
