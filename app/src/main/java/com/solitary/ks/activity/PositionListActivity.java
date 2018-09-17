@@ -16,6 +16,7 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.solitary.ks.R;
 import com.solitary.ks.adapter.PositionListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
@@ -24,7 +25,13 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Position;
+import com.solitary.ks.model.PositionsList;
+import com.solitary.ks.model.SpotList;
+import com.solitary.ks.utils.Utils;
 import com.startapp.android.publish.adsCommon.StartAppAd;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -80,24 +87,31 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         positionListAdapter.setOnClickListener(this);
         binding.recyclerView.setAdapter(positionListAdapter);
        // readDataFromDB();
-
-
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         readDataFromDB();
         setScaleAnimation();
+
     }
+
+
 
     protected void readDataFromDB()
     {
         try {
-            PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
-            positionListAdapter.setPositions(positionDataBaseHelper.getAllPositions());
+           // PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+            String positionJson = Utils.readFromAssets("position.json", this);
+            PositionsList positionsList =  null;
+            try {
+                JSONObject jsonObject = new JSONObject(positionJson);
+
+                positionsList = new Gson().fromJson(jsonObject.toString(), PositionsList.class);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            positionListAdapter.setPositions(positionsList.getPosition());
             positionListAdapter.setOnCheckedChangeListener(this);
+
+
 
         } catch (Exception e) {
             e.printStackTrace();

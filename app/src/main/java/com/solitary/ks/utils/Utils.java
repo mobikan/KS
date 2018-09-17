@@ -1,39 +1,27 @@
 package com.solitary.ks.utils;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.net.Uri;
-import android.os.Bundle;
-import android.app.FragmentManager;
 import android.support.v4.content.FileProvider;
 import android.widget.RelativeLayout;
 
-
 import com.solitary.ks.BuildConfig;
-import com.solitary.ks.R;
 import com.solitary.ks.activity.ShareActivity;
 import com.solitary.ks.fragment.AppRatingDialogFragment;
-import com.solitary.ks.fragment.RatingDialogFragment;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_ID;
-import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_IMAGE_ID;
-import static com.solitary.ks.utils.Constants.RatingDialog.BUNDLE_POSITION_TITLE;
-import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
-import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_RATING_GIVEN_KEY;
-import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_TERMS_AGREE_KEY;
 
 public class Utils {
 

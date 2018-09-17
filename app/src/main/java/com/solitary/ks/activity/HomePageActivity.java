@@ -7,7 +7,6 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,7 +17,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -30,18 +28,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
-import com.solitary.ks.adapter.TipsListAdapter;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
-import com.solitary.ks.fragment.ExitDialogFragment;
 import com.solitary.ks.firebase.FireBaseQueries;
+import com.solitary.ks.fragment.ExitDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
 import com.solitary.ks.model.Tips;
 import com.solitary.ks.utils.Utils;
-import com.startapp.android.publish.adsCommon.StartAppSDK;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -160,10 +154,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         triedId.setOnClickListener(this);
 
 
-        upDateRatings();
+
 
         DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
         positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        upDateRatings();
         //readAllTips();
     }
 

@@ -25,9 +25,9 @@ public class PositionDataBaseHelper {
         this.mDbHelper = mDbHelper;
     }
 
-    public List<Position> getAllPositions() {
+    public ArrayList<Position> getAllPositions() {
 
-        List<Position> positions = new ArrayList<>();
+        ArrayList<Position> positions = new ArrayList<>();
 
         // Select All Query
         String selectQuery = "SELECT  * FROM " + Columns.Position.TABLE_NAME;

@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import com.solitary.ks.db.Columns;
 import com.solitary.ks.model.Position;
 
-public class DataBaseHelper //extends SQLiteOpenHelper
+public class DataBaseHelper extends SQLiteOpenHelper
 {
         private SQLiteDatabase myDataBase;
         private final Context myContext;
@@ -44,7 +44,7 @@ public class DataBaseHelper //extends SQLiteOpenHelper
         public final static String DATABASE_PATH = "/data/data/com.solitary.ks/databases/";
         public static final int DATABASE_VERSION = 1;
         public DataBaseHelper(Context context) {
-            //super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
             this.myContext = context;
 
         }
@@ -71,13 +71,13 @@ public class DataBaseHelper //extends SQLiteOpenHelper
 
                 boolean dbExist1 = checkDataBase(dbName);
                 if (!dbExist1) {
-                   // this.getReadableDatabase();
-//                    try {
-//                        this.close();
-//
-//                    } catch (Exception e) {
-//                        throw new Error("Error in close ");
-//                    }
+                    this.getReadableDatabase();
+                    try {
+                        this.close();
+
+                    } catch (Exception e) {
+                        throw new Error("Error in close ");
+                    }
                     copyDataBase(dbName,databaseVersions[i]);
                 }
             }
@@ -150,7 +150,12 @@ public class DataBaseHelper //extends SQLiteOpenHelper
         public SQLiteDatabase openDatabase(String dbName) throws SQLException
         {
             String myPath = DATABASE_PATH + dbName;
-            myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+           try {
+               myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+           }catch (Exception e)
+           {
+               e.printStackTrace();
+           }
 
             return myDataBase;
         }
