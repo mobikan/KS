@@ -7,15 +7,19 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
-import com.solitary.ks.db.PositionsDbHelper;
+import com.solitary.ks.db.KSDatabaseHelper;
+import com.solitary.ks.model.PositionsList;
+import com.solitary.ks.utils.Utils;
 import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 
-import java.io.BufferedReader;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
 import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_TERMS_AGREE_KEY;
@@ -33,14 +37,14 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
         final boolean isAgree = pref.getBoolean(PREF_TERMS_AGREE_KEY, false);
 
-
+        readDataFromDB();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
                 try {
                     dataBaseHelper.createDatabase();
-                    //PositionsDbHelper dbHelper = new PositionsDbHelper(SplashActivity.this);//,"Position.db",1);
+                    //KSDatabaseHelper dbHelper = new KSDatabaseHelper(SplashActivity.this);//,"Position.db",1);
                } catch (IOException e) {
                     e.printStackTrace();
                }
@@ -58,36 +62,27 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    private String readDataFromAsset()
+    protected void readDataFromDB()
     {
-
-        StringBuffer sb = new StringBuffer();
-        BufferedReader reader = null;
         try {
-            reader = new BufferedReader(
-                    new InputStreamReader(getAssets().open("kisses.txt")));
+            // PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+            String positionJson = Utils.readFromAssets("position.json", this);
+            PositionsList positionsList =  null;
+            try {
+                JSONObject jsonObject = new JSONObject(positionJson);
 
-            // do reading, usually loop until end of file reading
+                positionsList = new Gson().fromJson(jsonObject.toString(), PositionsList.class);
 
-            String mLine;
-            while ((mLine = reader.readLine()) != null) {
-                //process line
-                sb.append(mLine);
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            //log the exception
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    //log the exception
-                }
-            }
+
+            KSDatabaseHelper dbHelper = new KSDatabaseHelper(this);
+            dbHelper.initDataBase(positionsList.getPosition());
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        return sb.toString();
 
     }
 

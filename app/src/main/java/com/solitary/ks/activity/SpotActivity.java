@@ -129,23 +129,6 @@ public class SpotActivity extends AppCompatActivity {
 
     }
 
-//    private InterstitialAd mInterstitialAd;
-//    private void initAds()
-//    {
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//    }
-//
-//    private void showAds()
-//    {
-//        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-//            mInterstitialAd.show();
-//        } else {
-//            Log.d("TAG", "The interstitial wasn't loaded yet.");
-//        }
-//    }
-
 
     private void init() {
         String response = Utils.readFromAssets("spot.json", getApplicationContext());

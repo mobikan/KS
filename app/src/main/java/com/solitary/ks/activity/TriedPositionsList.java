@@ -3,8 +3,8 @@ package com.solitary.ks.activity;
 import android.view.View;
 
 import com.solitary.ks.R;
-import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
+import com.solitary.ks.db.KSDatabaseHelper;
 
 public class TriedPositionsList extends PositionListActivity {
 
@@ -13,7 +13,7 @@ public class TriedPositionsList extends PositionListActivity {
     protected void readDataFromDB()
     {
         try {
-            PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+            PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
             positionListAdapter.setPositions(positionDataBaseHelper.getAllTriedPositions());
             positionListAdapter.setOnCheckedChangeListener(this);
             if(positionListAdapter.getAllPositions().size() == 0 )

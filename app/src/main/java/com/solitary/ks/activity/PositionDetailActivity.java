@@ -34,6 +34,7 @@ import com.solitary.ks.component.CalendarHelper;
 import com.solitary.ks.component.CheckView;
 import com.solitary.ks.databinding.ActivityDetailBinding;
 import com.solitary.ks.db.DataBaseHelper;
+import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.fragment.RatingDialogFragment;
@@ -136,7 +137,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
     protected void onStart() {
         super.onStart();
         DataBaseHelper dataBaseHelper = new DataBaseHelper(contextWeakReference.get());
-        positionDataBaseHelper =  new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION)); //new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        positionDataBaseHelper =  new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this)); //new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
 
     }
 

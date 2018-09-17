@@ -16,6 +16,13 @@ public interface  Constants {
         String PREF_RATING_GIVEN_KEY="is_Rating";
 
     }
+    interface PositionPref{
+
+        String POSITION_RATING_PREF ="PositionRatingPref";
+        String POSITION_LIKE_PREF ="PositionLikePref";
+        String POSITION_TRIED_PREF ="PositionTriedPref";
+        String POSITION_RATING = "rating";
+    }
 
     interface ShareConstants{
         String INTENT_SHARE_IMAGE_ID="imageId";

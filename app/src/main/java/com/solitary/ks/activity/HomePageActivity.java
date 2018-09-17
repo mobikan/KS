@@ -6,7 +6,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.SQLException;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +15,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -29,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
+import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.fragment.ExitDialogFragment;
@@ -157,9 +156,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
 
         DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
-        positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
         upDateRatings();
         //readAllTips();
+
+
+
     }
 
 
@@ -214,20 +216,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         if(dataSnapshot.exists()) {
             for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                 Like like = postSnapshot.getValue(Like.class);
-                Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
+                //Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
                 Position position = new Position();
                 position.setId(like.getId());
                 position.setRating((int) like.getRating());
-                if(positionDataBaseHelper != null) {
-                    try {
-                        positionDataBaseHelper.setRating(position);
-                    }
-                    catch (SQLException e)
-                    {
-                        e.printStackTrace();
-                    }
 
-                }
+
+
             }
         }
 
