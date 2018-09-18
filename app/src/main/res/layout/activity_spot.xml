@@ -59,10 +59,10 @@
                 app:tabIndicatorColor="@color/colorPrimary"
                 app:tabIndicatorFullWidth="true"
                 app:tabTextColor="@color/white"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:tabStripEnabled="false"
+
+
                 app:tabMode="scrollable"
+                android:minWidth="150dp"
                 app:tabRippleColor="@color/gray"
                 style="@style/Base.Widget.Design.TabLayout"
                 />
