@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/answers"
                 android:paddingLeft="10dp"
-                android:paddingRight="5dp"/>
+                android:paddingRight="5dp"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 

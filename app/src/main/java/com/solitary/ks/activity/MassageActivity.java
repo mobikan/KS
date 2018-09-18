@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
@@ -32,30 +33,35 @@ import java.util.Objects;
 import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
 
-public class MassageActivity extends AppCompatActivity {
+public class MassageActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
 
     private int count = 0;
     private List<Massage> massageArrayList;
     private Massage massage;
     private InterstitialAd mInterstitialAd;
-
+    private ImageView headerImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spot);
+        setContentView(R.layout.massage_list_screen);
         count = readDataFromDb();
         massage =  massageArrayList.get(0);
         setTitle("");
          ViewPager mViewPager = findViewById(R.id.materialViewPager);
+        mViewPager.addOnPageChangeListener(this);
         /* Interstitial Ads */
         //initAds();
         //showAds();
         final Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
+            setTitle("Sensual Massages");
         }
+
+        headerImageView = findViewById(R.id.htab_header);
+
 
         TabLayout tabLayout = findViewById(R.id.htab_tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -123,5 +129,20 @@ public class MassageActivity extends AppCompatActivity {
     public void onBackPressed() {
         StartAppAd.onBackPressed(this);
         super.onBackPressed();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

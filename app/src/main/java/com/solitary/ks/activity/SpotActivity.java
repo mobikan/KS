@@ -45,13 +45,14 @@ public class SpotActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
+            setTitle("Erogenous Spots");
         }
 
         /* Interstitial Ads */
 
         init();
-        FrameLayout layout = findViewById(R.id.header_logo);
-        layout.setVisibility(View.GONE);
+       // FrameLayout layout = findViewById(R.id.header_logo);
+        //layout.setVisibility(View.GONE);
         TabLayout tabLayout = findViewById(R.id.htab_tabs);
         tabLayout.setupWithViewPager(mViewPager);
        // Log.v("spotList", "spotList "+spotList.getSpots());
