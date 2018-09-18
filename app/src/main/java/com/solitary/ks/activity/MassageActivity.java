@@ -24,6 +24,7 @@ import com.solitary.ks.db.MassageDataBaseHelper;
 import com.solitary.ks.fragment.MassageFragment;
 import com.solitary.ks.model.Massage;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.List;
 import java.util.Objects;
@@ -90,12 +91,9 @@ public class MassageActivity extends AppCompatActivity {
     private int readDataFromDb()
     {
       try {
-
             DataBaseHelper dataBaseHelper = new DataBaseHelper(getApplicationContext());
             MassageDataBaseHelper massageDataBaseHelper = new MassageDataBaseHelper(dataBaseHelper.openDatabase(DB_NAME_MASSAGE));
             massageArrayList = massageDataBaseHelper.getAllMassage();
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,5 +119,9 @@ public class MassageActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
 }

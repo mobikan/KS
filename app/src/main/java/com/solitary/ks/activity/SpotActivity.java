@@ -1,16 +1,9 @@
 package com.solitary.ks.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +19,7 @@ import com.solitary.ks.fragment.SpotListFragment;
 import com.solitary.ks.model.Spot;
 import com.solitary.ks.model.SpotList;
 import com.solitary.ks.utils.Utils;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,34 +30,31 @@ import java.util.Objects;
 public class SpotActivity extends AppCompatActivity {
 
 
-    private CollapsingToolbarLayout collapsingToolbarLayout;
+
     private SpotList spotList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
+        setTitle("");
+        MaterialViewPager mViewPager = findViewById(R.id.materialViewPager);
 
-        ViewPager mViewPager = findViewById(R.id.materialViewPager);
-        collapsingToolbarLayout = findViewById(R.id.htab_collapse_toolbar);
-        final Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = mViewPager.getToolbar();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-        setTitle("Erogenous Spot");
 
         /* Interstitial Ads */
 
         init();
-//        FrameLayout layout = findViewById(R.id.header_logo);
-//        layout.setVisibility(View.GONE);
+        FrameLayout layout = findViewById(R.id.header_logo);
+        layout.setVisibility(View.GONE);
 
+       // Log.v("spotList", "spotList "+spotList.getSpots());
+       // Log.v("spotList", "spotList Filter "+ getFilterList(spotList.getSpots(), "F"));
 
-        TabLayout  tabLayout = findViewById(R.id.htab_tabs);
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
-        tabLayout.setupWithViewPager(mViewPager);
-
-        mViewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
@@ -94,7 +85,7 @@ public class SpotActivity extends AppCompatActivity {
 
             @Override
             public CharSequence getPageTitle(int position) {
-                switch (position) {
+                switch (position % 2) {
                     case 0:
                         return "Her";
                     case 1:
@@ -105,26 +96,38 @@ public class SpotActivity extends AppCompatActivity {
             }
         });
 
+        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
+            @Override
+            public HeaderDesign getHeaderDesign(int page) {
+                switch (page) {
+                    case 0:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.green,
+                                getResources().getDrawable(R.drawable.aromatherapy_massage));
+                    case 1:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.blue,
+                                getResources().getDrawable(R.drawable.deep_tissue_massage));
+                    case 2:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.cyan,
+                                getResources().getDrawable(R.drawable.foot_massage));
+                    case 3:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.red,
+                                getResources().getDrawable(R.drawable.sports_massage));
+                }
 
+                //execute others actions if needed (ex : modify your header logo)
+
+                return null;
+            }
+        });
+
+        mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
+        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
     }
-
-//    private InterstitialAd mInterstitialAd;
-//    private void initAds()
-//    {
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//    }
-//
-//    private void showAds()
-//    {
-//        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-//            mInterstitialAd.show();
-//        } else {
-//            Log.d("TAG", "The interstitial wasn't loaded yet.");
-//        }
-//    }
 
 
     private void init() {
@@ -140,37 +143,9 @@ public class SpotActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        initMultiplier();
+
        // initAds();
        // showAds();
-    }
-
-    private void initMultiplier()
-    {
-        try {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.aromatherapy_massage);
-            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-                @SuppressWarnings("ResourceType")
-                @Override
-                public void onGenerated(Palette palette) {
-
-                    int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
-                    int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimaryDark);
-                   // collapsingToolbarLayout.setContentScrimColor(vibrantColor);
-                    //collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
-                }
-            });
-
-        } catch (Exception e) {
-            // if Bitmap fetch fails, fallback to primary colors
-            Log.e("TAG", "onCreate: failed to create bitmap from background", e.fillInStackTrace());
-            collapsingToolbarLayout.setContentScrimColor(
-                    ContextCompat.getColor(this, R.color.colorPrimary)
-            );
-            collapsingToolbarLayout.setStatusBarScrimColor(
-                    ContextCompat.getColor(this, R.color.colorPrimaryDark)
-            );
-        }
     }
 
     private ArrayList<Spot> getFilterList(ArrayList<Spot> list, String type) {
@@ -183,5 +158,9 @@ public class SpotActivity extends AppCompatActivity {
         return filterList;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
+    }
 }

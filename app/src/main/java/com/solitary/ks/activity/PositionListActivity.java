@@ -10,12 +10,15 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.R;
 import com.solitary.ks.adapter.PositionListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
@@ -24,6 +27,7 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Position;
+import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -38,14 +42,15 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     protected PositionListAdapter positionListAdapter;
     protected DataBaseHelper dataBaseHelper;
     private WeakReference<ScaleAnimation> scaleAnimation;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
         binding =  DataBindingUtil.setContentView(this, R.layout.ks_list_screen);
         setSupportActionBar(Objects.requireNonNull(binding).toolbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -54,11 +59,10 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         WeakReference<Context> contextWeakReference = new WeakReference<>(getApplicationContext());
         dataBaseHelper = new DataBaseHelper(contextWeakReference.get());
         init();
-       // AdView adView = findViewById(R.id.adView);
-       // AdRequest adRequest = new AdRequest.Builder().build();
-        //adView.loadAd(adRequest);
+
 
     }
+
 
     protected void setTitle()
     {
@@ -75,32 +79,29 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
         binding.recyclerView.addItemDecoration(itemOffsetDecoration);
         ArrayList<Position> positions = new ArrayList<>();
 
+
         positionListAdapter = new PositionListAdapter(positions);
         positionListAdapter.setOnClickListener(this);
         binding.recyclerView.setAdapter(positionListAdapter);
        // readDataFromDB();
-
-
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         readDataFromDB();
         setScaleAnimation();
+
     }
+
+
 
     protected void readDataFromDB()
     {
-        try {
-            PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
-            positionListAdapter.setPositions(positionDataBaseHelper.getAllPositions());
-            positionListAdapter.setOnCheckedChangeListener(this);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            try {
+                PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
+                positionListAdapter.setPositions(positionDataBaseHelper.getAllPositions());
+                positionListAdapter.setOnCheckedChangeListener(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
     }
 
@@ -116,6 +117,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     @Override
     public void onItemClick(Position position, ImageView imageView) {
+
         Intent intent = new Intent(this,PositionDetailActivity.class  );
         intent.putExtra(EXTRA_IMAGE_TRANSITION_NAME, ViewCompat.getTransitionName(imageView));
         intent.putExtra("position_data", position);
@@ -125,7 +127,23 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
                 imageView,
                 ViewCompat.getTransitionName(imageView));
 
-        startActivity(intent, options.toBundle());
+        if(position != null) {
+            startActivity(intent, options.toBundle());
+        }
+        else
+        {
+            Log.v("OnClick", "Position "+position);
+            sendClickEvent(position);
+        }
+    }
+
+    private void sendClickEvent(Position position)
+    {
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable(FirebaseAnalytics.Param.ITEM_NAME, position);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "position_item_click");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     @Override
@@ -135,18 +153,18 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
             view.startAnimation(scaleAnimation.get());
         }
 
-        PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
+        PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
         Position position = (Position)view.getTag();
 
         positionDataBaseHelper.setFavourite(position);
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(dataBaseHelper != null)
-        {
-            dataBaseHelper.close();
-        }
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
+
+
+
 }

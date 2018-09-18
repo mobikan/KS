@@ -17,7 +17,8 @@ import java.io.OutputStream;
 import com.solitary.ks.db.Columns;
 import com.solitary.ks.model.Position;
 
-public class DataBaseHelper extends SQLiteOpenHelper {
+public class DataBaseHelper extends SQLiteOpenHelper
+{
         private SQLiteDatabase myDataBase;
         private final Context myContext;
         public static final String DB_NAME_POSITION = "position.db";
@@ -36,9 +37,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 
-        private String dbNameArray[] = {DB_NAME_POSITION,DB_NAME_BREATH,DB_NAME_SPOT,DB_NAME_TIPS,DB_NAME_MASSAGE,DB_NAME_KISS};
+        private String dbNameArray[] = {DB_NAME_MASSAGE,DB_NAME_KISS};
 
-        private int databaseVersions[]= {DB_POSITION_VERSION,DB_BREATH_VERSION,DB_SPOT_VERSION,DB_TIPS_VERSION,DB_MASSAGE_VERSION,DB_KISS_VERSION};
+        private int databaseVersions[]= {DB_MASSAGE_VERSION,DB_KISS_VERSION};
         private static final String DATABASE_NAME = "position.db";
         public final static String DATABASE_PATH = "/data/data/com.solitary.ks/databases/";
         public static final int DATABASE_VERSION = 1;
@@ -73,10 +74,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     this.getReadableDatabase();
                     try {
                         this.close();
-                        copyDataBase(dbName);
-                    } catch (IOException e) {
-                        throw new Error("Error copying database "+dbName);
+
+                    } catch (Exception e) {
+                        throw new Error("Error in close ");
                     }
+                    copyDataBase(dbName,databaseVersions[i]);
                 }
             }
 
@@ -93,24 +95,46 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             }
             catch(SQLiteException e)
             {
+                throw new Error("Error checkDataBase");
             }
             return checkDB;
         }
         //Copies your database from your local assets-folder to the just created empty database in the system folder
-        private void copyDataBase(String dbName) throws IOException
+        private void copyDataBase(String dbName,int dbVersion)
         {
+            InputStream mInput =  null;
+            OutputStream mOutput = null;
+          try {
+              mInput = myContext.getAssets().open(dbName);
+              String outFileName = DATABASE_PATH + dbName;
+              mOutput = new FileOutputStream(outFileName);
+              byte[] mBuffer = new byte[2024];
+              int mLength;
+              while ((mLength = mInput.read(mBuffer)) > 0) {
+                  mOutput.write(mBuffer, 0, mLength);
+              }
+              mOutput.flush();
+          }
+          catch (IOException e) {
+              e.printStackTrace();
 
-            InputStream mInput = myContext.getAssets().open(dbName);
-            String outFileName = DATABASE_PATH + dbName;
-            OutputStream mOutput = new FileOutputStream(outFileName);
-            byte[] mBuffer = new byte[2024];
-            int mLength;
-            while ((mLength = mInput.read(mBuffer)) > 0) {
-                mOutput.write(mBuffer, 0, mLength);
-            }
-            mOutput.flush();
-            mOutput.close();
-            mInput.close();
+          } finally {
+              if (mInput != null) {
+                  try {
+                      mInput.close();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              }
+              if (mOutput != null) {
+                  try {
+                      mOutput.close();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              }
+          }
+
         }
         //delete database
         public void db_delete()
@@ -126,7 +150,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         public SQLiteDatabase openDatabase(String dbName) throws SQLException
         {
             String myPath = DATABASE_PATH + dbName;
-            myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+           try {
+               myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+           }catch (Exception e)
+           {
+               e.printStackTrace();
+           }
 
             return myDataBase;
         }
@@ -135,15 +164,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         {
             if(myDataBase != null)
                 myDataBase.close();
-            super.close();
+           // super.close();
         }
-        @Override
+        //@Override
         public void onCreate(SQLiteDatabase db) {
             // TODO Auto-generated method stub
 
         }
 
-        @Override
+       // @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             if (newVersion > oldVersion)
             {

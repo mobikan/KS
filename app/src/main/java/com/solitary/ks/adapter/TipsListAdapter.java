@@ -5,20 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.bumptech.glide.Glide;
 import com.solitary.ks.R;
 import com.solitary.ks.listener.PositionClickListener;
-import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Tips;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.github.ponnamkarthik.richlinkpreview.RichLinkView;
-import io.github.ponnamkarthik.richlinkpreview.RichLinkViewTwitter;
-import io.github.ponnamkarthik.richlinkpreview.ViewListener;
 
 public class TipsListAdapter extends RecyclerView.Adapter<TipsListAdapter.ViewHolder> {
     private List<Tips> tipsList;
@@ -61,18 +58,19 @@ public class TipsListAdapter extends RecyclerView.Adapter<TipsListAdapter.ViewHo
         bind(holder, tipsList.get(position));
     }
 
-    public void bind(final ViewHolder holder, final Tips position) {
-    holder.richLinkView.setLink(position.getUrl(), new ViewListener() {
-        @Override
-        public void onSuccess(boolean status) {
-
-        }
-
-        @Override
-        public void onError(Exception e) {
-
-        }
-    });
+    public void bind(final ViewHolder holder, final Tips tips) {
+     holder.title.setText(tips.getTitle());
+     Glide.with(holder.itemLayout.getContext()).load(tips.getIcon()).into(holder.icon);
+     holder.url.setText(tips.getUrl());
+        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onClickListener != null)
+                {
+                    onClickListener.onItemClick(tips,null );
+                }
+            }
+        });
 
     }
 
@@ -90,14 +88,19 @@ public class TipsListAdapter extends RecyclerView.Adapter<TipsListAdapter.ViewHo
         public ToggleButton likeButton;
         public View itemLayout;
         public TextView likeCount;
-        public RichLinkViewTwitter richLinkView;
+        public TextView title;
+        private ImageView icon;
+        private TextView url;
 
         public ViewHolder(View v) {
             super(v);
             itemLayout   = v;
             likeButton   = v.findViewById(R.id.likeToggleButton);
             likeCount    = v.findViewById(R.id.likeCount);
-            richLinkView = v.findViewById(R.id.richLinkView);
+            title = v.findViewById(R.id.title);
+            icon  = v.findViewById(R.id.icon);
+            url = v.findViewById(R.id.url);
+
 
         }
     }

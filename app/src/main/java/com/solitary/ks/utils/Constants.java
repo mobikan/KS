@@ -16,6 +16,13 @@ public interface  Constants {
         String PREF_RATING_GIVEN_KEY="is_Rating";
 
     }
+    interface PositionPref{
+
+        String POSITION_RATING_PREF ="PositionRatingPref";
+        String POSITION_LIKE_PREF ="PositionLikePref";
+        String POSITION_TRIED_PREF ="PositionTriedPref";
+        String POSITION_RATING = "rating";
+    }
 
     interface ShareConstants{
         String INTENT_SHARE_IMAGE_ID="imageId";
@@ -27,6 +34,11 @@ public interface  Constants {
     interface AppRating{
         int RATING_DIALOG_TYPE= 0;
 
+    }
+
+    interface WebView{
+        String INTENT_URL= "url";
+        String TIPS_COUNT = "tips_count";
 
     }
 

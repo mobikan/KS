@@ -5,32 +5,32 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
+import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
-import com.solitary.ks.firebase.ExitDialogFragment;
 import com.solitary.ks.firebase.FireBaseQueries;
-import com.solitary.ks.fragment.AppRatingDialogFragment;
+import com.solitary.ks.fragment.ExitDialogFragment;
 import com.solitary.ks.model.Like;
 import com.solitary.ks.model.Position;
 import com.solitary.ks.model.Tips;
@@ -40,6 +40,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static com.solitary.ks.utils.Constants.TermsAndCondition.INTENT_TIPS_LIST_KEY;
+import static com.solitary.ks.utils.Constants.TermsAndCondition.PREF_NAME;
+import static com.solitary.ks.utils.Constants.WebView.TIPS_COUNT;
 
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener,ValueEventListener{
@@ -52,28 +54,63 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
     private ArrayList<Tips> tipsArrayList = new ArrayList<>();
+
+    private DatabaseReference tipsDatabase ;
+    private TextView badgeText;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-                DataBindingUtil.setContentView(this,R.layout.home_page_activity);
+               // DataBindingUtil.setContentView(this,R.layout.home_page_activity);
         setContentView(R.layout.home_page_activity);
-       // MobileAds.initialize(this, getString(R.string.admob_app_id));
+
         init();
         initDrawer();
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
-//        AdView adView = findViewById(R.id.adView);
-//
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//
-//        adView.loadAd(adRequest);
-
-
+        readAllTips();
 
     }
 
+    private void readAllTips()
+    {
+
+         tipsDatabase = FireBaseQueries.getInstance().readAllTips(tipsListener);
+    }
+
+    ValueEventListener tipsListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists())
+            {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Tips tips = postSnapshot.getValue(Tips.class);
+                    if(tips.getUrl()!= null && tips.getUrl().length()>0){
+                        tipsArrayList.add(tips);
+                    }
+                }
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0);
+                int count = pref.getInt(TIPS_COUNT, 0);
+                if( tipsArrayList.size()> count)
+                {
+
+                   badgeText.setText(String.valueOf(tipsArrayList.size() - count));
+                   badgeText.setVisibility(View.VISIBLE);
+                }
+                else {
+                    badgeText.setVisibility(View.GONE);
+                }
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
     private void sendClickEvent(String id,String itemName)
     {
@@ -96,6 +133,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
         RelativeLayout positionId = findViewById(R.id.positionId);
 
+        badgeText =  findViewById(R.id.badge_notification);
         positionId.setOnClickListener(this);
 
         RelativeLayout spotId = findViewById(R.id.spotId);
@@ -115,11 +153,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         triedId.setOnClickListener(this);
 
 
+        positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(this));
         upDateRatings();
-
-        DataBaseHelper dataBaseHelper =  new DataBaseHelper(getApplicationContext());
-        positionDataBaseHelper = new PositionDataBaseHelper(dataBaseHelper.openDatabase(DataBaseHelper.DB_NAME_POSITION));
         //readAllTips();
+
+
+
     }
 
 
@@ -149,10 +188,13 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                     case R.id.rating:
                         Utils.openAppOnGooglePlay(HomePageActivity.this);
                         break;
+                    case R.id.tried_position:
+                        startActivity(new Intent(HomePageActivity.this,TriedPositionsList.class));
+                        break;
                     default:
                         return true;
                 }
-
+                toggleDrawer();
 
                 return true;
 
@@ -163,28 +205,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void readAllTips()
-    {
 
-        FireBaseQueries.getInstance().readAllTips(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Tips tips = postSnapshot.getValue(Tips.class);
-                        tipsArrayList.add(tips);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -192,13 +213,16 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         if(dataSnapshot.exists()) {
             for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                 Like like = postSnapshot.getValue(Like.class);
-                Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
+                //Log.v("LIke ", "Like " + Objects.requireNonNull(like).getNo_of_like());
                 Position position = new Position();
                 position.setId(like.getId());
                 position.setRating((int) like.getRating());
+
                 positionDataBaseHelper.setRating(position);
+
             }
         }
+
 
     }
 
@@ -207,10 +231,11 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    private DatabaseReference databaseReference;
     private void upDateRatings()
     {
 
-        FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, this);
+        databaseReference = FireBaseQueries.getInstance().readAllLikes(FireBaseQueries.LIKE_POSITION, this);
 
     }
 
@@ -242,14 +267,15 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 sendClickEvent("sexTipsId","FavouritePositionListActivity");
                 break;
             case R.id.triedId:
-                //openTips();
-                startActivity(new Intent(this, TriedPositionsList.class));
-                sendClickEvent("breathId","TriedPositionsList");
+                openTips();
+               // startActivity(new Intent(this, LoveTipsActivity.class));
+               // sendClickEvent("breathId","TriedPositionsList");
                 break;
 
 
 
         }
+
     }
 
     private void openTips()
@@ -270,10 +296,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(Gravity.START)) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
             //drawer is open
             try {
-                drawerLayout.closeDrawer(Gravity.LEFT);
+                drawerLayout.closeDrawer(GravityCompat.START);
             }catch (Exception e)
             {
                 super.onBackPressed();
@@ -286,6 +312,34 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
            // super.onBackPressed();
         }
 
+    }
+
+    private void toggleDrawer()
+    {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(positionDataBaseHelper != null) {
+            positionDataBaseHelper.closeDb();
+            positionDataBaseHelper = null;
+        }
+
+        if(databaseReference != null)
+        {
+            databaseReference.removeEventListener(this);
+        }
+
+        if(tipsDatabase != null)
+        {
+            tipsDatabase.removeEventListener(tipsListener);
+        }
     }
 
     public static void showAppRatingDialog(FragmentManager fragmentManager)

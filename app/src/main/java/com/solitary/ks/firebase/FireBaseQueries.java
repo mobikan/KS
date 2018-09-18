@@ -80,12 +80,14 @@ public class FireBaseQueries {
      * @param tableType e.g LIKE_POSITION
      * @param eventListener
      */
-    public void readAllLikes(int tableType,ValueEventListener eventListener)
+    public DatabaseReference readAllLikes(int tableType,ValueEventListener eventListener)
     {
         String tableName = getTableRef(tableType);
 
         DatabaseReference myRef = mDatabase.getReference(tableName);
         myRef.addValueEventListener(eventListener);
+
+    return  myRef;
     }
 
     /**
@@ -94,12 +96,13 @@ public class FireBaseQueries {
      * @param id e.g KS_01
      * @param eventListener
      */
-    public void readLikeById(int tableType,String id,ValueEventListener eventListener)
+    public DatabaseReference readLikeById(int tableType,String id,ValueEventListener eventListener)
     {
         String tableName = getTableRef(tableType)+"/"+id;
 
         DatabaseReference myRef = mDatabase.getReference(tableName);
         myRef.addValueEventListener(eventListener);
+    return myRef;
     }
 
 
@@ -230,10 +233,11 @@ public class FireBaseQueries {
      *
      * @param eventListener
      */
-    public void readAllTips(ValueEventListener eventListener)
+    public DatabaseReference readAllTips(ValueEventListener eventListener)
     {
         DatabaseReference myRef = mDatabase.getReference(TIPS_KEY);
         myRef.addValueEventListener(eventListener);
+    return myRef;
     }
 
 
