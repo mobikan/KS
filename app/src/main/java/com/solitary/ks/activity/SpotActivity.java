@@ -1,8 +1,10 @@
 package com.solitary.ks.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -38,9 +40,9 @@ public class SpotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
         setTitle("");
-        MaterialViewPager mViewPager = findViewById(R.id.materialViewPager);
+        ViewPager mViewPager = findViewById(R.id.materialViewPager);
 
-        final Toolbar toolbar = mViewPager.getToolbar();
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
@@ -50,11 +52,12 @@ public class SpotActivity extends AppCompatActivity {
         init();
         FrameLayout layout = findViewById(R.id.header_logo);
         layout.setVisibility(View.GONE);
-
+        TabLayout tabLayout = findViewById(R.id.htab_tabs);
+        tabLayout.setupWithViewPager(mViewPager);
        // Log.v("spotList", "spotList "+spotList.getSpots());
        // Log.v("spotList", "spotList Filter "+ getFilterList(spotList.getSpots(), "F"));
 
-        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
@@ -96,36 +99,34 @@ public class SpotActivity extends AppCompatActivity {
             }
         });
 
-        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
-            @Override
-            public HeaderDesign getHeaderDesign(int page) {
-                switch (page) {
-                    case 0:
-                        return HeaderDesign.fromColorResAndDrawable(
-                                R.color.green,
-                                getResources().getDrawable(R.drawable.aromatherapy_massage));
-                    case 1:
-                        return HeaderDesign.fromColorResAndDrawable(
-                                R.color.blue,
-                                getResources().getDrawable(R.drawable.deep_tissue_massage));
-                    case 2:
-                        return HeaderDesign.fromColorResAndDrawable(
-                                R.color.cyan,
-                                getResources().getDrawable(R.drawable.foot_massage));
-                    case 3:
-                        return HeaderDesign.fromColorResAndDrawable(
-                                R.color.red,
-                                getResources().getDrawable(R.drawable.sports_massage));
-                }
+//        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
+//            @Override
+//            public HeaderDesign getHeaderDesign(int page) {
+//                switch (page) {
+//                    case 0:
+//                        return HeaderDesign.fromColorResAndDrawable(
+//                                R.color.green,
+//                                getResources().getDrawable(R.drawable.aromatherapy_massage));
+//                    case 1:
+//                        return HeaderDesign.fromColorResAndDrawable(
+//                                R.color.blue,
+//                                getResources().getDrawable(R.drawable.deep_tissue_massage));
+//                    case 2:
+//                        return HeaderDesign.fromColorResAndDrawable(
+//                                R.color.cyan,
+//                                getResources().getDrawable(R.drawable.foot_massage));
+//                    case 3:
+//                        return HeaderDesign.fromColorResAndDrawable(
+//                                R.color.red,
+//                                getResources().getDrawable(R.drawable.sports_massage));
+//                }
+//
+//                //execute others actions if needed (ex : modify your header logo)
+//
+//                return null;
+//            }
+//        });
 
-                //execute others actions if needed (ex : modify your header logo)
-
-                return null;
-            }
-        });
-
-        mViewPager.getViewPager().setOffscreenPageLimit(Objects.requireNonNull(mViewPager.getViewPager().getAdapter()).getCount());
-        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
     }
 
