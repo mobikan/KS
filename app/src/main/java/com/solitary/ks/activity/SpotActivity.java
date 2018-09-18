@@ -51,8 +51,8 @@ public class SpotActivity extends AppCompatActivity {
         FrameLayout layout = findViewById(R.id.header_logo);
         layout.setVisibility(View.GONE);
 
-        Log.v("spotList", "spotList "+spotList.getSpots());
-        Log.v("spotList", "spotList Filter "+ getFilterList(spotList.getSpots(), "F"));
+       // Log.v("spotList", "spotList "+spotList.getSpots());
+       // Log.v("spotList", "spotList Filter "+ getFilterList(spotList.getSpots(), "F"));
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 

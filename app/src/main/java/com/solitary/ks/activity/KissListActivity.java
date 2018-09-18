@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.solitary.ks.R;
 import com.solitary.ks.adapter.KissListAdapter;
 import com.solitary.ks.component.ItemOffsetDecoration;
@@ -22,6 +23,7 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.KissDataBaseHelper;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Kiss;
+import com.solitary.ks.model.Position;
 import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
     private KissListAdapter positionListAdapter;
     private DataBaseHelper dataBaseHelper;
     private KissDataBaseHelper kissDataBaseHelper;
-
+    private  FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,8 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
     }
 
     private void init()
@@ -146,6 +149,22 @@ public class KissListActivity extends AppCompatActivity  implements PositionClic
                 imageView,
                 ViewCompat.getTransitionName(imageView));
 
-        startActivity(intent, options.toBundle());
+        if(position != null) {
+            startActivity(intent, options.toBundle());
+        }
+        else
+        {
+            sendClickEvent(position);
+        }
+    }
+
+
+    private void sendClickEvent(Kiss position)
+    {
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable(FirebaseAnalytics.Param.ITEM_NAME, position);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "kiss_item_click");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 }

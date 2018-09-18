@@ -218,7 +218,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 position.setId(like.getId());
                 position.setRating((int) like.getRating());
 
-
+                positionDataBaseHelper.setRating(position);
 
             }
         }

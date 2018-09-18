@@ -10,12 +10,14 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.R;
 import com.solitary.ks.adapter.PositionListAdapter;
@@ -40,14 +42,15 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     protected PositionListAdapter positionListAdapter;
     protected DataBaseHelper dataBaseHelper;
     private WeakReference<ScaleAnimation> scaleAnimation;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
         binding =  DataBindingUtil.setContentView(this, R.layout.ks_list_screen);
         setSupportActionBar(Objects.requireNonNull(binding).toolbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -114,6 +117,7 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
 
     @Override
     public void onItemClick(Position position, ImageView imageView) {
+
         Intent intent = new Intent(this,PositionDetailActivity.class  );
         intent.putExtra(EXTRA_IMAGE_TRANSITION_NAME, ViewCompat.getTransitionName(imageView));
         intent.putExtra("position_data", position);
@@ -123,7 +127,23 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
                 imageView,
                 ViewCompat.getTransitionName(imageView));
 
-        startActivity(intent, options.toBundle());
+        if(position != null) {
+            startActivity(intent, options.toBundle());
+        }
+        else
+        {
+            Log.v("OnClick", "Position "+position);
+            sendClickEvent(position);
+        }
+    }
+
+    private void sendClickEvent(Position position)
+    {
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable(FirebaseAnalytics.Param.ITEM_NAME, position);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "position_item_click");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     @Override
