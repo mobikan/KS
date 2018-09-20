@@ -1,7 +1,6 @@
 package com.solitary.ks.activity;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -10,19 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.solitary.ks.R;
 import com.solitary.ks.adapter.PageAdapter;
-import com.solitary.ks.databinding.MassageListScreenBinding;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.MassageDataBaseHelper;
-import com.solitary.ks.firebase.FireBaseQueries;
 import com.solitary.ks.listener.PositionClickListener;
 import com.solitary.ks.model.Kiss;
 import com.solitary.ks.model.Massage;
-import com.solitary.ks.model.Position;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
@@ -30,7 +25,7 @@ import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 public class MassageListActivity extends AppCompatActivity  implements PositionClickListener<Kiss> {
 
 
-    private MassageListScreenBinding binding;
+   // private MassageListScreenBinding binding;
     public static final String EXTRA_IMAGE_TRANSITION_NAME = "Image Transition";
     private PageAdapter pageAdapter;
 
@@ -38,7 +33,7 @@ public class MassageListActivity extends AppCompatActivity  implements PositionC
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding =  DataBindingUtil.setContentView(this, R.layout.massage_list_screen);
+        //binding =  DataBindingUtil.setContentView(this, R.layout.massage_list_screen);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,8 +56,8 @@ public class MassageListActivity extends AppCompatActivity  implements PositionC
         pageAdapter = new PageAdapter(getSupportFragmentManager());
 
         readDataFromDb();
-        binding.materialViewPager.getViewPager().setAdapter(pageAdapter);
-        binding.materialViewPager.getPagerTitleStrip().setViewPager(binding.materialViewPager.getViewPager());
+       // binding.materialViewPager.getViewPager().setAdapter(pageAdapter);
+       // binding.materialViewPager.getPagerTitleStrip().setViewPager(binding.materialViewPager.getViewPager());
     }
 
 
