@@ -357,7 +357,7 @@ public class PositionDetailActivity extends AppCompatActivity implements View.On
                 }
                 catch (ActivityNotFoundException e)
                 {
-                    Toast.makeText(this, "This feature is not Supported in your Phone.", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "This feature is not Supported in your Phone.", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
