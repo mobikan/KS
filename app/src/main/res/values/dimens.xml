@@ -10,6 +10,8 @@
     <dimen name="home_icon_width">100dp</dimen>
     <dimen name="share_image_height">700dp</dimen>
     <dimen name="share_image_width">350dp</dimen>
+    <dimen name="cardMarginVertical">10dp</dimen>
+    <dimen name="cardMarginHorizontal">15dp</dimen>
 
 </resources>
 

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/bullet_point"
 
-        android:textColor="@color/green_teal"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="35sp"
         android:text="@string/bullet_point"
         android:layout_marginLeft="5dp"
