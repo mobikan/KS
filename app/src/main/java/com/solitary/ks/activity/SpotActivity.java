@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.solitary.ks.R;
@@ -21,11 +22,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class SpotActivity extends AppCompatActivity {
+public class SpotActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
 
-
+    private int[] imageId = {R.drawable.erogenous_spot_female,R.drawable.erogenous_spot_male};
     private SpotList spotList;
+    private ImageView headerImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +35,13 @@ public class SpotActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spot);
         setTitle("");
         ViewPager mViewPager = findViewById(R.id.materialViewPager);
-
+        mViewPager.addOnPageChangeListener(this);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             setTitle("Erogenous Spots");
         }
-
+        headerImageView = findViewById(R.id.htab_header);
         /* Interstitial Ads */
 
         init();
@@ -92,34 +94,6 @@ public class SpotActivity extends AppCompatActivity {
             }
         });
 
-//        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
-//            @Override
-//            public HeaderDesign getHeaderDesign(int page) {
-//                switch (page) {
-//                    case 0:
-//                        return HeaderDesign.fromColorResAndDrawable(
-//                                R.color.green,
-//                                getResources().getDrawable(R.drawable.aromatherapy_massage));
-//                    case 1:
-//                        return HeaderDesign.fromColorResAndDrawable(
-//                                R.color.blue,
-//                                getResources().getDrawable(R.drawable.deep_tissue_massage));
-//                    case 2:
-//                        return HeaderDesign.fromColorResAndDrawable(
-//                                R.color.cyan,
-//                                getResources().getDrawable(R.drawable.foot_massage));
-//                    case 3:
-//                        return HeaderDesign.fromColorResAndDrawable(
-//                                R.color.red,
-//                                getResources().getDrawable(R.drawable.sports_massage));
-//                }
-//
-//                //execute others actions if needed (ex : modify your header logo)
-//
-//                return null;
-//            }
-//        });
-
 
     }
 
@@ -156,5 +130,20 @@ public class SpotActivity extends AppCompatActivity {
     public void onBackPressed() {
         StartAppAd.onBackPressed(this);
         super.onBackPressed();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        headerImageView.setImageResource(imageId[position]);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

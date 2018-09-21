@@ -7,11 +7,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.solitary.ks.R;
 import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.MassageDataBaseHelper;
@@ -30,12 +27,12 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
     private int count = 0;
     private List<Massage> massageArrayList;
     private Massage massage;
-    private InterstitialAd mInterstitialAd;
+
     private ImageView headerImageView;
 
-    private int[] imageId = {R.drawable.massage,R.drawable.swedish_massage,R.drawable.deep_tissue_massage,R.drawable.trigger_point_massage,R.drawable.sports_massage
+    private int[] imageId = {R.drawable.aromatherapy_massage,R.drawable.swedish_massage,R.drawable.deep_tissue_massage,R.drawable.trigger_point_massage,R.drawable.sports_massage
     ,R.drawable.aromatherapy_massage,R.drawable.hot_stone_massage,R.drawable.foot_refleology,R.drawable.shiatsu_massage,R.drawable.thai_massage,
-    R.drawable.four_hand_massage,R.drawable.body_to_body,R.drawable.lingam_massage,R.drawable.yoni_massage,R.drawable.tantric_massage };
+    R.drawable.four_hand_massage,R.drawable.body_to_body,R.drawable.lingam_massage,R.drawable.yoni_massage,R.drawable.tantric_massage,R.drawable.sopy_massage };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
