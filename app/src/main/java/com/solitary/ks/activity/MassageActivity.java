@@ -1,7 +1,5 @@
 package com.solitary.ks.activity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,13 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.webkit.URLUtil;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.github.florent37.materialviewpager.MaterialViewPager;
-import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.solitary.ks.R;
@@ -24,11 +17,9 @@ import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.MassageDataBaseHelper;
 import com.solitary.ks.fragment.MassageFragment;
 import com.solitary.ks.model.Massage;
-import com.solitary.ks.utils.Utils;
 import com.startapp.android.publish.adsCommon.StartAppAd;
 
 import java.util.List;
-import java.util.Objects;
 
 import static com.solitary.ks.db.DataBaseHelper.DB_NAME_MASSAGE;
 
@@ -42,6 +33,9 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
     private InterstitialAd mInterstitialAd;
     private ImageView headerImageView;
 
+    private int[] imageId = {R.drawable.massage,R.drawable.swedish_massage,R.drawable.deep_tissue_massage,R.drawable.trigger_point_massage,R.drawable.sports_massage
+    ,R.drawable.aromatherapy_massage,R.drawable.hot_stone_massage,R.drawable.foot_refleology,R.drawable.shiatsu_massage,R.drawable.thai_massage,
+    R.drawable.four_hand_massage,R.drawable.body_to_body,R.drawable.lingam_massage,R.drawable.yoni_massage,R.drawable.tantric_massage };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,7 +132,7 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
 
     @Override
     public void onPageSelected(int position) {
-
+        headerImageView.setImageResource(imageId[position]);
     }
 
     @Override
