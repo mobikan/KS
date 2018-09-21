@@ -42,7 +42,7 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
         setContentView(R.layout.massage_list_screen);
         count = readDataFromDb();
         massage =  massageArrayList.get(0);
-        setTitle("");
+
          ViewPager mViewPager = findViewById(R.id.materialViewPager);
         mViewPager.addOnPageChangeListener(this);
         /* Interstitial Ads */
@@ -103,21 +103,6 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
 
 
 
-    private void initAds()
-    {
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_id));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-    }
-
-    private void showAds()
-    {
-        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
-    }
 
     @Override
     public void onBackPressed() {
@@ -133,6 +118,9 @@ public class MassageActivity extends AppCompatActivity implements ViewPager.OnPa
     @Override
     public void onPageSelected(int position) {
         headerImageView.setImageResource(imageId[position]);
+        if(massageArrayList != null && massageArrayList.size()>position) {
+            setTitle(massageArrayList.get(position).getTitle());
+        }
     }
 
     @Override

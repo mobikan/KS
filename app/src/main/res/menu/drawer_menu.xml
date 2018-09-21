@@ -13,6 +13,10 @@
         android:icon="@drawable/ic_cogwheel"
         android:title="Privacy Policy"/>
 
+    <item android:id="@+id/google_privacy"
+        android:icon="@drawable/privacy_icon"
+        android:title="Google Privacy Policy"/>
+
     <item android:id="@+id/tried_position"
         android:icon="@drawable/ic_checked"
         android:title="Tried Positions"/>

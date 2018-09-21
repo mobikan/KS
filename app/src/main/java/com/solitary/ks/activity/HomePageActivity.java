@@ -191,6 +191,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                     case R.id.tried_position:
                         startActivity(new Intent(HomePageActivity.this,TriedPositionsList.class));
                         break;
+                    case R.id.google_privacy:
+                        startActivity(new Intent(HomePageActivity.this,GooglePrivacyPolicy.class));
+                        break;
                     default:
                         return true;
                 }
