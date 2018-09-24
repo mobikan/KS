@@ -25,21 +25,23 @@ public class ExitDialogFragment extends AppRatingDialogFragment {
     @Override
     public void onClick(View v) {
 
-        switch (v.getId())
-        {
-            case R.id.dialog_rating_button_positive:
-
-                dismiss();
-                Utils.openAppOnGooglePlay(getActivity().getApplicationContext());
-                getActivity().finish();
-
-                break;
-            case R.id.dialog_rating_button_negative:
-                dismiss();
-                getActivity().finish();
-                break;
-
-        }
+//        switch (v.getId())
+//        {
+//            case R.id.dialog_rating_button_positive:
+//
+//                dismiss();
+//                Utils.openAppOnGooglePlay(getActivity().getApplicationContext());
+//                getActivity().finish();
+//
+//                break;
+//            case R.id.dialog_rating_button_negative:
+//                dismiss();
+//                getActivity().finish();
+//                break;
+//
+//        }
+        super.onClick(v);
+        getActivity().finish();
 
     }
 }

@@ -26,7 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.solitary.ks.R;
-import com.solitary.ks.db.DataBaseHelper;
 import com.solitary.ks.db.KSDatabaseHelper;
 import com.solitary.ks.db.PositionDataBaseHelper;
 import com.solitary.ks.firebase.FireBaseQueries;

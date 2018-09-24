@@ -22,6 +22,7 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.webview_activity);
         Toolbar toolbar = findViewById(R.id.toolbar );
         setSupportActionBar(toolbar);
+        setTitle("Love Tips");
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.setPadding(0, 0, 0, 0);

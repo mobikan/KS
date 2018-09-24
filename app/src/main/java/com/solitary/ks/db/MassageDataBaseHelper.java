@@ -46,10 +46,7 @@ public class MassageDataBaseHelper {
                 massageList.add(massage);
             } while (cursor.moveToNext());
         }
-        Gson gson = new Gson();
-        MassageList massageList1 = new MassageList();
-        massageList1.setMassageList((ArrayList<Massage>) massageList);
-        gson.toJson(massageList1);
+
         // close db connection
         mDbHelper.close();
         cursor.close();

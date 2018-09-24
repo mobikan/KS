@@ -29,7 +29,7 @@ import com.solitary.ks.R;
 import com.solitary.ks.model.QnA;
 
 
-public class MassageFragment extends Fragment implements View.OnClickListener{
+public class MassageFragment extends Fragment {
 
     private Massage massage;
     public static final String BUNDLE_KEY ="massage_key";
@@ -85,7 +85,7 @@ public class MassageFragment extends Fragment implements View.OnClickListener{
     }
 
 
-    @Override
+    //@Override
     public void onClick(View view) {
         if(massage.getVideoLink() != null) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(massage.getVideoLink())));

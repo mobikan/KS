@@ -11,7 +11,7 @@
         android:minHeight="@dimen/abc_action_bar_default_height_material"
         android:background="@drawable/toolbar_gradient"
         app:titleTextColor="@color/white"
-        app:title="Google Play Policy"
+
         />
     <WebView
         android:id="@+id/webview"

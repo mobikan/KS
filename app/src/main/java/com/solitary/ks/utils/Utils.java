@@ -129,23 +129,7 @@ public class Utils {
     }
 
 
-    public static Bitmap createBitmapFromLayout(RelativeLayout v) {
 
-
-//        v.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-//                RelativeLayout.LayoutParams.WRAP_CONTENT));
-        v.measure(400,
-                900);
-        v.layout(0, 0, 400, 900);
-        Bitmap bitmap = Bitmap.createBitmap(400,
-                900,
-                Bitmap.Config.ARGB_8888);
-
-        Canvas c = new Canvas(bitmap);
-        v.layout(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
-        v.draw(c);
-        return bitmap;
-    }
 
     public static void shareImage(Bitmap bitmap, Context context){
         // save bitmap to cache directory

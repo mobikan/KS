@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +65,7 @@ public class AppRatingDialogFragment extends DialogFragment implements View.OnCl
         {
             case R.id.dialog_rating_button_positive:
                 if(ratingBar.getRating()>=3.0f) {
+                    Log.v("Rating ", "Rating "+ratingBar.getRating());
                     dismiss();
                     Utils.openAppOnGooglePlay(getActivity().getApplicationContext());
                     SharedPreferences pref = getActivity().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode

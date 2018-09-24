@@ -80,7 +80,7 @@ public class RatingDialogFragment extends DialogFragment implements View.OnClick
             rating = 1;
         }
         FireBaseQueries.getInstance().updateRating(FireBaseQueries.LIKE_POSITION, positionId, rating);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+
         PositionDataBaseHelper positionDataBaseHelper = new PositionDataBaseHelper(KSDatabaseHelper.getInstance(getActivity()));
         Position position = new Position();
         position.setId(positionId);
