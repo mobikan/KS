@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    tools:context="com.solitary.ks.activity.PositionDetailActivity"
+    tools:context="com.solitary.ksapp.activity.PositionDetailActivity"
 
     android:layout_margin="10dp"
     android:id="@+id/itemView"

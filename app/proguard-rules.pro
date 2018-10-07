@@ -21,7 +21,7 @@
 -keep public class * extends java.lang.Exception
 
 
--keep public class com.solitary.ks.model.** {
+-keep public class com.solitary.ksapp.model.** {
  *;
   }
 

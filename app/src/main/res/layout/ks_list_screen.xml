@@ -5,7 +5,7 @@
 
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.solitary.ks.activity.PositionListActivity"
+        tools:context="com.solitary.ksapp.activity.PositionListActivity"
         android:background="@color/color_bg">
 
         <android.support.v7.widget.Toolbar

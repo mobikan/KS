@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.solitary.ks" android:installLocation="preferExternal"
+    package="com.solitary.ksapp" android:installLocation="preferExternal"
     >
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -19,22 +19,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:largeHeap="true"
-         android:name=".component.KSApplication"
+         android:name="com.solitary.ksapp.component.KSApplication"
 
         >
         <activity
-            android:name=".activity.PositionDetailActivity"
+            android:name="com.solitary.ksapp.activity.PositionDetailActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.PositionListActivity" />
+                android:value="com.solitary.ksapp.activity.PositionListActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.HomePageActivity"
+            android:name="com.solitary.ksapp.activity.HomePageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
@@ -42,25 +42,25 @@
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.PositionListActivity"
+            android:name="com.solitary.ksapp.activity.PositionListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.GalleryViewActivity"
+            android:name="com.solitary.ksapp.activity.GalleryViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.SplashActivity"
+            android:name="com.solitary.ksapp.activity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
@@ -71,123 +71,132 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.KissListActivity"
+            android:name="com.solitary.ksapp.activity.KissListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
 
 
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.KissDetailActivity"
+            android:name="com.solitary.ksapp.activity.KissDetailActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.KissListActivity" />
+                android:value="com.solitary.ksapp.activity.KissListActivity" />
 
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.MassageActivity"
+            android:name="com.solitary.ksapp.activity.MassageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
 
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.SpotActivity"
+            android:name="com.solitary.ksapp.activity.SpotActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
         </activity>
 
     <activity
-        android:name="com.solitary.ks.activity.FavouritePositionListActivity"
+        android:name="com.solitary.ksapp.activity.FavouritePositionListActivity"
         android:label="@string/app_name"
         android:theme="@style/AppTheme.NoActionBar"
         android:screenOrientation="portrait">
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.solitary.ks.activity.HomePageActivity" />
+            android:value="com.solitary.ksapp.activity.HomePageActivity" />
     </activity>
         <activity
-            android:name="com.solitary.ks.activity.TriedPositionsList"
+            android:name="com.solitary.ksapp.activity.TriedPositionsList"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.PrivacyPolicyActivity"
+            android:name="com.solitary.ksapp.activity.PrivacyPolicyActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.TermsAndConditionsActivity"
+            android:name="com.solitary.ksapp.activity.TermsAndConditionsActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.LoveTipsActivity"
+            android:name="com.solitary.ksapp.activity.LoveTipsActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
         </activity>
 
         <activity
-            android:name="com.solitary.ks.activity.ShareActivity"
+            android:name="com.solitary.ksapp.activity.ShareActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.WebViewActivity"
+            android:name="com.solitary.ksapp.activity.WebViewActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.LoveTipsActivity" />
+                android:value="com.solitary.ksapp.activity.LoveTipsActivity" />
         </activity>
         <activity
-            android:name="com.solitary.ks.activity.GooglePrivacyPolicy"
+            android:name="com.solitary.ksapp.activity.GooglePrivacyPolicy"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.solitary.ks.activity.HomePageActivity" />
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
         </activity>
-        <service android:name=".firebase.MyFirebaseMessagingService" android:stopWithTask="false">
+
+        <activity
+            android:name="com.solitary.ksapp.activity.PinLockActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.solitary.ksapp.activity.HomePageActivity" />
+        </activity>
+        <service android:name="com.solitary.ksapp.firebase.MyFirebaseMessagingService" android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.solitary.ks.fileprovider"
+            android:authorities="com.solitary.ksapp.fileprovider"
             android:grantUriPermissions="true"
             android:exported="false">
             <meta-data
