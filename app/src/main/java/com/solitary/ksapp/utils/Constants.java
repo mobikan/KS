@@ -24,6 +24,13 @@ public interface  Constants {
         String POSITION_RATING = "rating";
     }
 
+    interface PositionDetail{
+
+        String POSITION_LIST_INTENT_KEY ="PositionList";
+        String POSITION_LIST_ITEM_INDEX ="Index";
+
+    }
+
     interface ShareConstants{
         String INTENT_SHARE_IMAGE_ID="imageId";
         String INTENT_SHARE_DETAIL_ID ="Detail";

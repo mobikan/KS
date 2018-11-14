@@ -4,6 +4,9 @@ import android.widget.ImageView;
 
 public interface PositionClickListener<T> {
 
-    public void onItemClick(T position, ImageView imageView);
+     void onItemClick(T position, ImageView imageView);
+
+
+
 
 }

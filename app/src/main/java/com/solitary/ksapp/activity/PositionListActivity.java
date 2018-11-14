@@ -33,6 +33,9 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static com.solitary.ksapp.utils.Constants.PositionDetail.POSITION_LIST_INTENT_KEY;
+import static com.solitary.ksapp.utils.Constants.PositionDetail.POSITION_LIST_ITEM_INDEX;
+
 
 public class PositionListActivity extends AppCompatActivity implements PositionClickListener<Position>,View.OnClickListener {
 
@@ -118,9 +121,10 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
     @Override
     public void onItemClick(Position position, ImageView imageView) {
 
-        Intent intent = new Intent(this,PositionDetailActivity.class  );
+        Intent intent = new Intent(this,PositionDetailPagerActivity.class  );
         intent.putExtra(EXTRA_IMAGE_TRANSITION_NAME, ViewCompat.getTransitionName(imageView));
-        intent.putExtra("position_data", position);
+        intent.putExtra(POSITION_LIST_ITEM_INDEX, position.getIndex());
+        intent.putParcelableArrayListExtra(POSITION_LIST_INTENT_KEY, positionListAdapter.getAllPositions());
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this,
@@ -136,6 +140,8 @@ public class PositionListActivity extends AppCompatActivity implements PositionC
             sendClickEvent(position);
         }
     }
+
+
 
     private void sendClickEvent(Position position)
     {

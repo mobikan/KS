@@ -73,9 +73,9 @@ public class PositionDataBaseHelper {
         return positions;
     }
 
-    public List<Position> getAllFavouritePositions() {
+    public ArrayList<Position> getAllFavouritePositions() {
 
-        List<Position> positions = new ArrayList<>();
+        ArrayList<Position> positions = new ArrayList<>();
 
         Cursor cursor = mDbHelper.getWritableDatabase().query(Columns.Position.TABLE_NAME, columns, Columns.Position.COLUMN_FAVOURITE + " = ?", new String[]{"true"}, null, null, null);
 
@@ -111,9 +111,9 @@ public class PositionDataBaseHelper {
         return positions;
     }
 
-    public List<Position> getAllTriedPositions() {
+    public ArrayList<Position> getAllTriedPositions() {
 
-        List<Position> positions = new ArrayList<>();
+        ArrayList<Position> positions = new ArrayList<>();
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
         Cursor cursor = db.query(Columns.Position.TABLE_NAME, columns, Columns.Position.COLUMN_TRIED + " = ?", new String[]{"true"}, null, null, null);

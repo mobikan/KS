@@ -24,7 +24,7 @@ import com.solitary.ksapp.listener.PositionClickListener;
 import com.solitary.ksapp.model.Position;
 
 public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapter.ViewHolder> {
-    private List<Position> mDataset;
+    private ArrayList<Position> mDataset;
 
     private PositionClickListener<Position> onClickListener;
 
@@ -38,12 +38,12 @@ public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapte
         this.onClickListener = onClickListener;
     }
 
-    public void setPositions(List<Position> positions) {
+    public void setPositions(ArrayList<Position> positions) {
         this.mDataset = positions;
         notifyDataSetChanged();
     }
 
-    public List<Position> getAllPositions()
+    public ArrayList<Position> getAllPositions()
     {
         return mDataset;
     }
@@ -118,7 +118,9 @@ public class PositionListAdapter extends RecyclerView.Adapter<PositionListAdapte
                 v.setTag(position);
 
                 if(onClickListener != null) {
+                    position.setIndex(index);
                     onClickListener.onItemClick(position, holder.positionIcon);
+
                 }
             }
         });

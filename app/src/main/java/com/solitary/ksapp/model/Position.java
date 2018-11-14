@@ -18,6 +18,7 @@ public class Position implements Parcelable {
 
     public String Title;
 
+    public int index;
 
     public int rating;
 
@@ -156,6 +157,14 @@ public class Position implements Parcelable {
     public Position() {
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -170,6 +179,7 @@ public class Position implements Parcelable {
         dest.writeString(this.tips_her);
         dest.writeString(this.Benefits);
         dest.writeString(this.Title);
+        dest.writeInt(this.index);
         dest.writeInt(this.rating);
         dest.writeInt(this.userRating);
         dest.writeByte(this.isFavourite ? (byte) 1 : (byte) 0);
@@ -186,6 +196,7 @@ public class Position implements Parcelable {
         this.tips_her = in.readString();
         this.Benefits = in.readString();
         this.Title = in.readString();
+        this.index = in.readInt();
         this.rating = in.readInt();
         this.userRating = in.readInt();
         this.isFavourite = in.readByte() != 0;
