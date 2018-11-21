@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //init();
-       // StartAppSDK.init(this, getString(R.string.start_app_id), true);
+       StartAppSDK.init(this, getString(R.string.start_app_id), true);
 
         setContentView(R.layout.splash_activity);
         SharedPreferences pref = getApplicationContext().getSharedPreferences(PREF_NAME, 0); // 0 - for private mode
