@@ -44,7 +44,8 @@
             android:background="@color/toolbar_color"
             app:titleTextColor="@color/white"
             app:layout_collapseMode="pin"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:visibility="invisible"/>
         <com.solitary.ksapp.component.RadialButtonLayout
             android:id="@+id/radialMenu"
             android:layout_width="400dp"

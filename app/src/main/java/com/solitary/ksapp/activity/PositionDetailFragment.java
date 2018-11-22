@@ -13,6 +13,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -95,15 +96,15 @@ public class PositionDetailFragment extends android.support.v4.app.Fragment impl
            // binding.toolbarID.setTitle(position.getTitle());
         }
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarID);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarID);
+//        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /* Interstitial Ads */
 
         TextView likeCount = binding.getRoot().findViewById(R.id.likeCount);
         likeCountRef = new WeakReference<>(likeCount);
 
-        getActivity().setTitle(position.getTitle());
+
         // initAds();
         try {
             init();
@@ -173,6 +174,7 @@ public class PositionDetailFragment extends android.support.v4.app.Fragment impl
 
         imageView.setImageBitmap(
                 Utils.decodeSampledBitmapFromResource(getResources(), imageId, 300, 300));
+        imageView.setVisibility(View.INVISIBLE);
 
         setTabLayout();
 
@@ -346,41 +348,21 @@ public class PositionDetailFragment extends android.support.v4.app.Fragment impl
     public void onCancelled(@NonNull DatabaseError databaseError) {
 
     }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setHasOptionsMenu(true);
+//    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Add your menu entries here
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        // TODO Add your menu entries here
+//
+//        inflater.inflate(R.menu.share_menu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 
-        inflater.inflate(R.menu.share_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.share) {
-
-            startActivity(Utils.openShareImageActivity(contextWeakReference.get(), position.getTitle(), position.getDescription(), imageId));
-
-        }
-        else if(id == android.R.id.home)
-        {
-            getActivity().finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onClick(View view) {
